@@ -15,7 +15,10 @@ should be added. He also accepts payment from the buyer and thus allows him to b
 Seller also has to register and create an account. He can also add crop, and track the live bids on his crop.
 We developed this project for Smart India Hackathon, 2020, in ‘agriculture’ domain.
 
-Domain: Web Development;
-Programming language: PHP;
-Scripting language: HTML, CSS, JavaScript;
+Domain: Web Development
+
+Programming language: PHP
+
+Scripting language: HTML, CSS, JavaScript
+
 Database: MySQL.
