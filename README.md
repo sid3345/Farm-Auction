@@ -3,7 +3,8 @@ A web application to let farmer auction their crop online.
 
 (Filenames are vehicles as it was developed previously for vehicles).
 
-## Stakeholders: Buyer, Administrator and Seller (farmer) .
+## Stakeholders: 
+Buyer, Administrator and Seller (farmer) .
 
 ## User: 
 User needs to register and create an account to bid for various crops listed on the website. Each crop has an allotted
