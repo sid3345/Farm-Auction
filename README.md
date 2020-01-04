@@ -1,5 +1,6 @@
 # Farm-Auction
 A web application to let farmer auction their crop online.
+(Filenames are vehicles as it was developed previously for vehicles).
 
 ## Stakeholders: Buyer, Administrator and Seller (farmer) .
 
