@@ -28,6 +28,8 @@ Database: MySQL.
 
 Still in process! Bugs present.
 
+
+
 Currently developing farmer dashboard, so that farmer can add produce, rather than administrator, and let the administrator rectify, accept or reject the produce added. Also, thinking of some ML integration.
 
 Any ideas / suggestions welcome!!
