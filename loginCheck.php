@@ -346,7 +346,7 @@
 			if($_SESSION["role"]==1){
 				header('location:admin/report.php');
 			}else{
-				header('location:farmer_index.php');
+				header('location:hi.php');
 			}
 			
 			}

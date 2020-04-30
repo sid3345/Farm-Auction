@@ -98,7 +98,7 @@
                                     <li>
                                     <?php
 										if((isset($_SESSION["isLogedIn"]) && $_SESSION["isLogedIn"]==true)){ ?>
-											<a href="<?=$_SESSION["directory"]?>logout.php">Logout (<?php if(isset($_SESSION["username"])){echo($_SESSION["username"]);} ?>)</a>
+											<a href="<?=$_SESSION["directory"]?>logout.php" onclick="return confirm_alert(this);">Logout (<?php if(isset($_SESSION["username"])){echo($_SESSION["username"]);} ?>)</a>
 									<?php	}else{ ?>
 									 
                                     <a href="<?=$_SESSION["directory"]?>login.php">Login / Register</a> </li>
@@ -319,3 +319,10 @@ function removenoti(id){
 		 
 		 
 	</script>
+
+
+<script type="text/javascript">
+function confirm_alert(node) {
+    return confirm("Are you sure want to Logout?");
+}
+</script>

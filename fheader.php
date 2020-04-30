@@ -91,17 +91,17 @@
                                     <li>
                                     
                                       <?php   if((isset($_SESSION["isLogedIn"]) && $_SESSION["isLogedIn"]==true) &&(isset($_SESSION["role"]) && $_SESSION["role"]=="0")){ ?>  
-                                       <a href="<?=$_SESSION["directory"]?>customer/fprofile.php">Account</a>
+                                       <a href="<?=$_SESSION["directory"]?>farmer/fprofile.php">Account</a>
                                      <?php  } ?>
                                     </li>
                                     
                                     <li>
                                     <?php
 										if((isset($_SESSION["isLogedIn"]) && $_SESSION["isLogedIn"]==true)){ ?>
-											<a href="<?=$_SESSION["directory"]?>logout.php">Logout (<?php if(isset($_SESSION["username"])){echo($_SESSION["username"]);} ?>)</a>
+											<a href="<?=$_SESSION["directory"]?>logout.php" onclick="return confirm_alert(this);">Logout (<?php if(isset($_SESSION["username"])){echo($_SESSION["username"]);} ?>)</a>
 									<?php	}else{ ?>
 									 
-                                    <a href="<?=$_SESSION["directory"]?>login.php">Login / Register</a> </li>
+                                    <a href="<?=$_SESSION["directory"]?>login.php">Login</a> | <a href="<?=$_SESSION["directory"]?>login.php">Register</a></li>
                                     <?php } ?>
                                 </ul>
                             </div>
@@ -177,7 +177,7 @@
                                     </a>
                                      <?php  }else{ ?> 
 	 								  
-                                       <a href="<?=$_SESSION["directory"]?>index.php">Home</a>
+                                       <a href="<?=$_SESSION["directory"]?>hi.php">Home</a>
                                         
                                      <?php   }  ?>
  
@@ -197,56 +197,45 @@
                                        <li><a href="<?=$_SESSION["directory"]?>admin/Editcar.php">Vegetable</a></li>
                                         <li><a href="<?=$_SESSION["directory"]?>admin/EditBike.php">Fruit</a></li>
                                        <?php }else{  ?>
-                                        <li><a href="<?=$_SESSION["directory"]?>customer/car.php">Vegetable</a></li>
-                                        <li><a href="<?=$_SESSION["directory"]?>customer/bike.php">Fruit</a></li>
+                                        <li><a href="<?=$_SESSION["directory"]?>farmer/editveggie.php">Vegetable</a></li>
+                                        <li><a href="<?=$_SESSION["directory"]?>farmer/editfruit.php">Fruit</a></li>
                                         <?php } ?>
                                     </ul>
                                 </li>
                                 <!-- End Pages -->
 
                             
-                                <li class="btn-product">
-                                    <a href="<?=$_SESSION["directory"]?>customer/topBidder.php"  >
-                                        Top Bidder
-                                    </a>
-                                     
-                                </li> 
+
                                 <?php
 									if((isset($_SESSION["isLogedIn"]) && $_SESSION["isLogedIn"]==true) &&(isset($_SESSION["role"]) && $_SESSION["role"]!="1")){ ?>
                                  <li class="btn-product">
-                                    <a href="<?=$_SESSION["directory"]?>customer/myBid.php"  >
-                                       My Bidding List
+                                    <a href="<?=$_SESSION["directory"]?>farmer/croplist.php"  >
+                                       Crop List
                                     </a>
                                      
                                 </li>
+
                                 <li class="btn-product">
-                                    <a href="<?=$_SESSION["directory"]?>customer/makePayment.php"  >
-                                      Make Payment
+                                    <a href="<?=$_SESSION["directory"]?>farmer/Addcrop.php"  >
+                                       Add Crop
                                     </a>
                                      
                                 </li>
+
+                                <li class="btn-product">
+                                    <a href="<?=$_SESSION["directory"]?>farmer/ftopBidder.php"  >
+                                        Top Bidder
+                                    </a>
+                                     
+                                </li>
+
                                <?php } ?>
 
                                  
                                 <!-- End Promotion -->
 								
                           
-						   <?php
-										if((isset($_SESSION["isLogedIn"]) && $_SESSION["isLogedIn"]==true) &&(isset($_SESSION["role"]) && $_SESSION["role"]=="1")){ ?>
-											 <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" data-delay="1000">
-                                        More
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="<?=$_SESSION["directory"]?>admin/AddVehicle.php">Add crop</a></li>
-                                        <li><a href="<?=$_SESSION["directory"]?>admin/vehicleList.php">Crop List</a></li>
-                                        <li><a href="<?=$_SESSION["directory"]?>admin/vehicleDelivery.php">crop delivery list</a></li>
-                                        <li><a href="<?=$_SESSION["directory"]?>admin/userlist.php">User list</a></li>
-                                        <li><a href="<?=$_SESSION["directory"]?>admin/farmerlist.php">Farmerlist</a></li>
-                                        <li><a href="<?=$_SESSION["directory"]?>admin/deposit.php">Deposit Checking</a></li>
-                                    </ul>
-                                </li>
-									<?php	}  ?>
+
 									 
                           
 
@@ -311,3 +300,10 @@ function removenoti(id){
 		 
 		 
 	</script>
+
+
+<script type="text/javascript">
+function confirm_alert(node) {
+    return confirm("Are you sure want to Logout?");
+}
+</script>
