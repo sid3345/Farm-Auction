@@ -34,7 +34,7 @@ if($d_amount==""){
                         <div class="col-sm-12 text-center">
                             <h1 class="title"><span>Crop Detail</span></h1>
                             <div class="breadcrumb">
-                                <a href="http://localhost/auction/hi.php">Home</a>
+                                <a href="hi.php">Home</a>
                                 <span class="delimeter">/</span> 
                                 <span class="current">Crop Detail</span>
                             </div>

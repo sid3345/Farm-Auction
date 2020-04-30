@@ -43,9 +43,9 @@
                             <div class="widget">
                                 <h6 class="montserrat text-uppercase bottom-line">Quick Links</h6>
                                 <ul class="icons-list">
-                                    <li><a href="http://localhost/auction/index.php">Home</a></li>
+                                    <li><a href="index.php">Home</a></li>
                                      
-                                    <li><a href="http://localhost/auction/customer/topBidder.php">Top Bidders</a></li>
+                                    <li><a href="customer/topBidder.php">Top Bidders</a></li>
                                     <!--
                                     <li><a href="">Vehicles</a></li>
                                     <li><a href="#">About</a></li>
