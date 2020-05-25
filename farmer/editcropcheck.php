@@ -15,7 +15,7 @@ include("../dbCon.php");
 		 
 	?>
       <tr>
-        <td><?=$row["name"]?></td>
+        <td style="cursor:pointer; color:#00008B; text-decoration:none;" onclick="location.href='cropdetail.php?id=<?php echo $row['ID'] ?>'"><?=$row["name"]?></td>
         <td><?=$row["type"]?></td>
         <td><?=$row["price"]?></td>
         <td><?=$row["startDate"]?></td>
