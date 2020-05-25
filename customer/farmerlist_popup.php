@@ -1,4 +1,4 @@
-<?php include("../fheader.php");
+<?php include("../header.php");
 	if(isset($_SESSION["isLogedIn"]) && $_SESSION["isLogedIn"]==false){
 	?>
 <script>
