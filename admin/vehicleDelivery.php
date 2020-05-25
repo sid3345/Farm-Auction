@@ -17,7 +17,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Bider Email</th>
+        <th>Bidder Email</th>
         <th>Vehicle Name</th>
         <th>Confirm Date</th>
         <th>Image</th>

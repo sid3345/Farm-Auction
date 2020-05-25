@@ -16,8 +16,8 @@ include("../dbCon.php");
 		 
 	?>
       <tr>
-        <td><?=$row["name"]?></td>
-        <td><?=$row["email"]?></td>
+        <td style="cursor:pointer; color:#00008B; text-decoration:none;" onclick="location.href='../farmer/userlist_popup.php?userName=<?php echo $row['name'] ?>'"><?=$row["name"]?></td>
+        <td ><?=$row["email"]?></td>
         <td><?=$row["phone"]?></td>
         <td><?=$row["address"]?></td>
        

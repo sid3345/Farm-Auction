@@ -29,7 +29,7 @@
     </thead>
     <tbody style="text-align-last: center;">
      <?php
-		$Sql="SELECT user.name as userName ,vehicle.name, vehicle.EndDate,vehicle.image, vehicle.price, bidder.price as bidprice, bidder.biddingTime as biddingTime FROM bidder INNER JOIN vehicle ON bidder.vehicleID=vehicle.ID INNER JOIN user ON bidder.userID=user.ID WHERE (bidder.vehicleID, bidder.price) IN (SELECT bidder.vehicleID, MAX(bidder.price) from bidder group by bidder.vehicleID) AND status=1 and active=0 ORDER BY `bidder`.`price` DESC";
+		$Sql="SELECT user.name as userName ,vehicle.ID as VID, vehicle.name, vehicle.EndDate,vehicle.image, vehicle.price, bidder.price as bidprice, bidder.biddingTime as biddingTime FROM bidder INNER JOIN vehicle ON bidder.vehicleID=vehicle.ID INNER JOIN user ON bidder.userID=user.ID WHERE (bidder.vehicleID, bidder.price) IN (SELECT bidder.vehicleID, MAX(bidder.price) from bidder group by bidder.vehicleID) AND status=1 and active=0 ORDER BY `bidder`.`price` DESC";
 		
 		$result1 = $con->query( $Sql );
 			if ( $result1->num_rows > 0 ) {
@@ -38,7 +38,7 @@
 		?>
       <tr>
         <td><?=$row["userName"]?></td>
-        <td><?=$row["name"]?></td>
+        <td style="cursor:pointer; color:#00008B; text-decoration:none;" onclick="location.href='carDetails.php?id=<?php echo $row['VID'] ?>'"><?=$row["name"]?></td>
         <td><?=$row["EndDate"]?></td>
         <td><img style="max-width: 200px; max-height: 200px;" src="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["image"]?>" ></td>
         <td><?=$row["price"]?></td> 
