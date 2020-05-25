@@ -113,7 +113,7 @@ a {
     -o-transition: all 0.25s ease 0s;
 }
 a:hover {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
     text-decoration: none;
     transition: all 0.25s ease 0s;
     -moz-transition: all 0.25s ease 0s;
@@ -222,11 +222,11 @@ ul.list-inline {
     background-color: #222;
 }
 .bg-theme {
-    background-color: rgb(197, 113, 245);
+    background-color: rgb(19, 130, 148);
 }
 
 .main-theme-color1{
-    background: rgb(197, 113, 245);  
+    background: rgb(19, 130, 148);  
 }
 .animated-img {
     margin-right: 30px;
@@ -247,7 +247,7 @@ ul.list-inline {
     z-index: 99;
     padding: 7px 0;
     position: relative;
-    background: rgb(197, 113, 245);
+    background: rgb(19, 130, 148);
 }
 .header-fixed .header.header-fixed-shrink .topbar {
     padding: 0;
@@ -345,7 +345,7 @@ ul.list-inline {
 .topbar ul.language li a:hover,
 .topbar ul.currency li.active a,
 .topbar ul.language li.active a {
-    background: rgb(197, 113, 245);
+    background: rgb(19, 130, 148);
     color: #fff;
 }
 
@@ -422,7 +422,7 @@ ul.list-inline {
     font-weight: 200;
 }
 .search-close .search.fa.search-btn.fa-times{
-    color:rgb(197, 113, 245);  
+    color:rgb(19, 130, 148);  
 }
 .topbar .search-open .form-control:-ms-input-placeholder {
     color: #eee;
@@ -455,7 +455,7 @@ ul.list-inline {
 }
 
 .header .shop-badge.badge-icons i {
-    color: rgb(197, 113, 245) !important;
+    color: rgb(19, 130, 148) !important;
     font-size: 24px;
     min-width: 25px;
 }
@@ -466,7 +466,7 @@ ul.list-inline {
 }
 
 .header .shop-badge span.badge-sea {
-    background: rgb(197, 113, 245);
+    background: rgb(19, 130, 148);
 }
 .header .mCustomScrollbar {
     height: 300px;
@@ -483,7 +483,7 @@ ul.list-inline {
     min-width: 300px;
     background: #fff;
     position: absolute;
-    border-top: 2px solid rgb(197, 113, 245);
+    border-top: 2px solid rgb(19, 130, 148);
     box-shadow: 0 5px 5px 0px rgba(90,90,90,0.075);
 }
 
@@ -545,7 +545,7 @@ ul.list-inline {
 }
 
 .header .subtotal .subtotal-cost {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
 }
 
 .header .subtotal .btn-u {
@@ -652,7 +652,7 @@ ul.list-inline {
 }
 
 .header .navbar-default .navbar-nav > .active > a {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
 }
 
 @media (max-width: 991px) {
@@ -757,14 +757,14 @@ ul.list-inline {
     }
 
     .header .navbar-default .navbar-nav > li > a:hover {
-        color: rgb(197, 113, 245);
+        color: rgb(19, 130, 148);
     }
 
     .header .navbar-default .navbar-nav > .active > a,
     .header .navbar-default .navbar-nav > .active > a:hover,
     .header .navbar-default .navbar-nav > .active > a:focus {
         color: #fff !important;
-        background: rgb(197, 113, 245);
+        background: rgb(19, 130, 148);
     }
 
     .header .dropdown .dropdown-submenu > a {
@@ -795,7 +795,7 @@ ul.list-inline {
 
     .header .navbar-default .navbar-nav > li > a:hover,
     .header .navbar-default .navbar-nav > .active > a {
-        border-bottom: solid 2px rgb(197, 113, 245);
+        border-bottom: solid 2px rgb(19, 130, 148);
     }
 
     .header .navbar-default .navbar-nav > li > a,
@@ -810,11 +810,11 @@ ul.list-inline {
     .header .navbar-default .navbar-nav > .open > a,
     .header .navbar-default .navbar-nav > .open > a:hover,
     .header .navbar-default .navbar-nav > .open > a:focus {
-        color: rgb(197, 113, 245);
+        color: rgb(19, 130, 148);
     }
 
     .header .navbar-default .navbar-nav > li:hover > a {
-        color: rgb(197, 113, 245);
+        color: rgb(19, 130, 148);
     }
     .header .dropdown-menu {
         padding: 0;
@@ -822,7 +822,7 @@ ul.list-inline {
         min-width: 200px;
         border-radius: 0;
         z-index: 9999 !important;
-        border-top: solid 2px rgb(197, 113, 245);
+        border-top: solid 2px rgb(19, 130, 148);
         box-shadow: 0 5px 5px 0px rgba(90,90,90,0.075);
     }
 
@@ -841,7 +841,7 @@ ul.list-inline {
     .header .dropdown-menu .active > a,
     .header .dropdown-menu li > a:hover {
         color: #fff;
-        background: rgb(197, 113, 245);
+        background: rgb(19, 130, 148);
         filter: none !important;
     }
 
@@ -861,7 +861,7 @@ ul.list-inline {
 
     .header .dropdown-menu li.dropdown-submenu:hover > a {
         color: #fff;
-        background: rgb(197, 113, 245);
+        background: rgb(19, 130, 148);
     }
 }
 .header .dropdown-submenu {
@@ -1072,7 +1072,7 @@ ul.list-inline {
 }
 
 .header .style-list li a:hover {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
     background: none;
     text-decoration: none;
 }
@@ -1123,7 +1123,7 @@ ul.list-inline {
 }
 .page-heading .breadcrumb > a:hover{
     text-decoration: underline;
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
 }
 /*------------------------------------------------*/
 /*-------------[BUTTONS STYLE]----------------*/
@@ -1148,10 +1148,10 @@ ul.list-inline {
     margin-right: 0;
 }
 .btn-custom {
-    background-color: rgb(197, 113, 245) ;
+    background-color: rgb(19, 130, 148) ;
 }
 .btn-custom.border-btn:hover {
-    background-color: rgb(197, 113, 245) ;
+    background-color: rgb(19, 130, 148) ;
 }
 .btn-custom.border-btn:hover {
     color: #fff;
@@ -1159,12 +1159,12 @@ ul.list-inline {
 }
 .btn-custom.border-btn {
     background-color: transparent;
-    border: 1px solid rgb(197, 113, 245);
+    border: 1px solid rgb(19, 130, 148);
     box-shadow: none;
     -o-box-shadow: none;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
-    color: rgb(197, 113, 245) ;
+    color: rgb(19, 130, 148) ;
 }
 .btn-custom.btn-large.border-btn.call-to-action-button {
     background: #fff none repeat scroll 0 0;
@@ -1249,7 +1249,7 @@ ul.list-inline {
     text-transform: uppercase;
 }
 .widget-title h2 {
-    background-color: rgb(197, 113, 245);
+    background-color: rgb(19, 130, 148);
     color: #ffffff;
     display: inline-block;
     font-size: 14px;
@@ -1259,7 +1259,7 @@ ul.list-inline {
     position: relative;
 }
 .ta-border {
-    background-color: rgb(197, 113, 245);
+    background-color: rgb(19, 130, 148);
     bottom: 0;
     display: block;
     height: 2px;
@@ -1271,7 +1271,7 @@ ul.list-inline {
 /*--------------[TITLE STYLE 2]-----------*/
 /*------------------------------------------------*/
 .cd-home-title::after {
-    background-color: rgb(197, 113, 245);
+    background-color: rgb(19, 130, 148);
     bottom: 0;
     content: "";
     display: block;
@@ -1352,11 +1352,11 @@ ul.list-inline {
     color: #787878;
 }
 .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover{
-    background-color: rgb(197, 113, 245);
+    background-color: rgb(19, 130, 148);
     border-color:#ddd;
 }
 .pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:focus, .pagination > li > span:hover{
-    background-color: rgb(197, 113, 245);  
+    background-color: rgb(19, 130, 148);  
     color: #fff;
 
 }
@@ -1421,7 +1421,7 @@ ul.list-inline {
     display: block;
     width: 120px;
     height: 3px;
-    background-color: rgb(197, 113, 245) ;
+    background-color: rgb(19, 130, 148) ;
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -1568,7 +1568,7 @@ ul.list-inline {
     text-transform: uppercase;
 }
 .color-green {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
 }
 
 /*------------------------------------------------*/
@@ -1609,7 +1609,7 @@ ul.list-inline {
     content: "";
     display: block;
     width: 35px;
-    border-bottom: 2px solid rgb(197, 113, 245);
+    border-bottom: 2px solid rgb(39, 138, 143);
     margin: 20px auto 25px 0;
     z-index: 1;
     position: relative;
@@ -1683,7 +1683,7 @@ ul.list-inline {
 
 .icons-list a:hover,
 .icons-list a:focus {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
 }
 
 .icons-list a > .fa,
@@ -1706,7 +1706,7 @@ ul.list-inline {
 
 .tags a:hover,
 .tags a:focus {
-    background: rgb(197, 113, 245);
+    background: rgb(19, 130, 148);
     color: #ffffff;
 }
 
@@ -1792,7 +1792,7 @@ ul.list-inline {
     transform: scale3d(1.1, 1.1, 1)
 }
 .cat-dis {
-    background: rgb(197, 113, 245) none repeat scroll 0 0;
+    background: rgb(19, 130, 148) none repeat scroll 0 0;
     color: #fff;
     font-size: 16px;
     font-weight: 600;
@@ -1884,7 +1884,7 @@ ul.list-inline {
     position: relative;
 }
 .category-num-coun {
-    background: rgb(197, 113, 245) none repeat scroll 0 0;
+    background: rgb(19, 130, 148) none repeat scroll 0 0;
 }
 .grid-list-icons {
     float: right;
@@ -1899,12 +1899,12 @@ ul.list-inline {
     font-size: 18px;
     line-height: 20px;
     text-align: center;
-    background: rgb(197, 113, 245);
+    background: rgb(19, 130, 148);
     display: inline-block;
 }
 
 .grid-list-icons i:hover {
-    background: rgb(197, 113, 245);
+    background: rgb(19, 130, 148);
     text-decoration: none;
 }
 .sort-list-btn {
@@ -1996,7 +1996,7 @@ ul.list-inline {
 }
 
 .products-list-description h4.title-price a:hover {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
 }
 
 .products-list-description .product-price {
@@ -2009,7 +2009,7 @@ ul.list-inline {
 }
 
 .products-list-description .line-through {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
     text-decoration: line-through;
 }
 .products-list-description .product-ratings {
@@ -2020,12 +2020,12 @@ ul.list-inline {
 }
 
 .product-ratings li .rating {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
     font-size: 14px;
 }
 
 .product-ratings li .rating-selected {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
     font-size: 14px;
 }
 .add-to-wishlist li {
@@ -2044,7 +2044,7 @@ ul.list-inline {
 }
 
 .add-to-wishlist i {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
     font-size: 16px;
     margin-right: 7px;
 }
@@ -2055,7 +2055,7 @@ ul.list-inline {
 .add-to-wishlist a:hover,
 .add-to-wishlist .product-wishlist:hover i,
 .add-to-wishlist .product-wishlist:hover i {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
     text-decoration: none;
 }
 
@@ -2089,7 +2089,7 @@ ul.list-inline {
     bottom: 0;
     position: absolute;
     width: 100%;
-    background: rgb(197, 113, 245);
+    background: rgb(19, 130, 148);
     padding: 6px 0;
     transition: all 0.3s ease 0s;
     cursor: pointer;
@@ -2150,7 +2150,7 @@ ul.list-inline {
     z-index: 3;
 }
 .product-labels > li {
-    background: rgb(197, 113, 245) none repeat scroll 0 0;
+    background: rgb(39, 138, 143) none repeat scroll 0 0;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
     color: #fff;
     display: table;
@@ -2210,7 +2210,7 @@ ul.list-inline {
     text-transform: lowercase;
 }
 .small-thumb-proudct .thumb-product-inner h6 a:hover {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
 }
 .small-thumb-proudct .thumb-product-inner h6 a {
     color: inherit;
@@ -2224,7 +2224,7 @@ ul.list-inline {
     display: block;
 }
 .small-thumb-proudct .thumb-product-price.line-through {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
     text-decoration: line-through;
 }
 .small-thumb-proudct .thumb-product-price {
@@ -2290,7 +2290,7 @@ ul.list-inline {
     margin-left: 20px;
 }
 .shop-red {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
 }
 .shop-product .shop-product-prices li {
     font-size: 30px;
@@ -2338,14 +2338,14 @@ ul.list-inline {
 }
 
 .shop-product .product-size label:hover {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
     cursor: pointer;
-    border-color: rgb(197, 113, 245);
+    border-color: rgb(19, 130, 148);
 }
 
 .shop-product .product-size input:checked ~ label {
-    color: rgb(197, 113, 245);
-    border-color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
+    border-color: rgb(19, 130, 148);
 }
 .shop-product .product-color input {
     left: -9999px;
@@ -2382,11 +2382,11 @@ ul.list-inline {
 
 .shop-product .product-color label:hover {
     cursor: pointer;
-    border: 2px solid rgb(197, 113, 245);
+    border: 2px solid rgb(19, 130, 148);
 }
 
 .shop-product .product-color input:checked ~ label {
-    border: 2px solid rgb(197, 113, 245);
+    border: 2px solid rgb(19, 130, 148);
 }
 .shop-product .product-quantity {
     float: left;
@@ -2422,7 +2422,7 @@ ul.list-inline {
 .btn.btn-product {
     font-size: 16px;
     padding: 12px 25px;
-    background: rgb(197, 113, 245) none repeat scroll 0 0;
+    background: rgb(19, 130, 148) none repeat scroll 0 0;
     border: 0 none;
     border-radius: 0;
     color: #fff;
@@ -2516,7 +2516,7 @@ ul.list-inline {
     background: #eee;
 }
 .checkout-btn{
-    background-color:rgb(197, 113, 245);
+    background-color:rgb(19, 130, 148);
     padding: 6px 0;
     color: #fff;
 
@@ -2550,7 +2550,7 @@ ul.list-inline {
 }
 
 .shopping-cart-checkout .total-result .total-price span {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
 }
 
 
@@ -2601,7 +2601,7 @@ ul.list-inline {
 }
 
 .login-header .nav-tabs > li.active {
-    border-bottom: 6px solid rgb(197, 113, 245);
+    border-bottom: 6px solid rgb(19, 130, 148);
 }
 
 .login-inner h1 {
@@ -2613,7 +2613,7 @@ ul.list-inline {
 }
 
 .login-inner h1 span {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
 }
 
 .login-form {
@@ -2644,7 +2644,7 @@ ul.list-inline {
     width: 100%;
 }
 .form-btn {
-    background: rgb(197, 113, 245) none repeat scroll 0 0;
+    background: rgb(19, 130, 148) none repeat scroll 0 0;
     border: medium none;
     border-radius: 100px;
     color: #ffffff;
@@ -2703,7 +2703,7 @@ ul.list-inline {
 /*------------------------------------------------*/
 .news-subscribe {
     padding: 30px 0;
-    background: rgb(197, 113, 245);
+    background: rgb(19, 130, 148);
 }
 
 .news-subscribe h3{
@@ -2803,7 +2803,7 @@ ul.list-inline {
     font-size: 14px;
 }
 .standard-post-thumbnail .entry-title > a:hover {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
 }
 .standard-post-thumbnail .post-meta {
     border-bottom: 1px solid #e6e6e6;
@@ -2823,7 +2823,7 @@ ul.list-inline {
     line-height: 25px;
 }
 .post-meta i {
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
     padding-left: 7px;
 }
 .post-meta i:first-child{
@@ -2919,7 +2919,7 @@ ul.list-inline {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: rgb(197, 113, 245);
+    background-color: rgb(19, 130, 148);
     color: #fff;
 
 }
@@ -2945,9 +2945,9 @@ ul.list-inline {
     margin-bottom: 30px;
 }
 .single-contact-option:hover i, .single-social-icon a:hover i {
-    background: rgb(197, 113, 245) none repeat scroll 0 0;
+    background: rgb(19, 130, 148) none repeat scroll 0 0;
     border: 3px solid #fff;
-    box-shadow: 0 0 0 4px rgb(197, 113, 245);
+    box-shadow: 0 0 0 4px rgb(19, 130, 148);
 }
 .single-contact-option h6 {
     color: inherit;
@@ -2986,7 +2986,7 @@ ul.list-inline {
 .footer a:hover,
 .footer a:focus {
     text-decoration: none;
-    color: rgb(197, 113, 245);
+    color: rgb(19, 130, 148);
 }
 
 .footer .list-inline {
@@ -3023,5 +3023,5 @@ ul.list-inline {
     border-radius: 50%;
 }
 .social-icons > li > a:hover{
-    background: rgb(197, 113, 245);
+    background: rgb(19, 130, 148);
 }

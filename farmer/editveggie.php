@@ -4,7 +4,7 @@
 	?>
 <script>
 	//alert("Please login first...");
-	location.href="<?=$_SESSION["directory"]?>hi.php";
+	location.href="<?=$_SESSION["directory"]?>home.php";
 </script>
 	<?php
 }

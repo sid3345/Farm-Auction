@@ -38,7 +38,7 @@
 
 							<?php
 							
-							if(isset($_POST["serachButton"])){
+							if(isset($_POST["Search"])){
 								$Name=$_POST["Search"];
 								$sql="SELECT  vehicle.*, catagory.name as catname FROM `vehicle` INNER JOIN catagory ON catagory.ID=vehicle.catagory WHERE vehicle.name LIKE '%$Name%'";
 							 

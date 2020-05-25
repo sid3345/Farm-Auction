@@ -3,7 +3,7 @@
 if((isset($_SESSION["isLogedIn"]) && $_SESSION["isLogedIn"]==false) || (isset($_SESSION["role"])&& $_SESSION["role"]==1)){
 	?>
 <script>
-	location.href="<?=$_SESSION["directory"]?>hi.php";
+	location.href="<?=$_SESSION["directory"]?>home.php";
 </script>
 	<?php
 }

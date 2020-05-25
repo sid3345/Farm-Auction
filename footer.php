@@ -43,9 +43,9 @@
                             <div class="widget">
                                 <h6 class="montserrat text-uppercase bottom-line">Quick Links</h6>
                                 <ul class="icons-list">
-                                    <li><a href="index.php">Home</a></li>
+                                    <li><a href="#">Home</a></li>
                                      
-                                    <li><a href="customer/topBidder.php">Top Bidders</a></li>
+                                    <li><a href="#">Top Bidders</a></li>
                                     <!--
                                     <li><a href="">Vehicles</a></li>
                                     <li><a href="#">About</a></li>
@@ -59,9 +59,9 @@
                                 <h6 class="text-uppercase bottom-line">Contact Us</h6>
                                 <address>
                                     <p>Atharva College of Engineering, Malad, Mumbai</p><br>
-                                    <p>Phone: 987654321</p>
+                                    <p>Phone: ##########</p>
                                     
-                                    <p>E-mail: <a href="mailto:sid3345@gmail.com">sid3345@gmail.com</a></p>
+                                    <p>E-mail: <a href="mailto:sid3345@gmail.com">###@gmail.com</a></p>
                                 </address>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                     <!-- CONTACT WIDGET -->
                     <div class="copyright">
                         <div class="text-center">
-                            <p>© All Rights Reserved @ Siddharth Sinha</p>
+                            <p>© All Rights Reserved @ Siddharth And Aakash</p>
                         </div>
                     </div>
 

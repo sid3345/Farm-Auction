@@ -7,7 +7,7 @@
 	 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 	}
-	 $_SESSION["directory"]="";
+	 $_SESSION["directory"]="http://localhost/auction/";
 	 if(!isset($_SESSION["isLogedIn"])){
 	 $_SESSION["isLogedIn"]=false;
 		 
@@ -76,16 +76,15 @@
                         <div class="row">
                             
                             <div class="col-sm-12">
-                               <div class="col-xs-3 custom-col-left form-group">
+                            <div class="col-xs-3 custom-col-left form-group">
                             <div class="spa-search">
                                 <form action="<?=$_SESSION["directory"]?>customer/carsearch.php" method="post">
-                                    <input type="text" placeholder="search your keyword ..." value="" class="form-control input-group-lg" style="width: 150%" name="Search">
-                                    <!--<button type="submit" class="spa-submit btn btn-default" name="serachButton"><i class="fa fa-search" aria-hidden="true"></i>
-                                    </button>-->
+                                    <input type="text" placeholder="search your crop ..." value="" class="form-control input-group-lg" style="width: 120%" name="Search">
+                                    
                                 </form>
                                 
                             </div>
-                        </div>
+                            </div>
 
                                 <ul class="list-inline topbar-right pull-right">
                                     <li>

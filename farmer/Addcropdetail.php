@@ -3,7 +3,7 @@
 if((isset($_SESSION["isLogedIn"]) && $_SESSION["isLogedIn"]==false) || (isset($_SESSION["role"])&& $_SESSION["role"]==1)){
 	?>
 <script>
-	location.href="<?=$_SESSION["directory"]?>hi.php";
+	location.href="<?=$_SESSION["directory"]?>home.php";
 </script>
 	<?php
 }
@@ -302,7 +302,7 @@ if(isset($_POST["submit"])){
 			$sql21="UPDATE `vehicleimage` SET  `name`='$image' WHERE `vehicleID`='$getID'";
 			$con->query($sql21);
 			}
-	
+			
 		if (substr($image2,-4)== ".jpg") {
 			$sql22="UPDATE `vehicleimage` SET  `name2`='$image2' WHERE `vehicleID`='$getID'";
 			$con->query($sql22);
@@ -473,6 +473,7 @@ if(isset($_POST["submit"])){
 								
 								<div class="col-md-6 form-group">
 										<label>Image</label>
+										<br>
 										<?php
 											if(isset($photo) && $photo !=""){
 							 
@@ -486,6 +487,7 @@ if(isset($_POST["submit"])){
 								 
 								<div class="col-md-6 form-group">
 										<label>Image</label>
+										<br>
 										<?php
 											if(isset($photo2) && $photo2 !=""){
 							 
@@ -499,6 +501,7 @@ if(isset($_POST["submit"])){
 								 
 								<div class="col-md-6 form-group">
 										<label>Image</label>
+										<br>
 										<?php
 											if(isset($photo3) && $photo3 !=""){
 							 

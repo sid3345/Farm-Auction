@@ -7,7 +7,7 @@
 	 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 	}
-	 $_SESSION["directory"]="";
+	 $_SESSION["directory"]="http://localhost/auction/";
 	 if(!isset($_SESSION["isLogedIn"])){
 	 $_SESSION["isLogedIn"]=false;
 		 
@@ -177,7 +177,7 @@
                                     </a>
                                      <?php  }else{ ?> 
 	 								  
-                                       <a href="<?=$_SESSION["directory"]?>hi.php">Home</a>
+                                       <a href="<?=$_SESSION["directory"]?>home.php">Home</a>
                                         
                                      <?php   }  ?>
  
@@ -224,7 +224,7 @@
 
                                 <li class="btn-product">
                                     <a href="<?=$_SESSION["directory"]?>farmer/ftopBidder.php"  >
-                                        Top Bidder
+                                        Bidder List
                                     </a>
                                      
                                 </li>
