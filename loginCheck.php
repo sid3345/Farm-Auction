@@ -181,25 +181,6 @@
 	}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	if(isset($_POST["loginSubmit"])){
 		$name="";
 		$Pass="";
@@ -219,12 +200,14 @@
 		 
 		$result=$con->query($sql);
 		//echo($result->num_rows);
+
+		$sqlF="SELECT * FROM `farmer` WHERE email='$email' AND password='$Pass'";
+
+		$resultF=$con->query($sqlF);
 		 
-		if($result->num_rows > 0){
-				
-		 
+		if($result->num_rows > 0  || $resultF->num_rows > 0){
 			
-			
+			if($result->num_rows > 0) {
 			foreach($result as $row){
 				$_SESSION["username"]=$row["name"];
 				$_SESSION["role"]=$row["admin"];
@@ -233,6 +216,18 @@
 				$_SESSION["userid"]=$row["ID"];
 				$active=$row["active"];
 			}
+		}
+
+		if($resultF->num_rows > 0) {
+			foreach($resultF as $row){
+				$_SESSION["username"]=$row["name"];
+				$_SESSION["role"]=$row["admin"];
+				//echo($_SESSION["Admin"]);exit();
+				$_SESSION["useremail"]=$row["email"];
+				$_SESSION["userid"]=$row["ID"];
+				$active=$row["active"];
+			}
+		}
 			//echo($active);exit();
 			if($active==1){
 				$_SESSION["wrong"]="you are blocked by admin";
@@ -240,10 +235,18 @@
 			}else{
 				$_SESSION["right"]="login successfully";
 			$_SESSION["isLogedIn"]=true;
+
 			if($_SESSION["role"]==1){
 				header('location:admin/report.php');
 			}else{
+
+				if ($result->num_rows > 0){
 				header('location:index.php');
+				}
+				else if($resultF->num_rows > 0){
+					header('location:home.php');
+				}
+
 			}
 			
 			}
@@ -258,8 +261,12 @@
 			
 			$sql="SELECT * FROM `user` WHERE email='$email'";
 			$result=$con->query($sql);
+
+			$sqlF="SELECT * FROM `farmer` WHERE email='$email' AND password='$Pass'";
+
+			$resultF=$con->query($sqlF);
 			
-			if($result->num_rows>=0){
+			if($result->num_rows>=0 || $resultF->num_rows > 0){
 				foreach($result as $row){
 				$Email1=$row["email"];
 				$_SESSION["Email"]=$row["email"];
@@ -290,115 +297,5 @@
 		 
 	
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-	if(isset($_POST["FloginSubmit"])){
-		$name="";
-		$Pass="";
-		 
-		$right="";
-		$Email1="";
-		$wrong="";
-		$_SESSION["right"]="";
-		$_SESSION["isLogedIn"]=false;
-
-			$email=$_POST["username"];
-			$Pass=md5($_POST["passsword"]);
-	
-			
-		$sql="SELECT * FROM `farmer` WHERE email='$email' AND password='$Pass'";
-		$query=mysqli_query($con,"$sql");
-		 
-		$result=$con->query($sql);
-		//echo($result->num_rows);
-		 
-		if($result->num_rows > 0){
-				
-		 
-			
-			
-			foreach($result as $row){
-				$_SESSION["username"]=$row["name"];
-				$_SESSION["role"]=$row["admin"];
-				//echo($_SESSION["Admin"]);exit();
-				$_SESSION["useremail"]=$row["email"];
-				$_SESSION["userid"]=$row["ID"];
-				$active=$row["active"];
-			}
-			//echo($active);exit();
-			if($active==1){
-				$_SESSION["wrong"]="you are blocked by admin";
-					header('location:login.php');
-			}else{
-				$_SESSION["right"]="login successfully";
-			$_SESSION["isLogedIn"]=true;
-			if($_SESSION["role"]==1){
-				header('location:admin/report.php');
-			}else{
-				header('location:home.php');
-			}
-			
-			}
-			
-		}
-		
-		else{
-			
-			if(!isset($_SESSION["loginChk"])){
-				$_SESSION["loginChk"]=0;
-			}
-			
-			$sql="SELECT * FROM `farmer` WHERE email='$email'";
-			$result=$con->query($sql);
-			
-			if($result->num_rows>=0){
-				foreach($result as $row){
-				$Email1=$row["email"];
-				$_SESSION["Email"]=$row["email"];
-				
-				
-			}
-			
-			if($email != $Email1){
-					$wrong="Your email is not matched, please register your email or input correctly.<br>";
-				$_SESSION["wrong"]=$wrong;
-				header('location:login.php');
-			
-				
-			}else{
-				$wrong="Password is wrong<br>";
-					$_SESSION["wrong"]=$wrong;
-					header('location:login.php');
-					
-
-					}
-			$_SESSION["loginChk"]++;
-			}
-		 
-			}
-		echo($_SESSION["right"]);
-		 
-		echo($wrong);
-		 
-	
-	}
-
-
-
-
- 
-
-
 ?>
  

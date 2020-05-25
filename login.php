@@ -28,8 +28,7 @@
                                     <ul class="nav nav-tabs navbar-right">
                                         <li><a data-toggle="tab" href="#register">Buyer Register</a></li>
                                         <li><a data-toggle="tab" href="#farmer">Farmer register</a></li>
-                                        <li class="active"><a data-toggle="tab" href="#login">Buyer Login</a></li>
-                                        <li><a data-toggle="tab" href="#Flogin">Farmer Login</a></li>
+                                        <li class="active"><a data-toggle="tab" href="#login">Login</a></li>
                                     </ul>
                                 </div>
                         </div>
@@ -180,44 +179,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
-
-                        <div id="Flogin" class="tab-pane">
-                            <div class="login-inner">
-                                  <div class="title">
-                                    <h1>Welcome to <span>Farmer's Login</span></h1>
-                                </div>
-                                <div class="login-inner">
-			<label style="color: red"> <?php if(isset($_SESSION["wrong"])){echo($_SESSION["wrong"]); unset($_SESSION["wrong"]);} ?> </label><br>
-			<label style="color: red;"><?php if(isset($_SESSION["loginChk"]) && ($_SESSION["loginChk"]>=3)){
-			echo("You have try ".$_SESSION["loginChk"]." times already and cannot try more than 5 time. So only ".(5-$_SESSION["loginChk"])." times you can try to login.<br>");}
-				if(isset($_SESSION["loginChk"]) && ($_SESSION["loginChk"]>=5)){echo("Please restart your browser");}
- 			?></label><br>
-		</div>
-                                <div class="login-form">
-                                    <form action="loginCheck.php" method="post">
-                                        <div class="form-details">
-                                            <label class="user">
-                                                <input type="text" name="username" placeholder="Email" id="username" required>
-                                            </label>
-                                            <label class="pass">
-                                                <input type="password" name="passsword" placeholder="Password" id="password" required>
-                                            </label>
-                                        </div>
-                                        <input type="submit" class="form-btn btn-success" name="FloginSubmit"   value="Login" <?php if(isset($_SESSION["loginChk"]) && ($_SESSION["loginChk"]>=5)){ ?>disabled <?php } ?>  />
-                                    </form>
-                                    <a style="display: block;float: right;margin: 0px;padding-right: 21%;margin-top: 10px; " href="<?=$_SESSION["directory"]?>forgotpassword.php">forgot password? </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-        </div>
-                </div>
             </section>
             
  
