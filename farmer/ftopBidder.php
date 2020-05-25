@@ -47,12 +47,9 @@
 			foreach ( $result1 as $row ) {
         if ($row["email"]==$email){
           
-        
-         
-		
 		?>
       <tr>
-        <td><?=$row["userName"]?></td>
+        <td style="cursor:pointer; display:block; text-decoration:none;" onclick="location.href='userlist_popup.php?userName=<?php echo $row['userName'] ?>'"><?=$row["userName"]?> </td>
         <td><?=$row["name"]?></td>
         <td><?=$row["EndDate"]?></td>
         <td><img style="max-width: 200px; max-height: 200px;" src="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["image"]?>" ></td>
@@ -64,47 +61,6 @@
     </tbody>
   </table>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
