@@ -267,11 +267,18 @@
 			$resultF=$con->query($sqlF);
 			
 			if($result->num_rows>=0 || $resultF->num_rows > 0){
+				if($result->num_rows > 0) {
 				foreach($result as $row){
 				$Email1=$row["email"];
 				$_SESSION["Email"]=$row["email"];
-				
-				
+				}
+			}
+
+			if($resultF->num_rows > 0) {
+				foreach($resultF as $row){
+					$Email1=$row["email"];
+				$_SESSION["Email"]=$row["email"];
+				}
 			}
 			
 			if($email != $Email1){
