@@ -1,0 +1,25 @@
+/**
+ * _fonts.scss
+ * Custom WooCommerce fonts.
+ */
+@font-face {
+	font-family: 'star';
+	src: url('../fonts/star/star.eot');
+	src: url('../fonts/star/stard41d.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/star/star.woff') format('woff'),
+		url('../fonts/star/star.ttf') format('truetype'),
+		url('../fonts/star/star.svg#star') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'WooCommerce';
+	src: url('../fonts/star/WooCommerce.eot');
+	src: url('../fonts/star/WooCommerced41d.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/star/WooCommerce.woff') format('woff'),
+		url('../fonts/star/WooCommerce.ttf') format('truetype'),
+		url('../fonts/star/WooCommerce.svg#WooCommerce') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

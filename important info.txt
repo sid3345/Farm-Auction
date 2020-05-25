@@ -1,0 +1,31 @@
+make -> name
+
+model -> type
+
+kilometers -> harvest date
+
+Body type -> region
+
+Engine -> Season
+
+year -> NULL
+
+Transmission -> state
+
+passengers -> soil type
+
+break -> NULL
+
+fuel type -> Temperature 
+
+users:
+
+email: ghanta kumar, honey singh
+
+pass: 123
+
+admin:
+
+email: sid3345@gmail.com
+pass: ghanta
+
