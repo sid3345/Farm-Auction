@@ -277,9 +277,10 @@ if($d_amount==""){
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="widget-header style-08">
-                                            <span class="sub-title style-03">POSTED: <?=$startDate?></span>
+                                            <span class="sub-title style-03" >POSTED: <?=$startDate?></span>
                                             <br>
-                                            <span class="sub-title style-03">POSTED BY: <?=strtoupper($fname)?></span>
+                                            POSTED BY:
+                                            <span class="sub-title style-03" style="cursor:pointer; color:#00008B; text-decoration:none;" onclick="location.href='farmerlist_popup.php?userName=<?php echo $fname ?>'"> <?=strtoupper($fname)?></span>
                                             <br>
                                             <span class="sub-title style-03">SELLER EMAIL: <?=$email?></span>
                                             <h3 class="widget-title style-05"><?=$modelname?></h3>
