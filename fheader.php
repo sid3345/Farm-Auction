@@ -30,6 +30,7 @@
           <link rel="stylesheet" href="<?=$_SESSION["directory"]?>css/font-awesome.css" media="all" />
         <!--  STYLE -->
         <link rel="stylesheet" href="<?=$_SESSION["directory"]?>css/style.css">
+     
         <!-- ANIMATE -->
         <link rel="stylesheet" href="<?=$_SESSION["directory"]?>css/animate.css">
         <!-- MAGNIFIC POPUP -->
