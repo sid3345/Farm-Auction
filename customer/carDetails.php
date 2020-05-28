@@ -279,10 +279,9 @@ if($d_amount==""){
                                         <div class="widget-header style-08">
                                             <span class="sub-title style-03" >POSTED: <?=$startDate?></span>
                                             <br>
-                                            POSTED BY:
-                                            <span class="sub-title style-03" style="cursor:pointer; color:#00008B; text-decoration:none;" onclick="location.href='farmerlist_popup.php?userName=<?php echo $fname ?>'"> <?=strtoupper($fname)?></span>
+                                            <span class="sub-title style-03">POSTED BY: <?=strtoupper($fname)?></span>
                                             <br>
-                                            <span class="sub-title style-03">SELLER EMAIL: <?=$email?></span>
+                                            <span class="sub-title style-03">SELLER EMAIL: <input type="button" name="view" value="<?=$email?>" id="<?=$email?>" class="btn btn-info btn-xs view_data" /></td></span>
                                             <h3 class="widget-title style-05"><?=$modelname?></h3>
                                         </div>
                                         
@@ -665,3 +664,34 @@ alert( "Please give more than top bidding/base amount.")	;
 	checkReview();
 	
 </script>
+<div id="dataModal" class="modal fade">  
+      <div class="modal-dialog">  
+           <div class="modal-content">  
+                <div class="modal-header">  
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>  
+                     <h4 class="modal-title">Farmer Details</h4>  
+                </div>  
+                <div class="modal-body" id="employee_detail">  
+                </div>  
+                <div class="modal-footer">  
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
+                </div>  
+           </div>  
+      </div>  
+ </div>  
+ <script>  
+ $(document).ready(function(){  
+      $('.view_data').click(function(){  
+           var employee_id = $(this).attr("id");  
+           $.ajax({  
+                url:"select.php",  
+                method:"post",  
+                data:{employee_id:employee_id},  
+                success:function(data){  
+                     $('#employee_detail').html(data);  
+                     $('#dataModal').modal("show");  
+                }  
+           });  
+      });  
+ });  
+ </script>
