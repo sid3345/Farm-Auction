@@ -14,7 +14,7 @@ include("../dbCon.php");
 		 
 	?>
       <tr>
-        <td style="cursor:pointer; color:#00008B; text-decoration:none;" onclick="location.href='../farmer/cropdetail.php?id=<?php echo $row['ID'] ?>'"><?=$row["name"]?></td>
+        <td><?=$row["name"]?></td>
         <td><?=$row["type"]?></td>
         <td><?=$row["price"]?></td>
         <td><?=$row["startDate"]?></td>
@@ -48,7 +48,7 @@ include("../dbCon.php");
         <?php }
 		  ?>
         </a></span>
-        	<span><a href="AddVehicleDetails.php?id=<?=$row["ID"]?>" data-toggle="tooltip" title="Add Details"><img style="max-height: 40px; max-width: 40px;"  src="../img/icon/edit.png"></a></span>
+        	
         	
         </td>
       </tr>

@@ -245,7 +245,7 @@
                                         More
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="<?=$_SESSION["directory"]?>admin/AddVehicle.php">Add Crop</a></li>
+                                        
                                         <li><a href="<?=$_SESSION["directory"]?>admin/vehicleList.php">Crop List</a></li>
                                         <li><a href="<?=$_SESSION["directory"]?>admin/vehicleDelivery.php">Crop Delivery List</a></li>
                                         <li><a href="<?=$_SESSION["directory"]?>admin/userlist.php">User List</a></li>

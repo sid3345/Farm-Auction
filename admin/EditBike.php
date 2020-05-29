@@ -169,7 +169,7 @@
 											<div><label>Catagory: <span><?=$catagory?></span> </label></div>
 											</div>
 											
-											<a class="btn btn-product cd-cart-btn" href="<?=$_SESSION["directory"]?>admin/EditVehicle.php?id=<?=$ID?>"> Edit</a>
+											
 										</div>
 									</div>
 								</div>
