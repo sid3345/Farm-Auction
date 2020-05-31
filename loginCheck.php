@@ -218,14 +218,14 @@
 			}
 		}
 
-		if($resultF->num_rows > 0) {
-			foreach($resultF as $row){
-				$_SESSION["username"]=$row["name"];
-				$_SESSION["role"]=$row["admin"];
-				//echo($_SESSION["Admin"]);exit();
-				$_SESSION["useremail"]=$row["email"];
-				$_SESSION["userid"]=$row["ID"];
-				$active=$row["active"];
+			if($resultF->num_rows > 0) {
+				foreach($resultF as $row){
+					$_SESSION["username"]=$row["name"];
+					$_SESSION["role"]=$row["admin"];
+					//echo($_SESSION["Admin"]);exit();
+					$_SESSION["useremail"]=$row["email"];
+					$_SESSION["userid"]=$row["ID"];
+					$active=$row["active"];
 			}
 		}
 			//echo($active);exit();
