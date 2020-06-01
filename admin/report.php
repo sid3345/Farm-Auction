@@ -72,9 +72,6 @@
     </div>
 
 
-
-
-
     <div class="col-sm-3 " style="background-color:orange;">
     	<?php
 		$sql5="SELECT COUNT(ID) as num FROM `vehicle`";
@@ -156,15 +153,6 @@
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 	<?php
 	
@@ -221,7 +209,7 @@ chart.render();
 
 
 <?php
-	date_default_timezone_set("Asia/Dhaka");
+	date_default_timezone_set("Asia/Kolkata");
 	$today=date("Y-m-d");
 	$Product2=[];
 	if(isset($_POST["hidName"])){
@@ -266,9 +254,6 @@ $Product3 = [];
 	
 ?>
 
-
-
-
 <!-- Check Bidding price of the vehicle -->
 <div style="background-color: #D1CACA; margin-top: 10%;">
 
@@ -283,9 +268,7 @@ $Product3 = [];
 	
 </div>
 <div class="container" id="chart2" style="height: 370px; width: 100%; margin-bottom: 10%;"></div>
-<hr>
 <div id="chartContainer" style="height: 370px; width: 100%; margin-top: 10%; margin-bottom: 10%;"></div>
-<hr>
 <div id="revenueChart" style="height: 370px; width: 100%; margin-top: 10%; margin-bottom: 10%;"></div>
 	 
 
@@ -350,17 +333,7 @@ chart2.render();
 </body>
 </html>       
 
-          
-                    
-                              
-                                        
-                                                  
-                                                            
-                                                                      
-  
-	
-	 
-
+ 
   
     	<!-- Footer Section -->
 	<?php

@@ -53,7 +53,7 @@
       <tr>
         <td><?=$row["userName"]?></td>
         <td><input type="button" name="view" value="<?php echo $row["uemail"]; ?>" id="<?php echo $row["uemail"]; ?>" class="btn btn-info btn-xs view_data" /></td>
-        <td><?=$row["name"]?></td>
+        <td style="cursor:pointer; color:#00008B; text-decoration:none;" onclick="location.href='cropdetail.php?id=<?php echo $row['VID'] ?>'"><?=$row["name"]?></td>
         <td><?=$row["EndDate"]?></td>
         <td><img style="max-width: 200px; max-height: 200px;" src="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["image"]?>" ></td>
         <td><?=$row["price"]?></td> 

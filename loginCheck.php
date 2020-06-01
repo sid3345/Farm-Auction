@@ -58,7 +58,7 @@
 		$phone=$_REQUEST["phone"];
 		$pass=md5($_REQUEST["pass"]);
 		$Conform_pass=md5($_REQUEST["R_pass"]);
-		$sql="SELECT * FROM `user` WHERE `email`='$email' ";
+		$sql="SELECT user.email, farmer.email FROM user, farmer WHERE user.email='$email' or farmer.email='$email' ";
 		$result = $con->query($sql);
 		if($result->num_rows <= 0){
 			$sql1 = "INSERT INTO `user`(`name`, `email`, `password`, `phone`, `address`) VALUES ('$name', '$email','$pass','$phone','$address')";
@@ -67,13 +67,23 @@
 				$_SESSION["msg"]=("registration Successfully done");
 				header('location:login.php?msg=Successfully Registered');
 			}else{
-				$_SESSION["msg"]=("database error");
-				header('location:login.php');
+				#$_SESSION["msg"]=("database error");
+				?>
+				<script>
+				alert("database error");
+				location.href="<?=$_SESSION["directory"]?>login.php";
+				</script>
+				<?php 
 				}
 		}
 		else{
-			$_SESSION["msg"]=("Your email already exits");
-			header('location:login.php');
+			#$_SESSION["msg"]=("Your email already exists. Please choose another mail");
+			?>
+				<script>
+				alert("Your email already exists. Please choose another mail");
+				location.href="<?=$_SESSION["directory"]?>login.php";
+				</script>
+				<?php 
 			}
 		}
 		else{
@@ -152,23 +162,41 @@
 		$pincode=$_REQUEST["pincode"];
 		$Fpass=md5($_REQUEST["Fpass"]);
 		$FConform_pass=md5($_REQUEST["FR_pass"]);
-		$sql="SELECT * FROM `user` WHERE `email`='$Femail' ";
+		$sql="SELECT user.email, farmer.email FROM user, farmer WHERE user.email='$Femail' or farmer.email='$Femail'";
 		$result = $con->query($sql);
 		if($result->num_rows <= 0){
 			$sql1 = "INSERT INTO `farmer`(`name`, `email`, `password`, `phone`, `address`,`state`,`pincode`) 
 					VALUES ('$Fname', '$Femail','$Fpass','$Fphone','$Faddress','$state','$pincode')";
 			
 			if($con->query($sql1)){
-				$_SESSION["msg"]=("registration Successfully done");
+				#$_SESSION["msg"]=("registration Successfully done");
 				header('location:login.php?msg=Successfully Registered');
-			}else{
+				?>
+				<script>
+				alert("Registration Successful");
+				location.href="<?=$_SESSION["directory"]?>login.php";
+				</script>
+				<?php 
+			}
+
+			else{
 				$_SESSION["msg"]=("database error");
-				header('location:login.php');
+				?>
+				<script>
+				alert("database error");
+				location.href="<?=$_SESSION["directory"]?>login.php";
+				</script>
+				<?php 
 				}
 		}
 		else{
-			$_SESSION["msg"]=("Your email already exits");
-			header('location:login.php');
+			$_SESSION["msg"]=("Your email already exists. Please choose another mail");
+			?>
+				<script>
+				alert("Your email already exists. Please choose another mail");
+				location.href="<?=$_SESSION["directory"]?>login.php";
+				</script>
+				<?php 
 			}
 		}
 		else{
