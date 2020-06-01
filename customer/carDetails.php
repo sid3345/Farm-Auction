@@ -9,7 +9,8 @@
 	<?php
 }
 
-$cropID=$_GET["id"];    
+$cropID=$_GET["id"];
+$_SESSION['ID'] = $cropID;
 
 //deposit amount checking
 $userID=$_SESSION["userid"];
@@ -674,7 +675,8 @@ alert( "Please give more than top bidding/base amount.")	;
                 <div class="modal-body" id="employee_detail">  
                 </div>  
                 <div class="modal-footer">  
-                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
+                     
+                     <div id="farmer_details"></div>  
                 </div>  
            </div>  
       </div>  
@@ -695,3 +697,22 @@ alert( "Please give more than top bidding/base amount.")	;
       });  
  });  
  </script>
+<!-- Chat system script -->
+<script>  
+$(document).ready(function(){
+
+ fetch_farmer();
+
+ function fetch_farmer()
+ {
+  $.ajax({
+   url:"fetch_farmer.php",
+   method:"POST",
+   success:function(data){
+    $('#farmer_details').html(data);
+   }
+  })
+ }
+ 
+});  
+</script>
