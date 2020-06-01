@@ -249,9 +249,9 @@ if($d_amount==""){
                                      <div class="alert alert-warning" id="bidAlert">
    									 <strong>Warning! please input more than top bidder or base amount</strong> 	
  									 </div>
-                                    <input type='number' class="form-control " placeholder="Input bid price " name='bidprice' value="" id='bid' required onKeyUp="bidCheck(<?=$topBid?>)" <?php if ((isset($_SESSION["role"])) && ($_SESSION["role"]=="0")){ ?> disabled <?php } ?> />
+                                    <input type='number' class="form-control " placeholder="Input bid price " name='bidprice' value="" id='bid' required onKeyUp="bidCheck(<?=$topBid?>)" <?php if (isset($_SESSION["role"])){ ?> disabled <?php } ?> />
                                     
-                                      <input style="margin-top: 5%;" class="btn btn-product" type="submit" value="Submit" name="submitBtn" id="btnSubmit" onClick="bidingQuery()" <?php if ((isset($_SESSION["role"])) && ($_SESSION["role"]=="0")){ ?> disabled <?php } ?> >
+                                      <input style="margin-top: 5%;" class="btn btn-product" type="submit" value="Submit" name="submitBtn" id="btnSubmit" onClick="bidingQuery()" <?php if (isset($_SESSION["role"])){ ?> disabled <?php } ?> >
                                 
                                
                             </div>
