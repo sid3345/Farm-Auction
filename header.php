@@ -231,7 +231,7 @@
 
                                <li>
                                            
-                                       <a href="<?=$_SESSION["directory"]?>FAQ-final.html">FAQ</a>
+                                       <a href="<?=$_SESSION["directory"]?>customer/faq.php">FAQ</a>
                                     </li>
 
                                  
