@@ -237,8 +237,8 @@ if($d_amount==""){
                              <div class="shop-product-heading">
                               <h4>Crop Type: <strong><?=$type?></strong></h4>
                               <div>
-                              	<img src="../img/icon/icon-add.png" alt="add icon">
-                              	<span><a id="watchlist" onClick="watchList(<?=$cropID?>)">Add to watch list</a></span>
+                              <!--	<img src="../img/icon/icon-add.png" alt="add icon">
+                              	<span><a id="watchlist" onClick="watchList(<?#=$cropID?>)">Add to watch list</a></span> -->
                               </div>
                             </div>
 
