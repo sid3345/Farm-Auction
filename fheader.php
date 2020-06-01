@@ -122,7 +122,7 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <a class="navbar-brand" href="<?=$_SESSION["directory"]?>home.php">
-                                <img id="logo-header" src="<?=$_SESSION["directory"]?>img/logo.jpg" alt="Logo" style="width: 200px; height: inherit;">
+                                <img id="logo-header" src="<?=$_SESSION["directory"]?>img/logo.png" alt="Logo" style="width: 200px; height: inherit;">
                             </a>
                         </div>
 
