@@ -194,50 +194,50 @@ if($d_amount==""){
                             <ul class="list-inline shop-product-prices mb30" style="width: 330px;">
                                 <li class="shop-red"><h4 >Base Price (INR):<label id="basePrice"> <?=$price?></label> </h4></li>
                                  <li class="shop-red"><h4>Top Bid (INR):<label id="topbidlevel"> </label></h4>   <input type="hidden" id="hidenvalue" value="<?php if(empty($_SESSION["topbid"])){echo(0);}else{echo($_SESSION["topbid"]);} ?>"> </li>
-                                 <li><div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document" style="width: 100%">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Top Bidder</h4>
-       <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Bidder Name</th>
-        <th>Date</th>
-        <th>Bid Price</th>
-      </tr>
-    </thead>
-    <tbody>
-     <?php
-		$sql5="SELECT `user`.`name`, `bidder`.`biddingTime`,`bidder`.`price` FROM `bidder` INNER JOIN `user`ON bidder.vehicleID=user.ID WHERE `bidder`.`vehicleID`=$cropID ORDER BY `bidder`.`price` DESC";
-		$result3 = $con->query( $sql5 );
-							if ( $result3->num_rows > 0 ) {
-								foreach ( $result3 as $row ) {
-		
-		?>
-      <tr>
-        <td><?=$row["name"]?></td>
-        <td><?=$row["biddingTime"] ?></td>
-        <td><?=$row["price"] ?></td>
-      </tr>
-     <?php }
-		} ?>
-    </tbody>
-  </table>
-      </div>
-  
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!--
-<div class="text-center">
-  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Watch Top Bidder</a>
-</div>  -->
-</li>
+                                <!-- <li><div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+                                    <div class="modal-dialog" role="document" style="width: 100%">
+                                    <div class="modal-content">
+                                    <div class="modal-header text-center">
+                                        <h4 class="modal-title w-100 font-weight-bold">Top Bidder</h4>
+                                    <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Bidder Name</th>
+                                        <th>Date</th>
+                                        <th>Bid Price</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php '
+                                        $sql5="SELECT `user`.`name`, `bidder`.`biddingTime`,`bidder`.`price` FROM `bidder` INNER JOIN `user`ON bidder.vehicleID=user.ID WHERE `bidder`.`vehicleID`=$cropID ORDER BY `bidder`.`price` DESC";
+                                        $result3 = $con->query( $sql5 );
+                                                            if ( $result3->num_rows > 0 ) {
+                                                                foreach ( $result3 as $row ) {
+                                        
+                                        ?>
+                                    <tr>
+                                        <td><?=$row["name"]?></td>
+                                        <td><?=$row["biddingTime"] ?></td>
+                                        <td><?=$row["price"] ?></td>
+                                    </tr>
+                                    <?php }
+                                        }   ' ?>
+                                    </tbody>
+                                </table>
+                                    </div>
+                                
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                                
+                                <div class="text-center">
+                                <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Watch Top Bidder</a>
+                                </div>  
+                                </li>
+                                -->
                             </ul>
 							
                              <div class="shop-product-heading">
