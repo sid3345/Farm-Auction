@@ -10,6 +10,8 @@
 ?>
 
 <?php
+
+
     $userid=$_SESSION["userid"];
     $sql="SELECT * FROM `farmer` WHERE `admin`=0 AND `ID`=$userid";
     $result=$con->query($sql);
@@ -84,12 +86,18 @@
                 </div>  
                 <div class="modal-footer">  
                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
+                    
                 </div>  
            </div>  
       </div>  
  </div>  
  <script>  
  $(document).ready(function(){  
+
+     setInterval(function(){
+        update_last_activity();
+     }, 5000);
+
       $('.view_data').click(function(){  
            var employee_id = $(this).attr("id");  
            $.ajax({  
@@ -102,5 +110,38 @@
                 }  
            });  
       });  
+
+// You have to write update_last_activity() function on every page to get latest activity
+      function update_last_activity()
+        {
+            $.ajax({
+                url:"update_last_activity.php",
+                success:function()
+                {
+
+                }
+            })
+        }
  });  
  </script>
+
+<!--
+<script> 
+$(document).ready(function(){
+
+ fetch_user();
+
+ function fetch_user()
+ {
+  $.ajax({
+   url:"fetch_user.php",
+   method:"POST",
+   success:function(data){
+    $('#user_details').html(data);
+   }
+  })
+ }
+ 
+});  
+</script>
+-->

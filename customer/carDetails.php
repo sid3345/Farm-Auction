@@ -10,7 +10,6 @@
 }
 
 $cropID=$_GET["id"];
-$_SESSION['ID'] = $cropID;
 
 //deposit amount checking
 $userID=$_SESSION["userid"];
@@ -675,14 +674,21 @@ alert( "Please give more than top bidding/base amount.")	;
                 <div class="modal-body" id="employee_detail">  
                 </div>  
                 <div class="modal-footer">  
-                     
-                     <div id="farmer_details"></div>  
+                
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                
+                      
                 </div>  
            </div>  
       </div>  
  </div>  
  <script>  
  $(document).ready(function(){  
+
+    setInterval(function(){
+        update_last_activity();
+    }, 5000);
+
       $('.view_data').click(function(){  
            var employee_id = $(this).attr("id");  
            $.ajax({  
@@ -694,25 +700,38 @@ alert( "Please give more than top bidding/base amount.")	;
                      $('#dataModal').modal("show");  
                 }  
            });  
-      });  
+      });
+// You have to write update_last_activity() function on every page to get latest activity
+      function update_last_activity()
+        {
+            $.ajax({
+                url:"update_last_activity.php",
+                success:function()
+                {
+
+                }
+            })
+        }  
  });  
  </script>
-<!-- Chat system script -->
-<script>  
+
+<!--
+<script> 
 $(document).ready(function(){
 
- fetch_farmer();
+ fetch_user();
 
- function fetch_farmer()
+ function fetch_user()
  {
   $.ajax({
-   url:"fetch_farmer.php",
+   url:"fetch_user.php",
    method:"POST",
    success:function(data){
-    $('#farmer_details').html(data);
+    $('#user_details').html(data);
    }
   })
  }
  
 });  
 </script>
+-->

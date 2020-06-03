@@ -1,5 +1,6 @@
 <?php
 //Connect to database
+date_default_timezone_set('Asia/Kolkata');
 
 function connection($setup=false){
 	if($setup){	
@@ -18,4 +19,6 @@ function connection($setup=false){
 	return($con);	
 }
  
+
 ?>
+
