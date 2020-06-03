@@ -41,8 +41,7 @@
                                 <h6 class="montserrat text-uppercase bottom-line">Quick Links</h6>
                                 <ul class="icons-list">
                                     <li><a href="#">Home</a></li>
-                                     
-                                    <li><a href="#">Top Bidders</a></li>
+                               
                                     <!--
                                     <li><a href="">Vehicles</a></li>
                                     <li><a href="#">About</a></li>
@@ -64,13 +63,6 @@
                         </div>
                         <!-- END CONTACT WIDGET -->
  
-
-
-                     
-
-
-
-
 
                     </div>
 

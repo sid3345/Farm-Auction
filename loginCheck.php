@@ -32,14 +32,14 @@
 			$okFlag=FALSE;
 		}
 		if(!isset($_REQUEST['address']) || ($_REQUEST['address'] == '')){
-				$message .= 'Please type your address.<br>';
+				$message = 'Please type your address.<br>';
 				$okFlag = FALSE;
 			}
 		if(!isset($_REQUEST['phone']) || ($_REQUEST['phone'] == '')){
-				$message .= 'Please type your phone number.<br>';
+				$message = 'Please type your phone number.<br>';
 				$okFlag = FALSE;
 			}if(!isset($_REQUEST['pass']) || ($_REQUEST['pass'] == '')){
-				$message .= 'Please type your password.<br>';
+				$message = 'Please type your password.<br>';
 				$okFlag = FALSE;
 			}
 		if(isset($_REQUEST["R_pass"]) && (isset($_POST["R_pass"]))){
@@ -71,7 +71,7 @@
 				?>
 				<script>
 				alert("database error");
-				location.href="<?=$_SESSION["directory"]?>login.php";
+				location.href="<?=$_SESSION["directory"]?>login.php#register";
 				</script>
 				<?php 
 				}
@@ -81,23 +81,26 @@
 			?>
 				<script>
 				alert("Your email already exists. Please choose another mail");
-				location.href="<?=$_SESSION["directory"]?>login.php";
+				location.href="<?=$_SESSION["directory"]?>login.php#register";
 				</script>
 				<?php 
 			}
 		}
 		else{
 			 $_SESSION["msg"]=$message;
-			header('location:login.php');
-			}    
+			#header('location:login.php#register');
+			?>
+				<script>
+				alert(<?php '$message' ?>);
+				location.href="<?=$_SESSION["directory"]?>login.php#register";
+				</script>
+				<?php 	
+		}    
 
 
 	echo($_SESSION["msg"]);
 	}
 	
-
-
-
 
 	
 	$Fname="";
@@ -127,14 +130,14 @@
 			$okFlag=FALSE;
 		}
 		if(!isset($_REQUEST['Faddress']) || ($_REQUEST['Faddress'] == '')){
-				$message .= 'Please type your address.<br>';
+				$message = 'Please type your address.<br>';
 				$okFlag = FALSE;
 			}
 		if(!isset($_REQUEST['Fphone']) || ($_REQUEST['Fphone'] == '')){
-				$message .= 'Please type your phone number.<br>';
+				$message = 'Please type your phone number.<br>';
 				$okFlag = FALSE;
 			}if(!isset($_REQUEST['Fpass']) || ($_REQUEST['Fpass'] == '')){
-				$message .= 'Please type your password.<br>';
+				$message = 'Please type your password.<br>';
 				$okFlag = FALSE;
 			}
 		if(isset($_REQUEST["FR_pass"]) && (isset($_POST["FR_pass"]))){
@@ -184,7 +187,7 @@
 				?>
 				<script>
 				alert("database error");
-				location.href="<?=$_SESSION["directory"]?>login.php";
+				location.href="<?=$_SESSION["directory"]?>login.php#farmer";
 				</script>
 				<?php 
 				}
@@ -194,14 +197,20 @@
 			?>
 				<script>
 				alert("Your email already exists. Please choose another mail");
-				location.href="<?=$_SESSION["directory"]?>login.php";
+				location.href="<?=$_SESSION["directory"]?>login.php#farmer";
 				</script>
 				<?php 
 			}
 		}
 		else{
 			 $_SESSION["msg"]=$message;
-			header('location:login.php');
+			#header('location:login.php#farmer');
+			?>
+				<script>
+				alert(<?php '$message' ?>);
+				location.href="<?=$_SESSION["directory"]?>login.php#farmer";
+				</script>
+				<?php 
 			}    
 
 
