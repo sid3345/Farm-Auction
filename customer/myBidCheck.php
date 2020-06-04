@@ -50,7 +50,7 @@ $result = $con->query( $sql );
 				}elseif($status==0){echo("Bidding closed by authority");}
 				else{ ?> <a href="<?=$_SESSION["directory"]?>customer/winner.php?id=<?=$vehicleID?>"><?php echo("Win"); if ($confirmbid==1){echo("(Confirmed)");} ?></a>   <?php }
 				;}elseif($status==0){echo("Bidding closed by authority");}
-			else{echo("Continue...");} ?></td>
+			else{echo("Bid in Progress");} ?></td>
       </tr>
       
       

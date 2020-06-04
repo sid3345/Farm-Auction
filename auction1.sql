@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2020 at 08:29 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: Jun 04, 2020 at 04:44 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -43,12 +43,13 @@ CREATE TABLE `bidder` (
 --
 
 INSERT INTO `bidder` (`ID`, `userID`, `vehicleID`, `biddingTime`, `price`, `email`, `confirmbid`) VALUES
-(17, 2, 84, '2020-04-11 00:16:40', 80010, 'sinha@gmail.com', 0),
-(18, 2, 83, '2020-04-11 00:17:55', 10010, 'sinha@gmail.com', 0),
-(19, 3, 82, '2020-04-11 00:19:36', 6010, 'santosh@gmail.com', 0),
-(20, 3, 81, '2020-04-11 00:20:49', 6000, 'santosh@gmail.com', 0),
-(21, 2, 82, '2020-04-11 00:25:09', 6020, 'santosh@gmail.com', 0),
-(22, 3, 83, '2020-04-11 00:25:50', 10050, 'sinha@gmail.com', 0);
+(17, 2, 84, '2020-04-11 00:16:40', 80, 'sinha@gmail.com', 0),
+(18, 2, 83, '2020-04-11 00:17:55', 100, 'sinha@gmail.com', 0),
+(19, 3, 82, '2020-06-01 21:15:18', 106, 'santosh@gmail.com', 0),
+(20, 3, 81, '2020-06-01 22:04:24', 231, 'santosh@gmail.com', 0),
+(21, 2, 82, '2020-04-11 00:25:09', 108, 'santosh@gmail.com', 0),
+(22, 3, 83, '2020-06-01 22:01:09', 110, 'sinha@gmail.com', 0),
+(23, 3, 84, '2020-06-01 22:04:58', 89, 'sinha@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -134,8 +135,8 @@ CREATE TABLE `farmer` (
   `address` varchar(150) CHARACTER SET utf8 NOT NULL,
   `state` varchar(30) CHARACTER SET utf8 NOT NULL,
   `pincode` int(10) NOT NULL,
-  `admin` int(5) NOT NULL DEFAULT 0,
-  `active` int(5) NOT NULL DEFAULT 0,
+  `admin` int(5) NOT NULL DEFAULT '0',
+  `active` int(5) NOT NULL DEFAULT '0',
   `image` varchar(300) CHARACTER SET utf8 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -145,7 +146,72 @@ CREATE TABLE `farmer` (
 
 INSERT INTO `farmer` (`ID`, `name`, `email`, `password`, `phone`, `address`, `state`, `pincode`, `admin`, `active`, `image`) VALUES
 (5, 'Santosh Savaliya', 'santosh@gmail.com', '587c57365b54e8283fd6b1ac24acf29d', '8285225252', 'Dadar', 'Maharashtra', 400006, 0, 0, ''),
-(6, 'Siddharth Sinha', 'sinha@gmail.com', '8e202be2f0771d8ffcead4bfbf50776b', '6563265235', 'Bhayandar', 'Thane', 400068, 0, 0, '');
+(6, 'Siddharth Sinha', 'sinha@gmail.com', '8e202be2f0771d8ffcead4bfbf50776b', '6563265235', 'Bhayandar', 'Thane', 400068, 0, 0, ''),
+(7, 'Prakash Tripathi', 'prakash@hotmail.com', '73803249c6667c5af2d51c0dedfae487', '986321568', 'New york', 'USA', 653214, 0, 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login_details`
+--
+
+CREATE TABLE `login_details` (
+  `login_details_id` int(11) NOT NULL,
+  `user_id` varchar(50) NOT NULL,
+  `last_activity` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `is_type` enum('no','yes') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `login_details`
+--
+
+INSERT INTO `login_details` (`login_details_id`, `user_id`, `last_activity`, `is_type`) VALUES
+(1, 'sinha@gmail.com', '2020-05-27 20:07:01', 'no'),
+(2, 'sinha@gmail.com', '2020-05-27 20:06:52', 'no'),
+(3, 'santosh@gmail.com', '2020-05-27 20:36:31', 'no'),
+(4, 'santosh@gmail.com', '2020-05-27 20:36:53', 'no'),
+(5, 'santosh@gmail.com', '2020-05-27 20:52:48', 'no'),
+(6, 'sinha@gmail.com', '2020-05-27 21:13:02', 'no'),
+(7, 'akash98@gmail.com', '2020-06-03 09:32:34', 'no'),
+(8, 'santosh@gmail.com', '2020-06-03 08:54:49', 'no'),
+(9, 'akash98@gmail.com', '2020-06-03 08:55:05', 'no'),
+(10, 'akash98@gmail.com', '2020-06-03 09:33:33', 'no'),
+(11, 'akash98@gmail.com', '2020-06-03 09:43:32', 'no'),
+(12, 'akash98@gmail.com', '2020-06-03 09:53:28', 'no'),
+(13, 'akash@gmail.com', '2020-06-03 10:37:19', 'no'),
+(14, 'akash98@gmail.com', '2020-06-03 11:02:14', 'no'),
+(15, 'akash98@gmail.com', '2020-06-03 11:37:07', 'no'),
+(16, 'santosh@gmail.com', '2020-06-03 11:44:47', 'no'),
+(17, 'santosh@gmail.com', '2020-06-03 11:58:03', 'no'),
+(18, 'akash98@gmail.com', '2020-06-03 14:15:38', 'no'),
+(19, 'akash98@gmail.com', '2020-06-03 14:56:26', 'no'),
+(20, 'sinha@gmail.com', '2020-06-03 14:46:51', 'no'),
+(21, 'sinha@gmail.com', '2020-06-03 14:59:14', 'no'),
+(22, 'akash98@gmail.com', '2020-06-03 14:59:33', 'no'),
+(23, 'santosh@gmail.com', '2020-06-03 17:01:47', 'no'),
+(24, 'virat89@gmail.com', '2020-06-03 17:01:38', 'no'),
+(25, 'santosh@gmail.com', '2020-06-03 19:11:32', 'no'),
+(26, 'virat89@gmail.com', '2020-06-03 19:09:33', 'no'),
+(27, 'virat89@gmail.com', '2020-06-03 19:10:49', 'no'),
+(28, 'virat89@gmail.com', '2020-06-03 19:11:10', 'no'),
+(29, 'santosh@gmail.com', '2020-06-03 19:13:45', 'no'),
+(30, 'santosh@gmail.com', '2020-06-03 19:16:54', 'no'),
+(31, 'virat89@gmail.com', '2020-06-03 19:17:53', 'no'),
+(32, 'santosh@gmail.com', '2020-06-03 19:21:46', 'no'),
+(33, 'virat89@gmail.com', '2020-06-03 19:22:00', 'no'),
+(34, 'santosh@gmail.com', '2020-06-03 19:30:08', 'no'),
+(35, 'virat89@gmail.com', '2020-06-03 19:30:15', 'no'),
+(36, 'virat89@gmail.com', '2020-06-03 19:30:37', 'no'),
+(37, 'virat89@gmail.com', '2020-06-03 19:32:06', 'no'),
+(38, 'santosh@gmail.com', '2020-06-03 19:32:24', 'no'),
+(39, 'santosh@gmail.com', '2020-06-03 19:37:03', 'no'),
+(40, 'virat89@gmail.com', '2020-06-03 19:37:15', 'no'),
+(41, 'santosh@gmail.com', '2020-06-03 19:44:11', 'no'),
+(42, 'virat89@gmail.com', '2020-06-03 19:44:20', 'no'),
+(43, 'santosh@gmail.com', '2020-06-03 19:56:47', 'no'),
+(44, 'virat89@gmail.com', '2020-06-03 19:56:58', 'no'),
+(45, 'virat89@gmail.com', '2020-06-04 14:34:31', 'no');
 
 -- --------------------------------------------------------
 
@@ -165,12 +231,16 @@ CREATE TABLE `notification` (
 --
 
 INSERT INTO `notification` (`ID`, `vehicleID`, `userID`, `role`) VALUES
-(52, 84, 2, 0),
-(53, 83, 2, 0),
+(52, 84, 2, 1),
+(53, 83, 2, 1),
 (54, 82, 3, 0),
 (55, 81, 3, 0),
 (56, 82, 2, 0),
-(57, 83, 3, 0);
+(57, 83, 3, 1),
+(58, 82, 3, 0),
+(59, 83, 3, 1),
+(60, 81, 3, 0),
+(61, 84, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -190,7 +260,8 @@ CREATE TABLE `review` (
 --
 
 INSERT INTO `review` (`ID`, `userID`, `vehicleID`, `comment`) VALUES
-(1, 8, 1, 'good seller!!');
+(1, 8, 1, 'good seller!!'),
+(2, 3, 82, 'mast banana hay... maja aagaya...');
 
 -- --------------------------------------------------------
 
@@ -205,8 +276,8 @@ CREATE TABLE `user` (
   `password` varchar(50) NOT NULL,
   `phone` varchar(15) NOT NULL,
   `address` varchar(150) NOT NULL,
-  `admin` int(5) DEFAULT 0,
-  `active` int(5) NOT NULL DEFAULT 0,
+  `admin` int(5) DEFAULT '0',
+  `active` int(5) NOT NULL DEFAULT '0',
   `image` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -244,10 +315,10 @@ CREATE TABLE `vehicle` (
 --
 
 INSERT INTO `vehicle` (`ID`, `name`, `type`, `catagory`, `startDate`, `EndDate`, `image`, `price`, `status`, `email`) VALUES
-(81, 'Potato', 'Vegetable', 10, '2020-04-10', '2020-12-12', '20200410194443_20200102175523_20190706221819_gixxer2.jpg', 5000, 1, 'santosh@gmail.com'),
-(82, 'Banana', 'Fruit', 15, '2020-04-10', '2020-08-08', '20200410195254_20190706221240_pajaro.jpg', 6000, 1, 'santosh@gmail.com'),
-(83, 'Onion', 'Vegetable', 13, '2020-04-10', '2020-10-09', '20200410200404_onion.jpg', 10000, 1, 'sinha@gmail.com'),
-(84, 'Tomato', 'Fruit', 15, '2020-04-10', '2020-09-20', '20200410200825_tomato.jpg', 80000, 1, 'sinha@gmail.com');
+(81, 'Potato', 'Vegetable', 10, '2020-04-10', '2020-12-12', '20200410194443_20200102175523_20190706221819_gixxer2.jpg', 50, 1, 'santosh@gmail.com'),
+(82, 'Banana', 'Fruit', 15, '2020-04-10', '2020-06-03', '20200410195254_20190706221240_pajaro.jpg', 60, 1, 'santosh@gmail.com'),
+(83, 'Onion', 'Vegetable', 13, '2020-04-10', '2020-06-01', '20200410200404_onion.jpg', 100, 1, 'sinha@gmail.com'),
+(84, 'Tomato', 'Fruit', 15, '2020-04-10', '2020-07-04', '20200410200825_tomato.jpg', 8, 1, 'sinha@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -357,6 +428,12 @@ ALTER TABLE `farmer`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `login_details`
+--
+ALTER TABLE `login_details`
+  ADD PRIMARY KEY (`login_details_id`);
+
+--
 -- Indexes for table `notification`
 --
 ALTER TABLE `notification`
@@ -415,7 +492,7 @@ ALTER TABLE `watchlist`
 -- AUTO_INCREMENT for table `bidder`
 --
 ALTER TABLE `bidder`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `catagory`
@@ -439,19 +516,25 @@ ALTER TABLE `deposit`
 -- AUTO_INCREMENT for table `farmer`
 --
 ALTER TABLE `farmer`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `login_details`
+--
+ALTER TABLE `login_details`
+  MODIFY `login_details_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -481,7 +564,7 @@ ALTER TABLE `vehicleimage`
 -- AUTO_INCREMENT for table `watchlist`
 --
 ALTER TABLE `watchlist`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
