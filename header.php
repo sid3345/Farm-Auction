@@ -227,16 +227,14 @@
                                     </a>
                                      
                                 </li>
-                               <?php } ?>
 
-                               <li>
-                                           
+                               <li>      
                                        <a href="<?=$_SESSION["directory"]?>customer/faq.php">FAQ</a>
                                     </li>
 
-                                 
+                            <?php     } ?>
+                                    
                                 <!-- End Promotion -->
-								
                           
 						   <?php
 										if((isset($_SESSION["isLogedIn"]) && $_SESSION["isLogedIn"]==true) &&(isset($_SESSION["role"]) && $_SESSION["role"]=="1")){ ?>

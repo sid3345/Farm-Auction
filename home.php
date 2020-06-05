@@ -85,7 +85,7 @@
                                     <div class="product-grid-inner">
                                         <div class="product-grid-img">
                                             <ul class="product-labels">
-                                                <li><?php  date_default_timezone_set("Asia/Dhaka");
+                                                <li><?php  date_default_timezone_set("Asia/Kolkata");
 										
 										$nowDate=date("Y-m-d");
 										 
@@ -195,7 +195,7 @@
                                     <div class="product-grid-inner">
                                         <div class="product-grid-img">
                                             <ul class="product-labels">
-                                                <li><?php  date_default_timezone_set("Asia/Dhaka");
+                                                <li><?php  date_default_timezone_set("Asia/Kolkata");
 										
 										$nowDate=date("Y-m-d");
 										 

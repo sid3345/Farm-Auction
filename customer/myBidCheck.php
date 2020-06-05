@@ -6,7 +6,7 @@ include("../dbCon.php");
     session_start();
 	}
 
-date_default_timezone_set("Asia/Dhaka");
+date_default_timezone_set("Asia/Kolkata");
 $today=date("Y-m-d");
  
 

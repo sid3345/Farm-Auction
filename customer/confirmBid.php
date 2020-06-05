@@ -9,7 +9,7 @@ if (session_status() == PHP_SESSION_NONE) {
 if(isset($_GET["cost"])){
 	$cost=$_GET["cost"];
 	$vid=$_GET["vid"];
-	date_default_timezone_set("Asia/Dhaka");
+	date_default_timezone_set("Asia/Kolkata");
 	$today=date("Y-m-d");
 	$userID=$_SESSION["userid"];
 	$Type=$_GET["Type"];
@@ -26,7 +26,7 @@ if(isset($_GET["cost"])){
 		$sql2="UPDATE `bidder` SET `confirmbid`=1 WHERE `userID`='$userID' AND `vehicleID`='$vid'";
 		$con->query($sql2);
 		
-		date_default_timezone_set("Asia/Dhaka");
+		date_default_timezone_set("Asia/Kolkata");
 		$set=strtotime("+1 weeks");
 		$setdate=date("Y-m-d",$set);
 	 

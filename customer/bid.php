@@ -15,7 +15,7 @@ $price=$_GET["bidprice"];
  $insertSQL=false;
  
 $userid=$_SESSION["userid"];
-date_default_timezone_set("Asia/Dhaka");
+date_default_timezone_set("Asia/Kolkata");
 $nowtime=date("Y-m-d H:i:s");
 
 $sql2="SELECT ID FROM `bidder` WHERE userID= '$userid' AND vehicleID='$vehicleID'";
