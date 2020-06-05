@@ -17,26 +17,35 @@
                         <li data-target="#mega-slider" data-slide-to="0" class="active"></li>
                         <li data-target="#mega-slider" data-slide-to="1"></li>
                         <li data-target="#mega-slider" data-slide-to="2"></li>
+                        <li data-target="#mega-slider" data-slide-to="3"></li>
+
                     </ol>
                     <div class="carousel-inner" role="listbox">
                         <div class="item active beactive">
-                            <img src="img/brand/brand1.jpg" alt="..." style="width: 100%; height: 10%;">
+                            <img src="img/brand/brand1.jpg" alt="brand1.jpg" style="width: 100%; height: 10%;">
                             <div class="carousel-caption">
                                 <h2>Welcome to Crop Auction</h2>
                                
                             </div>
                         </div>
                         <div class="item">
-                            <img src="img/brand/live-024049.jpg" alt="..." style="width: 100%; height: 10%;">
+                            <img src="img/brand/live-024049.jpg" alt="live-024049.jpg" style="width: 100%; height: 10%;">
                             <div class="carousel-caption">
                                 <h2>All kinds of Crops</h2>
                                  
                             </div>
                         </div>
                         <div class="item">
-                            <img src="img/brand/brand3.jpg" alt="..." style="width: 100%; height: 10%;">
+                            <img src="img/brand/brand3.jpg" alt="brand3.jpg" style="width: 100%; height: 10%;">
                             <div class="carousel-caption">
                                 <h2>BID The crop</h2>
+                                
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="img/brand/brand4.png" alt="brand4.png" style="width: 100%; height: 10%;">
+                            <div class="carousel-caption">
+                                <h2>Eliminate Middleman</h2>
                                 
                             </div>
                         </div>
