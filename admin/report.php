@@ -82,7 +82,7 @@
 
 					}
 				}
-		$sql5="SELECT COUNT(ID) as num FROM `vehicle` WHERE status=0";
+		$sql5="SELECT COUNT(ID) as num FROM `vehicle` WHERE status=1";
 		$result=$con->query($sql5);
 				if($result->num_rows>0){
 					foreach($result as $row){
