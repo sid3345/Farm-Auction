@@ -80,7 +80,7 @@
                             <div class="col-xs-3 custom-col-left form-group">
                             <div class="spa-search">
                                 <form action="<?=$_SESSION["directory"]?>customer/carsearch.php" method="post">
-                                    <input type="text" placeholder="search your crop ..." value="" class="form-control input-group-lg" style="width: 120%" name="Search">
+                                    <input type="text" placeholder="Search Crop ..." value="" class="form-control input-group-lg" style="width: 100%" name="Search">
                                     
                                 </form>
                                 
@@ -121,7 +121,7 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <a class="navbar-brand" href="<?=$_SESSION["directory"]?>index.php">
-                                <img id="logo-header" src="<?=$_SESSION["directory"]?>img/logo.png" alt="Logo" style="width: 200px; height: inherit;">
+                                <img id="logo-header" src="<?=$_SESSION["directory"]?>img/logo.jpg" alt="Logo" style="width: 100px; height: inherit;">
                             </a>
                         </div>
 
@@ -228,16 +228,14 @@
                                     </a>
                                      
                                 </li>
-                               <?php } ?>
 
-                               <li>
-                                           
+                               <li>      
                                        <a href="<?=$_SESSION["directory"]?>customer/faq.php">FAQ</a>
                                     </li>
 
-                                 
+                            <?php     } ?>
+                                    
                                 <!-- End Promotion -->
-								
                           
 						   <?php
 										if((isset($_SESSION["isLogedIn"]) && $_SESSION["isLogedIn"]==true) &&(isset($_SESSION["role"]) && $_SESSION["role"]=="1")){ ?>

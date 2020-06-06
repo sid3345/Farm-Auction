@@ -42,10 +42,6 @@ if($amount==""){
 }
 
 
-
-
-
-
 ?>
 
 <style>
@@ -77,8 +73,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', end
 <div class="container" style="min-height: 500px;">
 	<div class="row">
 		<div style=" margin-top: 60px;" id="heading">
-			<h1 style="text-align: center; color: crimson; ">Congratulation </h1>
-			<h3 style="text-align: center;">For winning the vehicle </h3>
+			<h1 style="text-align: center; color: crimson; ">Congratulations </h1>
+			<h3 style="text-align: center;">For winning the crop </h3>
 			<h4 style="text-align: center;">Winning Price: <?=$bidprice?> INR</h4>
 			
 		</div>
@@ -89,12 +85,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', end
 			<div style="margin-top: 50px;">
 			<div style="text-align: justify;">
 				<h3 style="text-decoration: underline; margin-bottom: 30px;">Payment</h3>
-				<strong>Bidders from the India: The only accepted payment methods for bidders are Wire Transfer and hand cash during delivery. We currently accept hand cash up to INR 5,00,000. All payments INR 5,00,000 or more must be made via Wire Transfer. </strong>
+				<strong>Bidders from the India: The only accepted payment methods for bidders are Net Banking and hand cash during delivery. We currently accept hand cash up to INR 5,00,000. All payments INR 5,00,000 or more must be made via Net Banking. </strong>
 
-				<p> A wire transfer is an electronic transfer of funds initiated by your bank. Following a winning bid, an email will be sent detailing the final amounts due, to be paid via Wire Transfer within 72 hours of receipt. If not paid, within 72 hours you acknowledge and agree to possible forfeiture of any fees and goods. To learn more about wire transfers, please read the FAQ on Wire Transfers for Vehicles and Heavy Industrial Equipment.</p>
+				<p> A Net Banking is an electronic transfer of funds initiated by your bank. Following a winning bid, an email will be sent detailing the final amounts due, to be paid via Net Banking within 72 hours of receipt. If not paid, within 72 hours you acknowledge and agree to possible forfeiture of any fees and goods. To learn more about Net Bankings, please read the FAQ on Net Bankings for Crop.</p>
 				<p> 
 				Crop Auction currently does not accept international credit cards, credit cards or PayPal based outside of the India, as a form of payment.</p>
-				<p>Wire transfer. A wire transfer is an electronic transfer of funds initiated by your bank. Following a winning bid, an email will be sent detailing the final amounts due, to be paid via Wire Transfer within 72 hours of receipt. If not paid, within 72 hours you acknowledge and agree to possible forfeiture of any fees and goods. To learn more about wire transfers, please read the FAQ on Wire Transfers for Vehicles and Heavy Industrial Equipment.</p>
 			</div>
 			
 			<div class="payment" style=" display: flow-root;">
@@ -102,7 +97,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', end
 					<form class="form-inline">
 					<label>Select delivery type: </label>
 						<select class="form-control " id="deliveryOption">
-							<option value="From Office Delivery">From Office Delivery</option>
+							<option value="From Office Delivery">Take Away Yourself</option>
 							<option value="Home Delivery">Home Delivery</option>
 						</select>
 						
@@ -164,22 +159,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', end
 			</div>
 	</div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

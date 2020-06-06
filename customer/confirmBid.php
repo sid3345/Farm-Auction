@@ -33,7 +33,7 @@ if(isset($_GET["cost"])){
 		
 		$to=$_SESSION["useremail"];
 		$sub="Bidding Confirmation";
-		$content="Thank you for confirming your delivery choice. We will deliver the crop on ".$setdate.". You can give money on bank. <br> <h3>Bank Information </h3> <br> ACC name: Sheikh parvez mahamud <br> Acc no: 255.105.7696 <br> Bank name: Central Bank of India <br> <br> For more information you can contact us via mobile or email. Thank you once again.";
+		$content="Thank you for confirming your delivery choice. We will deliver the crop on ".$setdate.". You can give money on bank. <br> <h3>Bank Information </h3> <br> account name: Crop Auction <br> Acc no: 255.105.7696 <br> Bank name: Central Bank of India <br> <br> For more information you can contact us via mobile or email. Thank you once again.";
 		
 		sendmail($to,$sub,$content);
 		if(isset($_SESSION["email"])){echo($_SESSION["email"]);}

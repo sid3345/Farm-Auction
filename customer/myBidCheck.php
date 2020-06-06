@@ -65,9 +65,10 @@ $result = $con->query( $sql );
 				}elseif($status==0){echo("Bidding closed by authority");}
 				else{ ?> <a href="<?=$_SESSION["directory"]?>customer/winner.php?id=<?=$vehicleID?>"><?php echo("Win"); if ($confirmbid==1){echo("(Confirmed)");} ?></a>   <?php }
 				;}elseif($status==0){echo("Bidding closed by authority");}
-			else{echo("Continue...");} ?></td>
+				else{echo("Bid in Progress");} ?></td>
 		<td><?php echo $active ?></td>
 		<td><button type="button" class="btn btn-info btn-xs start_chat" data-touserid="<?php echo $row['ID'] ?>" data-tousername="<?php echo $row['email'] ?>">Start Chat</button></td>
+			
       </tr>
       
       
