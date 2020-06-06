@@ -10,7 +10,6 @@
 }
 
 $cropID=$_GET["id"];
-$_SESSION['ID'] = $cropID;
 
 //deposit amount checking
 $userID=$_SESSION["userid"];
@@ -44,7 +43,8 @@ if($d_amount==""){
                 </div>
             </div>
             <!-- End Breadcrumb -->
-
+            
+            
             <section class="main-contain shop-product bg-white" style="padding-bottom: 0px;">
                 <div class="container">
                  <div>
@@ -456,7 +456,7 @@ if($d_amount==""){
 									<div class="product-grid-inner">
 										<div class="product-grid-img">
 											<ul class="product-labels">
-												<li><?php  date_default_timezone_set("Asia/Dhaka");
+												<li><?php  date_default_timezone_set("Asia/Kolkata");
 										
 										$nowDate=date("Y-m-d");
 										 
@@ -672,17 +672,27 @@ alert( "Please give more than top bidding/base amount.")	;
                      <button type="button" class="close" data-dismiss="modal">&times;</button>  
                      <h4 class="modal-title">Farmer Details</h4>  
                 </div>  
-                <div class="modal-body" id="employee_detail">  
+                <div class="modal-body" id="employee_detail"> 
+                
                 </div>  
                 <div class="modal-footer">  
-                     
-                     <div id="farmer_details"></div>  
+                <div id="user_model_details"></div>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                
+                      
                 </div>  
            </div>  
-      </div>  
+      </div> 
+       
  </div>  
+ 
  <script>  
  $(document).ready(function(){  
+
+    setInterval(function(){
+        update_last_activity();
+    }, 5000);
+
       $('.view_data').click(function(){  
            var employee_id = $(this).attr("id");  
            $.ajax({  
@@ -694,25 +704,64 @@ alert( "Please give more than top bidding/base amount.")	;
                      $('#dataModal').modal("show");  
                 }  
            });  
-      });  
+      });
+// You have to write update_last_activity() function on every page to get latest activity
+      function update_last_activity()
+        {
+            $.ajax({
+                url:"update_last_activity.php",
+                success:function()
+                {
+
+                }
+            })
+        }  
+//chat box
+        function make_chat_dialog_box(to_user_id, to_user_name)
+            {
+            var modal_content = '<div id="user_dialog_'+to_user_id+'" class="user_dialog" title="You have chat with '+to_user_name+'">';
+            modal_content += '<div style="height:400px; border:1px solid #ccc; overflow-y: scroll; margin-bottom:24px; padding:16px;" class="chat_history" data-touserid="'+to_user_id+'" id="chat_history_'+to_user_id+'">';
+            modal_content += '</div>';
+            modal_content += '<div class="form-group">';
+            modal_content += '<textarea name="chat_message_'+to_user_id+'" id="chat_message_'+to_user_id+'" class="form-control"></textarea>';
+            modal_content += '</div><div class="form-group" align="right">';
+            modal_content+= '<button type="button" name="send_chat" id="'+to_user_id+'" class="btn btn-info send_chat">Send</button></div></div>';
+            $('#user_model_details').html(modal_content);
+            }
+
+
+            $(document).on('click', '.start_chat', function(){
+                var to_user_id = $(this).data('touserid');
+                var to_user_name = $(this).data('tousername');
+                make_chat_dialog_box(to_user_id, to_user_name);
+                $("#user_dialog_"+to_user_id).dialog({
+                    autoOpen:false,
+                    width:400
+                });
+                $('#user_dialog_'+to_user_id).dialog('open');
+            });
+
+
  });  
  </script>
-<!-- Chat system script -->
-<script>  
+
+<!--
+<script> 
 $(document).ready(function(){
 
- fetch_farmer();
+ fetch_user();
 
- function fetch_farmer()
+ function fetch_user()
  {
   $.ajax({
-   url:"fetch_farmer.php",
+   url:"fetch_user.php",
    method:"POST",
    success:function(data){
-    $('#farmer_details').html(data);
+    $('#user_details').html(data);
    }
   })
  }
  
 });  
 </script>
+-->

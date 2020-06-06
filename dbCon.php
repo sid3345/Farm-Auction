@@ -1,5 +1,6 @@
 <?php
 //Connect to database
+date_default_timezone_set('Asia/Kolkata');
 
 function connection($setup=false){
 	if($setup){	
@@ -17,5 +18,15 @@ function connection($setup=false){
 		}
 	return($con);	
 }
- 
+function fetch_user_last_activity($email,$con)
+{
+ $query = " SELECT * FROM login_details WHERE user_id = '$email' ORDER BY last_activity DESC LIMIT 1";
+ $result = $con ->query($query);
+ foreach($result as $row)
+ {
+  return $row['last_activity'];
+ }
+}
+
 ?>
+

@@ -263,6 +263,15 @@
 			}else{
 				$_SESSION["right"]="login successfully";
 			$_SESSION["isLogedIn"]=true;
+			//for chat systenm
+			$sub_query = "
+        INSERT INTO login_details 
+        (user_id) 
+        VALUES ('".$row['email']."')
+		";
+		$con->query($sub_query);
+		$_SESSION['login_details_id'] = $con->insert_id;
+		
 
 			if($_SESSION["role"]==1){
 				header('location:admin/report.php');
