@@ -1,4 +1,5 @@
-<?php include("../fheader.php");
+<?php 
+     include("../fheader.php");
 	if(isset($_SESSION["isLogedIn"]) && $_SESSION["isLogedIn"]==false){
 	?>
 <script>
@@ -28,7 +29,7 @@
 <div class="container">
   <h2>TOP BIDDERS</h2> 
           
-  <table class="table table-striped">
+  <table id='top_bid' class="table table-striped">
     <thead>
       <tr style="text-align-last: center;">
         <th>Bidder Name</th>
@@ -48,7 +49,7 @@
 		$Sql="SELECT user.ID, user.name as userName, user.email as uemail ,vehicle.ID as VID, vehicle.name, vehicle.EndDate,vehicle.image, vehicle.price, bidder.price as bidprice, bidder.biddingTime as biddingTime, bidder.email FROM bidder INNER JOIN vehicle ON bidder.vehicleID=vehicle.ID INNER JOIN user ON bidder.userID=user.ID WHERE (bidder.vehicleID, bidder.price) IN (SELECT bidder.vehicleID, MAX(bidder.price) from bidder group by bidder.vehicleID) AND status=1 and active=0 ORDER BY `bidder`.`price` DESC";
 
 
-    $result1 = $con->query( $Sql );
+          $result1 = $con->query( $Sql );
 			if ( $result1->num_rows > 0 ) {
 			foreach ( $result1 as $row ) {
 
@@ -118,7 +119,7 @@
 
      setInterval(function(){
         update_last_activity();
-        fetch_user();
+        //fetch_user();
      }, 5000);
 
       $('.view_data').click(function(){  
@@ -133,6 +134,10 @@
                 }  
            });  
       });  
+
+      var updater = setInterval(function () {
+        $('table#top_bid').load ('ftopBidder.php table', 'update=true');
+    }, 5000);
 
 // You have to write update_last_activity() function on every page to get latest activity
       function update_last_activity()
@@ -149,11 +154,10 @@
         function fetch_user()
         {
             $.ajax({
-                url:"ftopBidder.php",
-                success:function()
-                {
-
-                }
+                method:"POST",
+               success:function(data){
+               $('#top_bid').html(data);
+               }
             })
         }
 
