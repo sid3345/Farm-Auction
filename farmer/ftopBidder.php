@@ -151,16 +151,6 @@
             })
         }
 
-        function fetch_user()
-        {
-            $.ajax({
-                method:"POST",
-               success:function(data){
-               $('#top_bid').html(data);
-               }
-            })
-        }
-
 
         function make_chat_dialog_box(to_user_id, to_user_name)
  {
