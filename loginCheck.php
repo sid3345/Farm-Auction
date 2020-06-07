@@ -91,7 +91,7 @@
 			#header('location:login.php#register');
 			?>
 				<script>
-				alert(<?php '$message' ?>);
+				alert(<?php $_SESSION["msg"] ?>);
 				location.href="<?=$_SESSION["directory"]?>login.php#register";
 				</script>
 				<?php 	
@@ -207,7 +207,7 @@
 			#header('location:login.php#farmer');
 			?>
 				<script>
-				alert(<?php '$message' ?>);
+				alert(<?php $_SESSION["msg"] ?>);
 				location.href="<?=$_SESSION["directory"]?>login.php#farmer";
 				</script>
 				<?php 
