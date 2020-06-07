@@ -1,4 +1,5 @@
-<?php include("../fheader.php"); ?>
+<?php include("../fheader.php");
+ ?>
 <?php
 if((isset($_SESSION["isLogedIn"]) && $_SESSION["isLogedIn"]==false) || (isset($_SESSION["role"])&& $_SESSION["role"]==1)){
 	?>
