@@ -24,12 +24,9 @@
 
 ?>
 
-  
-
 <div class="container">
   <h2>TOP BIDDERS</h2> 
-          
-  <table id='top_bid' class="table table-striped">
+  <table id='status' class="table table-striped">
     <thead>
       <tr style="text-align-last: center;">
         <th>Bidder Name</th>
@@ -59,6 +56,7 @@
                     $current_timestamp = date('Y-m-d H:i:s', $current_timestamp);
                
                     $user_last_activity = fetch_user_last_activity($row['uemail'],$con);
+                    
                     if($user_last_activity > $current_timestamp)
                     {
                     $active = '<span class="label label-success">Online</span>';
@@ -80,14 +78,13 @@
         <td><?=$row["price"]?></td> 
         <td><?=$row["bidprice"]?></td>
         <td><?=$row["biddingTime"]?></td>
-        <td><?php echo $active ?></td>
+        <td>  <?php echo $active ?> </td>
 		<td><button type="button" class="btn btn-info btn-xs start_chat" data-touserid="<?php echo $row['ID'] ?>" data-tousername="<?php echo $row['uemail'] ?>">Start Chat</button></td>
       </tr>
        <?php } }} ?>
     </tbody>
   </table>
 </div>
-
 
 
 	<!-- Footer Section -->
@@ -122,7 +119,12 @@
         //fetch_user();
      }, 5000);
 
-      $('.view_data').click(function(){  
+
+      var updater = setInterval(function () {
+        $('table#status').load('ftopBidder.php table#status', update=true);          
+      }, 5000);
+     
+     $(document).on('click', '.view_data', function(){ 
            var employee_id = $(this).attr("id");  
            $.ajax({  
                 url:"select.php",  
@@ -133,11 +135,7 @@
                      $('#dataModal').modal("show");  
                 }  
            });  
-      });  
-
-      var updater = setInterval(function () {
-        $('table#top_bid').load ('ftopBidder.php table', 'update=true');
-    }, 5000);
+      });    
 
 // You have to write update_last_activity() function on every page to get latest activity
       function update_last_activity()
