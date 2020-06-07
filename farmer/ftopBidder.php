@@ -134,10 +134,10 @@
                 }  
            });  
       });  
-
+/*
       var updater = setInterval(function () {
         $('table#top_bid').load ('ftopBidder.php table', 'update=true');
-    }, 5000);
+    }, 5000);  */
 
 // You have to write update_last_activity() function on every page to get latest activity
       function update_last_activity()

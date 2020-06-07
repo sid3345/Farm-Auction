@@ -67,6 +67,7 @@ $result = $con->query( $sql );
 				;}elseif($status==0){echo("Bidding closed by authority");}
 				else{echo("Bid in Progress");} ?></td>
 		<td><?php echo $active ?></td>
+		<!--Below ID is vehicle ID. We have to change -->
 		<td><button type="button" class="btn btn-info btn-xs start_chat" data-touserid="<?php echo $row['ID'] ?>" data-tousername="<?php echo $row['email'] ?>">Start Chat</button></td>
 			
       </tr>
