@@ -45,7 +45,7 @@
     </thead>
     <tbody style="text-align-last: center;">
      <?php
-		$Sql="SELECT user.name as userName, user.email as uemail ,vehicle.ID as VID, vehicle.name, vehicle.EndDate,vehicle.image, vehicle.price, bidder.price as bidprice, bidder.biddingTime as biddingTime, bidder.email FROM bidder INNER JOIN vehicle ON bidder.vehicleID=vehicle.ID INNER JOIN user ON bidder.userID=user.ID WHERE (bidder.vehicleID, bidder.price) IN (SELECT bidder.vehicleID, MAX(bidder.price) from bidder group by bidder.vehicleID) AND status=1 and active=0 ORDER BY `bidder`.`price` DESC";
+		$Sql="SELECT user.ID, user.name as userName, user.email as uemail ,vehicle.ID as VID, vehicle.name, vehicle.EndDate,vehicle.image, vehicle.price, bidder.price as bidprice, bidder.biddingTime as biddingTime, bidder.email FROM bidder INNER JOIN vehicle ON bidder.vehicleID=vehicle.ID INNER JOIN user ON bidder.userID=user.ID WHERE (bidder.vehicleID, bidder.price) IN (SELECT bidder.vehicleID, MAX(bidder.price) from bidder group by bidder.vehicleID) AND status=1 and active=0 ORDER BY `bidder`.`price` DESC";
 
 
     $result1 = $con->query( $Sql );
@@ -80,7 +80,7 @@
         <td><?=$row["bidprice"]?></td>
         <td><?=$row["biddingTime"]?></td>
         <td><?php echo $active ?></td>
-		<td><button type="button" class="btn btn-info btn-xs start_chat" data-touserid="<?php echo $row['VID'] ?>" data-tousername="<?php echo $row['uemail'] ?>">Start Chat</button></td>
+		<td><button type="button" class="btn btn-info btn-xs start_chat" data-touserid="<?php echo $row['ID'] ?>" data-tousername="<?php echo $row['uemail'] ?>">Start Chat</button></td>
       </tr>
        <?php } }} ?>
     </tbody>
