@@ -36,11 +36,6 @@ $result = $con->query( $sql );
 
 ?>
 
-        
-  
-    
-
-
 	<tr style="text-align: center;">
         <td style="cursor:pointer; color:#00008B; text-decoration:none;" onclick="location.href='carDetails.php?id=<?php echo $vehicleID ?>'"><?=$row["name"]?></td>
         <td><?=$row["email"]?></td>
@@ -67,7 +62,6 @@ $result = $con->query( $sql );
 				;}elseif($status==0){echo("Bidding closed by authority");}
 				else{echo("Bid in Progress");} ?></td>
 		<td><?php echo $active ?></td>
-		<!--Below ID is vehicle ID. We have to change -->
 		<td><button type="button" class="btn btn-info btn-xs start_chat" data-touserid="<?php echo $row['ID'] ?>" data-tousername="<?php echo $row['email'] ?>">Start Chat</button></td>
 			
       </tr>
