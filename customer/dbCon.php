@@ -20,7 +20,7 @@ function fetch_user_last_activity($email, $connect)
   return $row['last_activity'];
  }
 }
-
+// Below Code is for Messaging.
 function fetch_user_chat_history($from_user_id, $to_user_id, $connect)
 {
  $query = "
@@ -62,13 +62,13 @@ function fetch_user_chat_history($from_user_id, $to_user_id, $connect)
 
 function get_user_name($user_id, $connect)
 {
- $query = "SELECT email FROM login WHERE ID = '$user_id'";
+ $query = "SELECT name FROM farmer WHERE email = '$user_id'";
  $statement = $connect->prepare($query);
  $statement->execute();
  $result = $statement->fetchAll();
  foreach($result as $row)
  {
-  return $row['email'];
+  return $row['name'];
  }
 }
 

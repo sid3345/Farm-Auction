@@ -8,7 +8,7 @@ session_start();
 
 // Below query fetches email from database
 
-$query="SELECT email FROM vehicle WHERE ID = '".$_POST["to_user_id"]."'";
+$query="SELECT email FROM user WHERE ID = '".$_POST["to_user_id"]."'";
 $statement = $connect->prepare($query);
  $statement->execute();
  $result = $statement->fetchAll();
@@ -17,7 +17,7 @@ $statement = $connect->prepare($query);
   $email= $row['email'];
  }
 
- $query="SELECT email FROM user WHERE ID = '".$_SESSION['userid']."'";
+ $query="SELECT email FROM Farmer WHERE ID = '".$_SESSION['userid']."'";
  $statement = $connect->prepare($query);
   $statement->execute();
   $result = $statement->fetchAll();
