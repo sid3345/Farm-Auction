@@ -14,8 +14,6 @@
 
 <div class="container">
   <h2>My Bidding List</h2>
-
-  <h6> <b>Note:</b> You can chat with seller only if you are highest bidder </h6> 
   <table class="table table-hover">
     <thead >
       <tr style="text-align-last: center;">
