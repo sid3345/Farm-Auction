@@ -23,7 +23,7 @@
         <th>Bidding End Date</th>
         <!-- <th>Image</th> -->
         <th>Base Price</th>
-        <th>Top Bid Price</th>
+        <th>Your Bid Price</th>
         <th>Bidding Time</th>
         <th>Status</th>
         <th>Active</th>
@@ -102,15 +102,30 @@ $(document).ready(function(){
   $('#user_model_details').html(modal_content);
  }
 
+
  $(document).on('click', '.start_chat', function(){
   var to_user_id = $(this).data('touserid');
   var to_user_name = $(this).data('tousername');
+  
+//below ajax remove notification when message gets seen
+  $.ajax({
+   url:"remove_notification.php",
+   method:"POST",
+   data:{to_user_id:to_user_id},
+   success:function(){
+    
+   }
+  })
+
+
   make_chat_dialog_box(to_user_id, to_user_name);
   $("#user_dialog_"+to_user_id).dialog({
    autoOpen:false,
    width:400
   });
   $('#user_dialog_'+to_user_id).dialog('open');
+  
+
  });
 
 /* Below code is for Insert message */

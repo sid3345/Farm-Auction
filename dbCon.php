@@ -18,6 +18,7 @@ function connection($setup=false){
 		}
 	return($con);	
 }
+
 function fetch_user_last_activity($email,$con)
 {
  $query = " SELECT * FROM login_details WHERE user_id = '$email' ORDER BY last_activity DESC LIMIT 1";
@@ -26,6 +27,26 @@ function fetch_user_last_activity($email,$con)
  {
   return $row['last_activity'];
  }
+}
+
+// Below function shows notification for both
+
+function count_unseen_message($from_user_id, $to_user_id, $con)
+{
+ $query = "
+ SELECT * FROM chat_message 
+ WHERE from_user_id = '$from_user_id' 
+ AND to_user_id = '$to_user_id' 
+ AND status = '1'
+ ";
+ $result = $con ->query($query);
+ $count = $result->num_rows;
+ $output = '';
+ if($count > 0)
+ {
+  $output = '<span class="label label-success">'.$count.'</span>';
+ }
+ return $output;
 }
 
 ?>

@@ -9,6 +9,14 @@ include("../dbCon.php");
 date_default_timezone_set("Asia/Kolkata");
 $today=date("Y-m-d");
 
+$query="SELECT email FROM user WHERE ID = '".$_SESSION['userid']."'";
+$result2=$con->query( $query);
+if ( $result2->num_rows > 0 ) {
+	foreach ( $result2 as $row ) {
+		$uemail=$row['email'];
+	}
+}
+
 
 $userID=$_SESSION["userid"];
 $sql="SELECT vehicle.ID,vehicle.name,vehicle.email,vehicle.EndDate,vehicle.image,vehicle.price as `baseprice`, vehicle.status , bidder.biddingTime,MAX(bidder.price) as `bidprice`, bidder.confirmbid FROM `bidder` INNER JOIN vehicle ON vehicle.ID=bidder.vehicleID INNER JOIN user ON bidder.userID=user.ID WHERE user.ID='$userID' GROUP BY bidder.vehicleID ORDER BY `bidder`.`biddingTime` DESC";
@@ -66,7 +74,7 @@ $result = $con->query( $sql );
 				else{ ?> <a href="<?=$_SESSION["directory"]?>customer/winner.php?id=<?=$vehicleID?>"><?php echo("Win"); if ($confirmbid==1){echo("(Confirmed)");} ?></a>   <?php }
 				;}elseif($status==0){echo("Bidding closed by authority");}
 				else{echo("Bid in Progress");} ?></td>
-		<td><?php echo $active ?></td>
+		<td><?php echo $active.' '.count_unseen_message($row['email'], $uemail, $con) ?></td>
 		<!--Below ID is vehicle ID. We have to change -->
 		<td><button type="button" class="btn btn-info btn-xs start_chat" data-touserid="<?php echo $row['ID'] ?>" data-tousername="<?php echo $row['email'] ?>">Start Chat</button></td>
 			

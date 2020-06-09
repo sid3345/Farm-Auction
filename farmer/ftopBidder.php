@@ -13,6 +13,8 @@
 <?php
 
 
+
+
     $userid=$_SESSION["userid"];
     $sql="SELECT * FROM `farmer` WHERE `admin`=0 AND `ID`=$userid";
     $result=$con->query($sql);
@@ -78,7 +80,7 @@
         <td><?=$row["price"]?></td> 
         <td><?=$row["bidprice"]?></td>
         <td><?=$row["biddingTime"]?></td>
-        <td>  <?php echo $active ?> </td>
+        <td>  <?php echo $active.' '.count_unseen_message($row['uemail'], $email, $con) ?> </td>
 		<td><button type="button" class="btn btn-info btn-xs start_chat" data-touserid="<?php echo $row['ID'] ?>" data-tousername="<?php echo $row['uemail'] ?>">Start Chat</button></td>
       </tr>
        <?php } }} ?>
@@ -167,6 +169,17 @@
  $(document).on('click', '.start_chat', function(){
   var to_user_id = $(this).data('touserid');
   var to_user_name = $(this).data('tousername');
+
+//below ajax remove notification when message gets seen 
+  $.ajax({
+   url:"remove_notification.php",
+   method:"POST",
+   data:{to_user_id:to_user_id},
+   success:function(){
+    
+   }
+  })
+
   make_chat_dialog_box(to_user_id, to_user_name);
   $("#user_dialog_"+to_user_id).dialog({
    autoOpen:false,
