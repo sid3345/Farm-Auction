@@ -34,7 +34,7 @@ include('dbCon.php');
       }  
       $output .= "</table></div>";  
       echo $output;
-      
+/*
       $output = '
 <table class="table table-bordered table-striped">
  <tr>
@@ -70,6 +70,6 @@ $status = '<span class="label label-danger">Offline</span>';
 
 $output .= '</table>';
 
-echo $output;
+echo $output; */
  }  
  ?>

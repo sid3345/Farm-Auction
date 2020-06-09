@@ -33,7 +33,7 @@ include('dbCon.php');
       }  
       $output .= "</table></div>";  
       echo $output;  
-
+/*
       $output = '
 <table class="table table-bordered table-striped">
  <tr>
@@ -68,7 +68,7 @@ foreach($result as $row)
 
 $output .= '</table>';
 
-echo $output;
+echo $output; */
  }  
  ?>
 <!-- Dont move below code -->
