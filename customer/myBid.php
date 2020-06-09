@@ -18,7 +18,7 @@
     <thead >
       <tr style="text-align-last: center;">
         <th>Crop Name</th>
-        <th>Farmer email</th>
+        <th>Farmer Email</th>
         <th>Bidding End Date</th>
         <!-- <th>Image</th> -->
         <th>Base Price</th>

@@ -36,8 +36,8 @@
         <th>Crop Name</th>
         <th>Bidding End Date</th>
         
-        <th>Base price</th>
-        <th>top bid price</th>
+        <th>Base Price</th>
+        <th>Top Bid Price</th>
         <th>Bid Time</th>
         <th>Active</th>
         <th>Action</th>
