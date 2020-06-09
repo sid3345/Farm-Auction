@@ -14,7 +14,6 @@
 
 <div class="container">
   <h2>My Bidding List</h2>
-     
   <table class="table table-hover">
     <thead >
       <tr style="text-align-last: center;">
@@ -23,7 +22,7 @@
         <th>Bidding End Date</th>
         <!-- <th>Image</th> -->
         <th>Base Price</th>
-        <th>Your Bid Price</th>
+        <th>My Bid Price</th>
         <th>Bidding Time</th>
         <th>Status</th>
         <th>Active</th>
