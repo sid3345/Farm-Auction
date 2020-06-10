@@ -2,10 +2,6 @@
 include("header.php");
 include("email.php");
 
-
-
-
-
 if(isset($_POST["submit"])){
 	$to = $_POST["email"];
 $subject = "Password recovery";
@@ -13,15 +9,30 @@ $message = "";
 
 $sql="SELECT * FROM `user` WHERE email='$to'";
 	
-		$result=$con->query($sql);
-		if($result->num_rows > 0){
+$result=$con->query($sql);
+
+$sqlF="SELECT * FROM `farmer` WHERE email='$to'";
 	
-		foreach($result as $row){
-			$ID=$row["ID"];
-		}
+$resultF=$con->query($sqlF);
+
+
+		if($result->num_rows > 0 || $resultF->num_rows > 0){
+			
+			if($result->num_rows > 0) {
+				foreach($result as $row){
+					$email=$row["email"];
+				}
+			}
+
+			if($resultF->num_rows > 0) {
+				foreach($resultF as $row){
+					$email=$row["email"];
+				}
+			}
+
 	$_SESSION["code"] = substr(md5(uniqid(rand(),1)),3,10);
 			//echo($_SESSION["password"]);exit();
-	$message="your security code is <strong> ".$_SESSION["code"]."</strong><br>"."Please don't share your password with others."."http://localhost/auction/new_password.php?id=".$ID;
+	$message="your security code is <strong> ".$_SESSION["code"]."</strong><br>"."Please don't share your password with others."."http://localhost/auction/new_password.php?id=".$email;
 	$confirmMsg="Security code is send to your email.kindly check the mail";
 	
 sendmail($to,$subject,$message);
@@ -31,9 +42,6 @@ sendmail($to,$subject,$message);
 	
 }
 ?>
-
-
-
 
 
 <link href="css/forgotpassword.css" rel="stylesheet" />

@@ -7,7 +7,7 @@ include("header.php");
 	<?php
 		if(isset($_POST["submit"])){
 			if(isset($_GET["id"])){
-			$ID=$_GET["id"];
+			$email=$_GET["id"];
 			}
 			
 			$password=md5($_POST["pass"]);
@@ -15,10 +15,24 @@ include("header.php");
 			$code=$_POST["code"];
 			if(isset($code)&& $_SESSION["code"]==$code){
 				if($password==$Confirm_password){
-					$sql="UPDATE user SET password='$password' WHERE ID = '$ID'";
+					$sql="UPDATE user SET password='$password' WHERE email = '$email'";
+					// If you are using UPDATE in query then its always TRUE.
+					//echo($sql);exit();
+						if($con->query($sql)==True){
+							$message="Update password successfully 123";
+							echo($message);
+							unset($_SESSION["code"]);
+							$_SESSION["code"]="djbjsbdjkdhuhewbkb2j32y392ybchery3t7fevwhytr837gvhjsdvfyu3t7qchdb";
+						}else{
+							$message="database error";
+							echo($message);
+						}
+
+					$sql="UPDATE farmer SET password='$password' WHERE email = '$email'";
 					//echo($sql);exit();
 						if($con->query($sql)){
 							$message="Update password successfully ";
+							echo($message);
 							unset($_SESSION["code"]);
 							$_SESSION["code"]="djbjsbdjkdhuhewbkb2j32y392ybchery3t7fevwhytr837gvhjsdvfyu3t7qchdb";
 						}else{
