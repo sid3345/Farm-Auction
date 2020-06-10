@@ -16,19 +16,21 @@ include("header.php");
 			if(isset($code)&& $_SESSION["code"]==$code){
 				if($password==$Confirm_password){
 					$sql="UPDATE user SET password='$password' WHERE email = '$email'";
-					$result=$con->query($sql);
-					
-					$sqlf="UPDATE farmer SET password='$password' WHERE email = '$email'";
-					$resultf=$con->query($sqlf);
-
-    					if(isset($result->num_rows) && ($result->num_rows)>0){
+					// If you are using UPDATE in query then its always TRUE.
+					//echo($sql);exit();
+						if($con->query($sql)==True){
 							$message="Update password successfully 123";
 							#echo($message);
 							unset($_SESSION["code"]);
 							$_SESSION["code"]="djbjsbdjkdhuhewbkb2j32y392ybchery3t7fevwhytr837gvhjsdvfyu3t7qchdb";
+						}else{
+							$message="database error";
+							echo($message);
 						}
 
-					elseif(isset($resultf->num_rows) && ($resultf->num_rows)>0){
+					$sql="UPDATE farmer SET password='$password' WHERE email = '$email'";
+					//echo($sql);exit();
+						if($con->query($sql)){
 							$message="Update password successfully ";
 							#echo($message);
 							unset($_SESSION["code"]);
@@ -115,4 +117,3 @@ include("header.php");
 include("footer.php");
 
 	?>
- 
