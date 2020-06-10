@@ -132,6 +132,7 @@ $(document).ready(function(){
  $(document).on('click', '.send_chat', function(){
   var to_user_id = $(this).attr('id');
   var chat_message = $('#chat_message_'+to_user_id).val();
+  if (chat_message.length >0){
   $.ajax({
    url:"insert_chat.php",
    method:"POST",
@@ -142,6 +143,7 @@ $(document).ready(function(){
     $('#chat_history_'+to_user_id).html(data);
    }
   })
+  }
  });
 
  function fetch_user_chat_history(to_user_id)
