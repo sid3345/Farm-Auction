@@ -14,7 +14,12 @@ if(isset($_GET["cost"])){
 	$userID=$_SESSION["userid"];
 	$Type=$_GET["Type"];
 	 
-	
+	$sqlF="SELECT name,email from vehicle where ID='$vid'";
+	$result = $con->query( $sqlF );
+	foreach($result as $row){
+		$vname=$row["name"];
+		$email=$row["email"];
+	}
 	
 	
 	
@@ -34,8 +39,9 @@ if(isset($_GET["cost"])){
 		$to=$_SESSION["useremail"];
 		$sub="Bidding Confirmation";
 		$content="Thank you for confirming your delivery choice. We will deliver the crop on ".$setdate.". You can give money on bank. <br> <h3>Bank Information </h3> <br> account name: Crop Auction <br> Acc no: 255.105.7696 <br> Bank name: Central Bank of India <br> <br> For more information you can contact us via mobile or email. Thank you once again.";
-		
+		$contentF="".$to." confirmed bid on your crop-" .$vname." on ".$setdate.".";
 		sendmail($to,$sub,$content);
+		sendmail($email,$sub,$contentF);
 		if(isset($_SESSION["email"])){echo($_SESSION["email"]);}
 	
 	}else{
