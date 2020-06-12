@@ -50,10 +50,12 @@ if($insertSQL==true){
 	}
 $to=$_SESSION["useremail"];
 $content="your bidding price is ₹".$price.".  Please stay with us to know your bidding result.<br> Thank you.";
+$contentF="".$to." bid on your crop-".$vehicle.", ₹".$price.".  Please stay with us to know your bidding result.<br> Thank you.";
 
 if($con->query($sql)){
 	
 		sendmail($to,$subject,$content);
+		sendmail($email,$subject,$contentF);
 	
 		$_SESSION["bidmsg"]="Bidding successfully done";
 		header("location:carDetails.php?id=$vehicleID");
