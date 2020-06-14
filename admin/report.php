@@ -327,8 +327,15 @@ chart.render();
 });
  
 chart2.render();
-		   
 </script>  
+
+<!--Map-->
+  <h1 style="text-align-last: center;">Farmers Location</h1>
+
+<script src="https://apis.mapmyindia.com/advancedmaps/v1/zmu2tzu3bz6ltcjewcfdd5xaagcw8agj/map_load?v=1.3"></script>
+<style> html, body, #map {margin: 0;padding: 0;width: 100%;height: 100%;} </style>
+<div id="map"></div>;
+<script>	var map=new MapmyIndia.Map("map",{ center:[19.2856,72.8691],zoomControl: true,hybrid:true });	</script>
 
 </body>
 </html>       

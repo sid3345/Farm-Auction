@@ -56,56 +56,6 @@ if(isset($_POST["submit"])){
 			$okFlag = FALSE;
 		}
 	
-	// image upload
-			
-			$target_dir = "../img/vehicle/";
-			$newName=date('YmdHis_');
-			$newName .=basename($_FILES["fileToUpload"]["name"]);
-			$target_file = $target_dir.$newName;
-		
-			$uploadOk = 1;
-			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-			// Check if image file is a actual image or fake image
-			
-				$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-				if($check !== false) {
-					//echo "File is an image - " . $check["mime"] . ".";
-					$uploadOk = 1;
-				} else {
-					$message= "File is not an image.";
-					$uploadOk = 0;
-				}
-			
-			// Check if file already exists
-			if (file_exists($target_file)) {
-				$message = "Sorry, file already exists.";
-				$uploadOk = 0;
-			}
-			// Check file size
-			if ($_FILES["fileToUpload"]["size"] > 200000000) {
-				$message= "Sorry, your file is too large. upload image within 2MB";
-				$uploadOk = 0;
-			}
-			// Allow certain file formats
-			if($imageFileType != "jpg" && $imageFileType != "PNG" && $imageFileType != "jpeg"
-			&& $imageFileType != "gif" ) {
-				$message = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-				$uploadOk = 0;
-			}
-			// Check if $uploadOk is set to 0 by an error
-			if ($uploadOk == 0) {
-				$message = "Sorry, your file was not uploaded.";
-			// if everything is ok, try to upload file
-			} else {
-				if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-					$message = "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-					
-				} else {
-					$message = "Sorry, there was an error uploading your file.";
-				}
-			}
-			
-	
 	
 	
 	
@@ -118,10 +68,9 @@ if(isset($_POST["submit"])){
 		$catagory=$_REQUEST["catagory"];
 		$type=$_REQUEST["type"];
 		$price=$_REQUEST["price"];
-		$image=$newName;
 
 
-		$sql="INSERT INTO `vehicle`(  `name`, `type`,`email`, `catagory`, `startDate`, `EndDate`, `image`,`price`, `status`) VALUES ( '$name','$type','$email','$catagory','$startDate','$EndDate','$image','$price','1')";
+		$sql="INSERT INTO `vehicle`(  `name`, `type`,`email`, `catagory`, `startDate`, `EndDate`,`price`, `status`) VALUES ( '$name','$type','$email','$catagory','$startDate','$EndDate','$price','1')";
 		
 		if($con->query($sql)){
 			
@@ -188,10 +137,6 @@ if(isset($_POST["submit"])){
 										<input type="text" class="form-control" name="name"  required/>
 									</div>
 
-									<div class="col-md-6 form-group">
-										<label>Image</label>
-										<input type="file" class="form-control " name="fileToUpload" required />
-									</div>
 
 									<div class="col-md-6 form-group">
 										<label> Email</label>
