@@ -126,6 +126,8 @@ if(isset($_POST["submit"])){
 		$catagory=$_REQUEST["catagory"];
 		$type=$_REQUEST["type"];
 		$price=$_REQUEST["price"];
+
+		if($uploadOk==1){
 		$image=$newName;
 
 
@@ -137,6 +139,13 @@ if(isset($_POST["submit"])){
 			}
 
 		if($con->query($sql)){
+			?>
+			<script>
+			if (window.confirm("Press OK to Continue.")) {
+			  window.location.href = "Addcropdetail.php?id=<?=$row["ID"]?>";
+			}
+			</script>;
+			<?php
 			$_SESSION["msg"]="Successfully update crop";
 		}else{
 			$_SESSION["msg"]="database error.";
