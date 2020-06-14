@@ -252,7 +252,7 @@ if(isset($_POST["submit"])){
 			}
 		}		
 	 
-	if($okFlag){
+	if($okFlag && $uploadOk==1){
 	
 		$getID=$_GET["id"];
 		$name=$_REQUEST["name"];
