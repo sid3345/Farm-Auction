@@ -42,7 +42,9 @@ if((isset($_SESSION["isLogedIn"]) && $_SESSION["isLogedIn"]==false) || (isset($_
 	if ( $result->num_rows > 0 ) {
 		foreach ( $result as $row ) {
 
-			$name=$row["name"];			 
+			$name=$row["name"];
+			$type=$row["type"];
+			 
 					}
 				}
 
@@ -54,7 +56,6 @@ if((isset($_SESSION["isLogedIn"]) && $_SESSION["isLogedIn"]==false) || (isset($_
 			$photo=$row["name"];
 			$photo2=$row["name2"];
 			$photo3=$row["name3"];
-			$photo4=$row["name4"];
 
 					}
 				}			
@@ -75,6 +76,10 @@ if(isset($_POST["submit"])){
 		}
 		if(!isset($_REQUEST["name"]) || $_REQUEST["name"]==''){
 			$message="Please enter name.";
+			$okFlag=FALSE;
+		}
+		if(!isset($_REQUEST["type"]) || ($_REQUEST["type"])==''){
+			$message="Please enter  type.";
 			$okFlag=FALSE;
 		}
 
@@ -245,62 +250,14 @@ if(isset($_POST["submit"])){
 					$message = "Sorry, there was an error uploading your file.";
 				}
 			}
-		}	
-		
-		// image upload
-			
-		$target_dir = "../img/vehicle/";
-		$newName4=date('YmdHis_');
-		$newName4 .=basename($_FILES["fileToUpload_4"]["name"]);
-		$target_file = $target_dir.$newName4;
-		if(!empty($_FILES["fileToUpload_4"]["name"])){
-		$uploadOk = 1;
-		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-		// Check if image file is a actual image or fake image
-		
-			$check = getimagesize($_FILES["fileToUpload_4"]["tmp_name"]);
-			if($check !== false) {
-				//echo "File is an image - " . $check["mime"] . ".";
-				$uploadOk = 1;
-			} else {
-				$message= "File is not an image.";
-				$uploadOk = 0;
-			}
-		
-		// Check if file already exists
-		if (file_exists($target_file)) {
-			$message = "Sorry, file already exists.";
-			$uploadOk = 0;
-		}
-		// Check file size
-		if ($_FILES["fileToUpload_4"]["size"] > 200000000) {
-			$message= "Sorry, your file is too large. upload image within 2MB";
-			$uploadOk = 0;
-		}
-		// Allow certain file formats
-		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-		&& $imageFileType != "gif" ) {
-			$message = "Sorry, only jpg, JPEG, png & GIF files are allowed.";
-			$uploadOk = 0;
-		}
-		// Check if $uploadOk is set to 0 by an error
-		if ($uploadOk == 0) {
-			$message = "Sorry, your file was not uploaded.";
-		// if everything is ok, try to upload file
-		} else {
-			if (move_uploaded_file($_FILES["fileToUpload_4"]["tmp_name"], $target_file)) {
-				$message = "The file ". basename( $_FILES["fileToUpload_4"]["name"]). " has been uploaded.";
-				
-			} else {
-				$message = "Sorry, there was an error uploading your file.";
-			}
-		}
-	}		
+		}		
 	 
 	if($okFlag){
 	
 		$getID=$_GET["id"];
 		$name=$_REQUEST["name"];
+		 
+		$type=$_REQUEST["type"];
 		$harvest_date=$_REQUEST["harvest_date"];
 		$weight=$_REQUEST["weight"];
 		$Season=$_REQUEST["Season"];
@@ -312,7 +269,6 @@ if(isset($_POST["submit"])){
 		$image=$newName;
 		$image2=$newName2;
 		$image3=$newName3;
-		$image4=$newName4;
 		
 		
 
@@ -333,11 +289,6 @@ if(isset($_POST["submit"])){
 		$sql23="UPDATE `vehicleimage` SET  `name3`='$image3' WHERE `vehicleID`='$getID'";
 		$con->query($sql23);
 		}
-
-		if (substr($image4,-4)== ".jpg") {
-			$sql24="UPDATE `vehicleimage` SET  `name4`='$image4' WHERE `vehicleID`='$getID'";
-			$con->query($sql24);
-			}
 
 		}
 
@@ -360,11 +311,6 @@ if(isset($_POST["submit"])){
 		if (substr($image3,-4)== ".jpg") {
 			$sql23="UPDATE `vehicleimage` SET  `name3`='$image3' WHERE `vehicleID`='$getID'";
 			$con->query($sql23);
-			}
-
-		if (substr($image4,-4)== ".jpg") {
-			$sql24="UPDATE `vehicleimage` SET  `name4`='$image4' WHERE `vehicleID`='$getID'";
-			$con->query($sql24);
 			}
 	
 		}
@@ -418,7 +364,10 @@ if(isset($_POST["submit"])){
 										<label> Name</label>
 										<input type="text" class="form-control" name="name" value=" <?php if(isset($name)){echo($name);} ?>"  required/>
 									</div>
-									
+									<div class="col-md-6 form-group">
+										<label>Type</label>
+										<input type="text" class="form-control" name="type" value=" <?php if(isset($type)){echo($type);} ?>"   required/>
+									</div>
 
 									<div class="col-md-6 form-group">
 										<label>Weight</label>
@@ -562,20 +511,6 @@ if(isset($_POST["submit"])){
 											}
 										?>
 										<input type="file" class="form-control " name="fileToUpload_3"   />
-									</div>
-
-								<div class="col-md-6 form-group">
-										<label>Image</label>
-										<br>
-										<?php
-											if(isset($photo4) && $photo4 !=""){
-							 
-										?>
-                        				<img src="../img/vehicle/<?=$photo4?>" class="mx-auto img-fluid img-circle d-block" style="max-height: 150px;" alt="user">
-                        				<?php
-											}
-										?>
-										<input type="file" class="form-control " name="fileToUpload_4"   />
 								</div>
 								<div class="col-lg-12 form-group">
 										<label>Description</label>
