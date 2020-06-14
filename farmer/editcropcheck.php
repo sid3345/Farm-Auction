@@ -49,7 +49,7 @@ include("../dbCon.php");
         <?php }
 		  ?>
         </a></span>
-        	<span><a href="Addcropdetail.php?id=<?=$row["ID"]?>" data-toggle="tooltip" title="Add Details"><img style="max-height: 40px; max-width: 40px;"  src="../img/icon/edit.png"></a></span>
+        	<span><a href="Addcropdetail.php?id=<?=$row["ID"]?>" data-toggle="tooltip" title="Update Details"><img style="max-height: 40px; max-width: 40px;"  src="../img/icon/edit.png"></a></span>
         	
         </td>
       </tr>
