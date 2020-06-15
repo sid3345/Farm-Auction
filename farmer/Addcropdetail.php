@@ -439,7 +439,7 @@ if(isset($_POST["submit"])){
 
 										<label>Region</label>
 										<div id="menu">
-												<input class="form-control"  name="Region" id="autocomplete" type="text" placeholder="Address or location" 
+												<input class="form-control"  name="Region" id="autocomplete" type="text" placeholder="Address or location"
 													onkeypress="if (event.which == 13 || event.keyCode == 13)
 																result()" required>
 											</div>					
@@ -724,11 +724,16 @@ function result() {
 		var menu = $("#autocomplete").autocomplete("widget");
 		$(menu[0].children[0]).click();
 		console.log($(menu[0].children[0]).text());
-		//document.getElementById('autocomplete').value = $(menu[0].children[0]).text();
+		document.getElementById('autocomplete').value = $(menu[0].children[0]).text();
 		document.getElementById('suggestdetail').innerHTML = result_string + '</ul></div>';
-		document.getElementById('menu').value = 'honey';
+
+		// saala bohot try kiya... tu bhi thoda try karna.. neeche mae try kar raha tha..
+
+		//document.getElementById('menu').value = 'honey';
+		///$("#menu").val('honey');
 	}
 }
+
 function hideLoader() {
 	/**hide loader**/
 	$("#autocomplete").removeClass("loading");
