@@ -8,11 +8,17 @@ if((isset($_SESSION["isLogedIn"]) && $_SESSION["isLogedIn"]==false) || (isset($_
 	<?php
 }
 ?>
-<link rel="stylesheet" href="../css/jquery-ui.min.css" />
-<script type="text/javascript" src="../js/jquery.min-map.js"></script>
-<script type="text/javascript" src="../js/jquery-ui.min-map.js"></script>
+
 <!--put your map api javascript url with key here-->
 <script src="https://apis.mapmyindia.com/advancedmaps/v1/zmu2tzu3bz6ltcjewcfdd5xaagcw8agj/map_load?v=1.2"></script>
+<link rel="stylesheet" href="../css/jquery-ui.min.css" />
+
+<script type="text/javascript">
+	$.noConflict(true); // <-- true removes the reference to jQuery aswell.
+</script>
+
+<script type="text/javascript" src="../js/jquery.min_map.js"></script>
+<script type="text/javascript" src="../js/jquery-ui.min_map.js"></script>
 
 <style>
 
@@ -431,14 +437,14 @@ if(isset($_POST["submit"])){
 										<input type="date" class="form-control" name="harvest_date" value="<?php if(isset($harvest_date)){echo($harvest_date);} ?>" required  />
 									</div>
 
-									<div id="menu">
 										<label>Region</label>
-												<input class="form-control" id="autocomplete" type="text" placeholder="Address or location" name="Region" 
+										<div id="menu">
+												<input class="form-control"  name="Region" id="autocomplete" type="text" placeholder="Address or location" 
 													onkeypress="if (event.which == 13 || event.keyCode == 13)
 																result()" required>
+											</div>					
 											<div id="result"></div>
 											<div id="suggestdetail" ></div>
-										</div>
 
 									<div class="col-md-6 form-group">
 										<label>Season</label>
@@ -720,7 +726,7 @@ function result() {
 		console.log($(menu[0].children[0]).text());
 		//document.getElementById('autocomplete').value = $(menu[0].children[0]).text();
 		document.getElementById('suggestdetail').innerHTML = result_string + '</ul></div>';
-		document.getElementById('menu').innerHTML= result_string + '</div>';
+		document.getElementById('menu').value = 'honey';
 	}
 }
 function hideLoader() {
@@ -751,4 +757,8 @@ $(function () {
 
 include("../footer.php");
 ?>
+
+<script type="text/javascript">
+	$.noConflict(true); // <-- true removes the reference to jQuery aswell.
+</script>
 <!-- Footer Section /- -->
