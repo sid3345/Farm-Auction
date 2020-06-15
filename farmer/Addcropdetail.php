@@ -7,7 +7,65 @@ if((isset($_SESSION["isLogedIn"]) && $_SESSION["isLogedIn"]==false) || (isset($_
 </script>
 	<?php
 }
-?>	
+?>
+
+<!--put your map api javascript url with key here-->
+<script src="https://apis.mapmyindia.com/advancedmaps/v1/zmu2tzu3bz6ltcjewcfdd5xaagcw8agj/map_load?v=1.2"></script>
+<link rel="stylesheet" href="../css/jquery-ui.min.css" />
+
+<script type="text/javascript">
+	$.noConflict(true); // <-- true removes the reference to jQuery aswell.
+</script>
+
+<script type="text/javascript" src="../js/jquery.min_map.js"></script>
+<script type="text/javascript" src="../js/jquery-ui.min_map.js"></script>
+
+<style>
+
+.loading{
+	background-image: url(loading.gif);
+	background-position: right center;
+	background-repeat: no-repeat;
+}
+.ui-autocomplete .highlight {
+	text-decoration: underline;
+}
+.ui-autocomplete{
+}
+/*marker text span css*/
+.my-div-span{
+position: absolute;left:1.5em;right: 1em;top:1.4em;bottom:2.5em;font-size:9px;font-weight:bold;width:1px;color:black;
+}
+.tab-details{
+width:300px;padding:3px;font-size: 11px;text-align:left
+}
+.tab-details th{
+white-space:nowrap
+}
+.details-header{
+padding: 0 12px;color:green;font-size:13px;
+}
+.details-list{
+list-style-type:decimal;color:green; padding:2px 2px 0 30px;
+}
+#result{
+border-top: 1px solid #e9e9e9;padding:10px; margin-top: 12px;
+}
+#suggestdetail{
+border-bottom: 1px solid #e9e9e9;display: none
+}
+#result{
+	border-top: 1px solid #e9e9e9;padding:10px; margin-top: 12px;
+}
+#suggestdetail{
+	border-bottom: 1px solid #e9e9e9;display: none
+}
+.txt-search{
+	width: 254px;margin-right: 10px;padding:5px;border:1px solid #ddd;color:#555;   
+}
+</style>
+					
+
 <?php
 #include("../dbCon.php");
 	$con=connection();
@@ -252,7 +310,7 @@ if(isset($_POST["submit"])){
 			}
 		}		
 	 
-	if($okFlag && $uploadOk==1){
+	if($okFlag){
 	
 		$getID=$_GET["id"];
 		$name=$_REQUEST["name"];
@@ -379,16 +437,15 @@ if(isset($_POST["submit"])){
 										<input type="date" class="form-control" name="harvest_date" value="<?php if(isset($harvest_date)){echo($harvest_date);} ?>" required  />
 									</div>
 
-									<div class="col-md-6 form-group">
 										<label>Region</label>
-										 <select class="form-control" name="Region" required>
-											<option value="<?php if(isset($Region) && $Region=="North"){echo($Region); }else{echo("North");} ?>" <?php if(isset($Region) && $Region=="North"){ ?>selected <?php } ?>>North</option>
-											
-											<option value="<?php if(isset($Region)&& $Region=="East"){echo($Region); }else{echo("East");} ?>" <?php if(isset($Region)&& $Region=="East"){ ?>selected <?php } ?>>East</option>
-											<option value="<?php if(isset($Region)&& $Region=="South"){echo($Region); }else{echo("South");} ?>" <?php if(isset($Region)&& $Region=="South"){ ?>selected <?php } ?> >South</option>
-											<option value="<?php if(isset($Region)&& $Region=="West"){echo($Region); }else{echo("West");} ?>" <?php if(isset($Region)&& $Region=="West"){ ?>selected <?php } ?> >West</option>
-										</select>
-									</div>
+										<div id="menu">
+												<input class="form-control"  name="Region" id="autocomplete" type="text" placeholder="Address or location"
+													onkeypress="if (event.which == 13 || event.keyCode == 13)
+																result()" required>
+											</div>					
+											<div id="result"></div>
+											<div id="suggestdetail" ></div>
+
 									<div class="col-md-6 form-group">
 										<label>Season</label>
 										<select class="form-control" name="Season" required>
@@ -531,13 +588,182 @@ if(isset($_POST["submit"])){
 			</div>
 		</div>
 	</div>
-	
-	
-																		
 
-	<!-- Footer Section -->
-	<?php
+<script>	
+/***autosuggest function.***/
+$(function () {
+	$("#autocomplete").keypress(function(){
+		$('#autocomplete').addClass('loading');
+	})
+	$("#autocomplete").autocomplete({
+		delay: 500,
+		minLength: 0,
+		source: function (request, response) {
+			if ($("#autocomplete").val().length > 0) {
+			/*	if(current_lat=='' || current_lng=='')
+				{
+					var map_center = map.getCenter();
+					current_lat = map_center.lat;
+					current_lng = map_center.lng;
+				}*/
+				$.ajax({
+					type: "GET",
+					dataType: 'text',
+					url: "getResponse.php",
+					async: false,
+					data: {
+						query: JSON.stringify($(autocomplete).val().replace(/\s/g, "+")),
+						//current_lng :JSON.stringify(current_lng),
+						//current_lat :JSON.stringify(current_lat)
+					},
+					success: function (result) {
+						hideLoader();
+						//remove_markers();
+						var resdata = JSON.parse(result);
+						console.log(resdata);
+						if (resdata.status == 'success') {
+							var jsondata = JSON.parse(resdata.data);
 
-	include("../footer.php");
-	?>
-	<!-- Footer Section /- -->
+							result_string = '<div class="details-header">Auto Suggested Pois</div><div style="font-size: 13px"><ul class = "details-list">';
+							/*success*/
+							if (typeof jsondata.suggestedLocations!="undefined") {
+								var m = (jsondata.suggestedLocations);
+								var c = 0;
+								var array = $.map(jsondata.suggestedLocations, function (item) {
+									var param = '';
+									var address = item["placeAddress"];
+									if (c >= 0) {
+										param = (c + "|" + item["longitude"] + "|" + item["latitude"] + "|" + item["type"] + "|" + item["placeAddress"] + "|" + item["eLoc"]);
+									}
+									c = c + 1;
+									result_string += '<li>' + address + '</li>';
+									return{
+										label: item["placeAddress"],
+										placeName: item["placeName"],
+										url: param
+									}
+								});
+								response(array);
+								showDiv("suggestdetail");
+								clearDiv("suggestdetail");
+								clearDiv("result");
+							}
+							/*handle the error codes and put the responses in divs*/
+							else {
+								hideLoader();
+								var error_response = "No result found."
+								hideDiv("suggestdetail");
+								document.getElementById('ui-id-1').style.display = "none";
+								document.getElementById('result').innerHTML = error_response;/***put response result in div**/
+								return{
+									label: '0'
+								}
+							}
+						} else {
+							var error_message = resdata.data;
+							/***put response result in div****/
+							document.getElementById('result').innerHTML = error_message;
+							hideDiv("suggestdetail");
+							$('#ui-id-1').hide();
+						}
+					}
+				});
+			} else {
+				/**clear autosuggest**/
+				$('#autocomplete').autocomplete('close').val('');
+
+				/**hide loader**/
+				hideLoader();
+				$("#autocomplete").val("");
+				clearDiv("suggestdetail");
+				hideDiv("suggestdetail");
+
+				document.getElementById('result').innerHTML = "Please type any location in the search box.";
+				//remove_markers();
+			}
+		},
+		focus: function (event, ui) {
+			//prevent autocomplete from updating the textbox
+			event.preventDefault();
+		},
+		select: function (event, ui) {
+			isselected = 1;
+			event.preventDefault();
+			details = [];
+			var val = ui.item.url;
+			var res = val.split("|");
+			if (res.length >= 0) {
+				var content = new Array();
+				if (res[3] != '')
+					content.push('<tr><th>Type</th><td width="10px">:</td><td>' + res[3] + '</td></tr>');
+				if (res[4] != '')
+					content.push('<tr><th>Formatted Address</th><td width="10px">:</td><td>' + res[4] + '</td></tr>');
+				if (res[5] != '')
+					content.push('<tr><th>Place Id</th><td width="10px">:</td><td>' + res[5] + '</td></tr>');
+				details.push(content.join(""));
+
+				/***put autosuggest result in div***/
+				document.getElementById('result').innerHTML = '<table class="tab-details">' + details[0] + '</table>';
+
+				/***display markers***/
+				//show_markers(1, new L.LatLng(res[2], res[1]), 0);
+
+			} else {
+				hideLoader();
+				//remove_markers();
+			}
+		}
+	}).data("ui-autocomplete")._renderItem = function (ul, item) {
+		var $a = $("<a></a>").append("<span style='font-weight: 650 !important;'>"+item.placeName+"</span><br>"+item.label);
+		return $("<li style='border-bottom:1px solid #f1efef !important;'></li>").append($a).appendTo(ul);
+	};
+});
+
+function result() {
+	if (isselected == 0) {
+		var menu = $("#autocomplete").autocomplete("widget");
+		$(menu[0].children[0]).click();
+		console.log($(menu[0].children[0]).text());
+		document.getElementById('autocomplete').value = $(menu[0].children[0]).text();
+		document.getElementById('suggestdetail').innerHTML = result_string + '</ul></div>';
+
+		// saala bohot try kiya... tu bhi thoda try karna.. neeche mae try kar raha tha..
+
+		//document.getElementById('menu').value = 'honey';
+		///$("#menu").val('honey');
+	}
+}
+
+function hideLoader() {
+	/**hide loader**/
+	$("#autocomplete").removeClass("loading");
+}
+function showLoader() {
+	$("#autocomplete").addClass("ui-autocomplete-loading");
+}
+function clearDiv(id) {
+	document.getElementById(id).innerHTML = "";
+}
+function showDiv(id) {
+	document.getElementById(id).style.display = "block";
+}
+function hideDiv(id) {
+	document.getElementById(id).style.display = "none";
+}
+$(function () {
+	$(document).on('click', 'input[type=text]', function () {
+		this.select();
+	});
+});
+</script>																	
+
+<!-- Footer Section -->
+<?php
+
+include("../footer.php");
+?>
+
+<script type="text/javascript">
+	$.noConflict(true); // <-- true removes the reference to jQuery aswell.
+</script>
+<!-- Footer Section /- -->
