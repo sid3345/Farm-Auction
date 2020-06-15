@@ -157,6 +157,7 @@
                                     <h1>Welcome to <span>Login</span></h1>
                                 </div>
                                 <div class="login-inner">
+            <label style="color: red"> <?php if(isset($_SESSION["message"])){echo($_SESSION["message"]); unset($_SESSION["message"]);} ?> </label><br>                    
 			<label style="color: red"> <?php if(isset($_SESSION["wrong"])){echo($_SESSION["wrong"]); unset($_SESSION["wrong"]);} ?> </label><br>
 			<label style="color: red;"><?php if(isset($_SESSION["loginChk"]) && ($_SESSION["loginChk"]>=3)){
 			echo("You have try ".$_SESSION["loginChk"]." times already and cannot try more than 5 time. So only ".(5-$_SESSION["loginChk"])." times you can try to login.<br>");}

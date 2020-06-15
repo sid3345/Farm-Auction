@@ -4,6 +4,7 @@
     session_start();
 }
 	include("DbCon.php");
+	include("email.php");
 	$con=connection();
 
 
@@ -58,14 +59,27 @@
 		$phone=$_REQUEST["phone"];
 		$pass=md5($_REQUEST["pass"]);
 		$Conform_pass=md5($_REQUEST["R_pass"]);
+		$user_activation_code = md5(rand());
 		$sql="SELECT user.email, farmer.email FROM user, farmer WHERE user.email='$email' or farmer.email='$email' ";
 		$result = $con->query($sql);
 		if($result->num_rows <= 0){
-			$sql1 = "INSERT INTO `user`(`name`, `email`, `password`, `phone`, `address`) VALUES ('$name', '$email','$pass','$phone','$address')";
+			$sql1 = "INSERT INTO `user`(`name`, `email`, `password`, `phone`, `address`, `user_activation_code`) VALUES ('$name', '$email','$pass','$phone','$address','$user_activation_code')";
 			
 			if($con->query($sql1)){
 				$_SESSION["msg"]=("registration Successfully done");
 				header('location:login.php?msg=Successfully Registered');
+
+				$base_url = "http://localhost/auction/";
+				$to = $email;
+				$subject = 'Email Verification';
+				$content = "
+				<p>Hi ".$name.",</p>
+				<p>Click on this link to verified your email address - ".$base_url."email_verification.php?activation_code=".$user_activation_code."
+				<p>Best Regards,<br />Admin</p>
+				";
+				sendmail($to,$subject,$content);
+
+				
 			}else{
 				#$_SESSION["msg"]=("database error");
 				?>
@@ -165,15 +179,28 @@
 		$pincode=$_REQUEST["pincode"];
 		$Fpass=md5($_REQUEST["Fpass"]);
 		$FConform_pass=md5($_REQUEST["FR_pass"]);
+		$farmer_activation_code = md5(rand());
 		$sql="SELECT user.email, farmer.email FROM user, farmer WHERE user.email='$Femail' or farmer.email='$Femail'";
 		$result = $con->query($sql);
 		if($result->num_rows <= 0){
-			$sql1 = "INSERT INTO `farmer`(`name`, `email`, `password`, `phone`, `address`,`state`,`pincode`) 
-					VALUES ('$Fname', '$Femail','$Fpass','$Fphone','$Faddress','$state','$pincode')";
+			$sql1 = "INSERT INTO `farmer`(`name`, `email`, `password`, `phone`, `address`,`state`, `pincode`, `farmer_activation_code`) 
+					VALUES ('$Fname', '$Femail','$Fpass','$Fphone','$Faddress','$state','$pincode','$farmer_activation_code')";
 			
 			if($con->query($sql1)){
 				#$_SESSION["msg"]=("registration Successfully done");
 				header('location:login.php?msg=Successfully Registered');
+
+				$base_url = "http://localhost/auction/";
+				$to = $Femail;
+				$subject = 'Email Verification';
+				$content = "
+				<p>Hi ".$Fname.",</p>
+				<p>Click on this link to verified your email address - ".$base_url."email_verification.php?factivation_code=".$farmer_activation_code."
+				<p>Best Regards,<br />Admin</p>
+				";
+				sendmail($to,$subject,$content);
+
+
 				?>
 				<script>
 				alert("Registration Successful");
@@ -252,6 +279,7 @@
 				$_SESSION["useremail"]=$row["email"];
 				$_SESSION["userid"]=$row["ID"];
 				$active=$row["active"];
+				$verified=$row["user_email_status"];
 			}
 		}
 
@@ -263,13 +291,23 @@
 					$_SESSION["useremail"]=$row["email"];
 					$_SESSION["userid"]=$row["ID"];
 					$active=$row["active"];
+					$verified=$row["farmer_email_status"];
 			}
 		}
 			//echo($active);exit();
 			if($active==1){
 				$_SESSION["wrong"]="you are blocked by admin";
 					header('location:login.php');
-			}else{
+			}
+
+			// email verification
+			else if($verified=="not verified"){
+				$message= "Please First Verify, your email address";
+				$_SESSION["message"]=$message;
+				header('location:login.php');
+
+			}
+			else{
 				$_SESSION["right"]="login successfully";
 			$_SESSION["isLogedIn"]=true;
 			//for chat systenm
