@@ -539,7 +539,7 @@ if(isset($_POST["submit"])){
 											if(isset($photo) && $photo !=""){
 							 
 										?>
-                        				<img src="../img/vehicle/<?=$photo?>" class="mx-auto img-fluid img-circle d-block" style="max-height: 150px;" alt="user">
+                        				<img src="../img/vehicle/<?=$photo?>" class="mx-auto img-fluid img d-block" style="height: 150px; width:260px; margin-bottom:10px" alt="user">
                         				<?php
 											}
 										?>
@@ -553,7 +553,7 @@ if(isset($_POST["submit"])){
 											if(isset($photo2) && $photo2 !=""){
 							 
 										?>
-                        				<img src="../img/vehicle/<?=$photo2?>" class="mx-auto img-fluid img-circle d-block" style="max-height: 150px;" alt="user">
+                        				<img src="../img/vehicle/<?=$photo2?>" class="mx-auto img-fluid img d-block" style="height: 150px; width:260px; margin-bottom:10px" alt="user">
                         				<?php
 											}
 										?>
@@ -567,7 +567,7 @@ if(isset($_POST["submit"])){
 											if(isset($photo3) && $photo3 !=""){
 							 
 										?>
-                        				<img src="../img/vehicle/<?=$photo3?>" class="mx-auto img-fluid img-circle d-block" style="max-height: 150px;" alt="user">
+                        				<img src="../img/vehicle/<?=$photo3?>" class="mx-auto img-fluid img d-block" style="max-height: 150px; width:260px; margin-bottom:10px" alt="user">
                         				<?php
 											}
 										?>
