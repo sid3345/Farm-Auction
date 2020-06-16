@@ -573,12 +573,14 @@ if(isset($_POST["submit"])){
 										?>
 										<input type="file" class="form-control " name="fileToUpload_3"   />
 								</div>
+
+								<div class="col-md-12 form-group">
 										<label>Description</label>
 										<textarea class="form-control" name="description" rows="4"><?php if(isset($description)){echo($description);} ?></textarea>
-								
+								</div>
 								
 								<div class="col-md-3 form-group" >
-									 <input  style="margin-left: 130%"   class="btn btn-success   form-control" type="submit" value="<?php if($updateChecking == true){echo("Update");}else{echo("Add");} ?>" name="submit"/> 
+									 <input  style="margin-left: 170% ; margin-top:10%"   class="btn btn-success   form-control" type="submit" value="<?php if($updateChecking == true){echo("Update");}else{echo("Add");} ?>" name="submit"/> 
 								</div>
 							
 								</div>
