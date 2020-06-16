@@ -31,7 +31,7 @@ if($lat!="" && $lng!="")
 }
 elseif($state!="")
 {
-	$url="https://atlas.mapmyindia.com/api/places/search/json?query=".$query."&STATE=".$state."&location=28.6321438802915,77.2173553802915";
+	$url="https://atlas.mapmyindia.com/api/places/search/json?query=".$query."&state=".$state."";
 }
 else{
     $url="https://atlas.mapmyindia.com/api/places/search/json?query=".$query."&location=28.6321438802915,77.2173553802915";
