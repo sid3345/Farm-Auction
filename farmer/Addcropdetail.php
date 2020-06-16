@@ -454,7 +454,7 @@ if(isset($_POST["submit"])){
 									</div>
 									<div class="col-md-6 form-group">
 										<label>State</label>
-										<select class="form-control" name="State" required>
+										<select class="form-control" name="State" id='state' required>
 										<option value="">------------Select State------------</option>
 										<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
 										<option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -502,7 +502,7 @@ if(isset($_POST["submit"])){
 											<div id="result"></div>
 											<div id="suggestdetail" ></div>
 										</div>
-										
+
 									<div class="col-md-6 form-group">
 										<label>Soil Type</label>
 										<select class="form-control" name="soil_type" required>
@@ -615,6 +615,7 @@ $(function () {
 					async: false,
 					data: {
 						query: JSON.stringify($(autocomplete).val().replace(/\s/g, "+")),
+						STATE: JSON.stringify($(state).val())
 						//current_lng :JSON.stringify(current_lng),
 						//current_lat :JSON.stringify(current_lat)
 					},
