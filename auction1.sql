@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2020 at 08:01 PM
+-- Generation Time: Jun 16, 2020 at 01:14 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -290,7 +290,12 @@ INSERT INTO `login_details` (`login_details_id`, `user_id`, `last_activity`, `is
 (129, 'kashkarma98@gmail.com', '2020-06-15 15:27:04', 'no'),
 (130, 'akash98@gmail.com', '2020-06-15 17:37:08', 'no'),
 (131, 'akash@gmail.com', '2020-06-15 17:38:25', 'no'),
-(132, 'akash98@gmail.com', '2020-06-15 17:58:56', 'no');
+(132, 'akash98@gmail.com', '2020-06-15 17:58:56', 'no'),
+(133, 'kevinoberoy98@gmail.com', '2020-06-15 18:05:37', 'no'),
+(134, 'kashkarma98@gmail.com', '2020-06-15 18:05:58', 'no'),
+(135, 'kevinoberoy98@gmail.com', '2020-06-15 18:17:50', 'no'),
+(136, 'kashkarma98@gmail.com', '2020-06-15 18:18:01', 'no'),
+(137, 'santosh@gmail.com', '2020-06-16 07:44:13', 'no');
 
 -- --------------------------------------------------------
 
@@ -409,7 +414,7 @@ CREATE TABLE `vehicledetails` (
 
 INSERT INTO `vehicledetails` (`ID`, `vehicleID`, `description`, `name`, `type`, `Region`, `harvest_date`, `Season`, `State`, `soil_type`, `temperature`, `updateStatus`, `weight`) VALUES
 (21, 81, 'Our potato is very Good in condition.', ' Potato', ' Vegetable', 'North', '2020-04-10', 'Kharif', 'Uttar Pradesh', 'Clay', '15- 20 degree C', 1, 500),
-(22, 82, 'Banana is in good condition for next 3 months.', ' Banana', ' Fruit', 'South', '2020-04-05', 'Kharif', 'Madhya Pradesh', 'Peaty', '15- 20 degree C', 1, 300),
+(22, 82, 'Banana is in good condition for next 3 months.', ' Banana', ' Fruit', 'Delhi ', '2020-04-05', 'Kharif', 'Delhi', 'Peaty', '15- 20 degree C', 1, 300),
 (23, 83, 'Onion is in very good in condition and can be preserve for next 1 year.', ' Onion', ' Vegetable', 'North', '2020-03-31', 'Rabi', 'Himachal Pradesh', 'Silty', '15- 20 degree C', 1, 500),
 (24, 84, 'This fruit is very good in condition.', ' Tomato', ' Fruit', 'North', '2020-03-05', 'Zaid', 'Karnataka', 'Loamy', '15- 20 degree C', 1, 400),
 (26, 86, 'Orange juice', ' Orange', ' Fruit', 'North', '2020-04-04', 'Kharif', 'Uttar Pradesh', 'Clay', '15- 20 degree C', 1, 560);
@@ -597,7 +602,7 @@ ALTER TABLE `farmer`
 -- AUTO_INCREMENT for table `login_details`
 --
 ALTER TABLE `login_details`
-  MODIFY `login_details_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
+  MODIFY `login_details_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
 
 --
 -- AUTO_INCREMENT for table `notification`
