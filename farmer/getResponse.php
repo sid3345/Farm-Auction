@@ -3,6 +3,7 @@ error_reporting(0);
 $query = json_decode($_GET['query']);
 $lat = json_decode($_GET['current_lat']);
 $lng = json_decode($_GET['current_lng']);
+$state = json_decode($_GET['STATE']);
 
 $token_url = "https://outpost.mapmyindia.com/api/security/oauth/token?grant_type=client_credentials";
 
@@ -28,9 +29,12 @@ if($lat!="" && $lng!="")
 {
 	$url="https://atlas.mapmyindia.com/api/places/search/json?query=".$query."&location=".$lat.",".$lng."";
 }
-else
+elseif($state!="")
 {
-	$url="https://atlas.mapmyindia.com/api/places/search/json?query=".$query."&location=28.6321438802915,77.2173553802915";
+	$url="https://atlas.mapmyindia.com/api/places/search/json?query=".$query."&STATE=".$state."&location=28.6321438802915,77.2173553802915";
+}
+else{
+    $url="https://atlas.mapmyindia.com/api/places/search/json?query=".$query."&location=28.6321438802915,77.2173553802915";
 }
 
 $header = array();
