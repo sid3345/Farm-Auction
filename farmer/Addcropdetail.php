@@ -8,14 +8,14 @@ if((isset($_SESSION["isLogedIn"]) && $_SESSION["isLogedIn"]==false) || (isset($_
 	<?php
 }
 ?>
+<!--
+<script type="text/javascript">
+	$.noConflict(true); // <-- true removes the reference to jQuery aswell.
+</script>	-->
 
 <!--put your map api javascript url with key here-->
 <script src="https://apis.mapmyindia.com/advancedmaps/v1/zmu2tzu3bz6ltcjewcfdd5xaagcw8agj/map_load?v=1.2"></script>
 <link rel="stylesheet" href="../css/jquery-ui.min.css" />
-
-<script type="text/javascript">
-	$.noConflict(true); // <-- true removes the reference to jQuery aswell.
-</script>
 
 <script type="text/javascript" src="../js/jquery.min_map.js"></script>
 <script type="text/javascript" src="../js/jquery-ui.min_map.js"></script>
@@ -424,7 +424,10 @@ if(isset($_POST["submit"])){
 									</div>
 									<div class="col-md-6 form-group">
 										<label>Type</label>
-										<input type="text" class="form-control" name="type" value=" <?php if(isset($type)){echo($type);} ?>"   required/>
+										<select class="form-control" name="type" value=" <?php if(isset($type)){echo($type);} ?>" required >
+											<option value="Vegetable">Vegetable</option>
+										<option value="Fruit">Fruit</option>
+										</select>
 									</div>
 
 									<div class="col-md-6 form-group">
@@ -436,15 +439,6 @@ if(isset($_POST["submit"])){
 										<label>Harvest Date</label>
 										<input type="date" class="form-control" name="harvest_date" value="<?php if(isset($harvest_date)){echo($harvest_date);} ?>" required  />
 									</div>
-
-										<label>Region</label>
-										<div id="menu">
-												<input class="form-control"  name="Region" id="autocomplete" type="text" placeholder="Address or location"
-													onkeypress="if (event.which == 13 || event.keyCode == 13)
-																result()" required>
-											</div>					
-											<div id="result"></div>
-											<div id="suggestdetail" ></div>
 
 									<div class="col-md-6 form-group">
 										<label>Season</label>
@@ -499,6 +493,16 @@ if(isset($_POST["submit"])){
 										<option value="West Bengal">West Bengal</option>
 										</select>
 									</div>
+
+									<div id="menu">
+										<label>Region</label>
+												<input class="form-control"  name="Region" id="autocomplete" type="text" placeholder="Address or location"
+													onkeypress="if (event.which == 13 || event.keyCode == 13)
+																result()" required>					
+											<div id="result"></div>
+											<div id="suggestdetail" ></div>
+										</div>
+										
 									<div class="col-md-6 form-group">
 										<label>Soil Type</label>
 										<select class="form-control" name="soil_type" required>
@@ -569,15 +573,13 @@ if(isset($_POST["submit"])){
 										?>
 										<input type="file" class="form-control " name="fileToUpload_3"   />
 								</div>
-								<div class="col-lg-12 form-group">
 										<label>Description</label>
-										<textarea class="col-lg-12 form-control" name="description" rows="4"><?php if(isset($description)){echo($description);} ?></textarea>
-									</div>
+										<textarea class="form-control" name="description" rows="4"><?php if(isset($description)){echo($description);} ?></textarea>
+								
+								
 								<div class="col-md-3 form-group" >
 									 <input  style="margin-left: 130%"   class="btn btn-success   form-control" type="submit" value="<?php if($updateChecking == true){echo("Update");}else{echo("Add");} ?>" name="submit"/> 
 								</div>
-								
-						 
 							
 								</div>
 									
@@ -682,13 +684,14 @@ $(function () {
 				//remove_markers();
 			}
 		},
+		/*
 		focus: function (event, ui) {
 			//prevent autocomplete from updating the textbox
 			event.preventDefault();
-		},
+		},*/
 		select: function (event, ui) {
 			isselected = 1;
-			event.preventDefault();
+			//event.preventDefault();
 			details = [];
 			var val = ui.item.url;
 			var res = val.split("|");
@@ -726,11 +729,6 @@ function result() {
 		console.log($(menu[0].children[0]).text());
 		document.getElementById('autocomplete').value = $(menu[0].children[0]).text();
 		document.getElementById('suggestdetail').innerHTML = result_string + '</ul></div>';
-
-		// saala bohot try kiya... tu bhi thoda try karna.. neeche mae try kar raha tha..
-
-		//document.getElementById('menu').value = 'honey';
-		///$("#menu").val('honey');
 	}
 }
 
@@ -763,7 +761,8 @@ $(function () {
 include("../footer.php");
 ?>
 
-<script type="text/javascript">
-	$.noConflict(true); // <-- true removes the reference to jQuery aswell.
-</script>
+<link rel="stylesheet" href="../css/jquery-ui.min.css" />
+
+<script type="text/javascript" src="../js/jquery.min_map.js"></script>
+<script type="text/javascript" src="../js/jquery-ui.min_map.js"></script>
 <!-- Footer Section /- -->
