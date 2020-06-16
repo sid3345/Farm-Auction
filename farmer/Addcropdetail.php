@@ -617,7 +617,7 @@ $(function () {
 					async: false,
 					data: {
 						query: JSON.stringify($(autocomplete).val().replace(/\s/g, "+")),
-						STATE: JSON.stringify(<?php $_REQUEST["State"] ?>),
+						//STATE: JSON.stringify(<?php #$_REQUEST["State"] ?>),
 						//current_lng :JSON.stringify(current_lng),
 						//current_lat :JSON.stringify(current_lat)
 					},
