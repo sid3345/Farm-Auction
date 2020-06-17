@@ -83,17 +83,17 @@ if($d_amount==""){
 													?>
                                                     <li itemtype="https://schema.org/Product" itemscope=""> 
                                                         <a class="cd-lightbox-image cd-lightbox-type-image" href="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["name"]?>" title="">
-                                                            <img title="" style="height: 450px; max-width: 400px;" src="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["name"]?>" alt="" ><i itemprop="image" class="fa fa-fw fa-expand"></i>
+                                                            <img title="" style="height: 450px; width: 413px;" src="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["name"]?>" alt="" >
                                                         </a>
                                                     </li>
 													<li itemtype="https://schema.org/Product" itemscope=""> 
                                                         <a class="cd-lightbox-image cd-lightbox-type-image" href="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["name2"]?>" title="">
-                                                            <img title="" style="height: 450px; max-width: 400px;" src="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["name2"]?>" alt="" ><i itemprop="image" class="fa fa-fw fa-expand"></i>
+                                                            <img title="" style="height: 450px; width: 413px;" src="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["name2"]?>" alt="" >
                                                         </a>
                                                     </li>
                                                       <li itemtype="https://schema.org/Product" itemscope=""> 
                                                         <a class="cd-lightbox-image cd-lightbox-type-image" href="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["name3"]?>" title="">
-                                                            <img title="" style="height: 450px; max-width: 400px;" src="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["name3"]?>" alt="" ><i itemprop="image" class="fa fa-fw fa-expand"></i>
+                                                            <img title="" style="height: 450px; width: 413px;" src="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["name3"]?>" alt="" >
                                                         </a>
                                                     </li>
                                                     
@@ -106,13 +106,13 @@ if($d_amount==""){
                                         <div class="flex-viewport">
                                             <ul class="slides">
                                                 <li itemtype="https://schema.org/Product" itemscope="">
-                                                    <img title="" alt="" src="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["name"]?>">
+                                                    <img title="" style="height: 100px; width: 170px;" alt="" src="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["name"]?>">
                                                 </li>
                                                 <li itemtype="https://schema.org/Product" itemscope="">
-                                                    <img title="" alt="" src="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["name2"]?>">
+                                                    <img title="" style="height: 100px; width: 170px;" alt="" src="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["name2"]?>">
                                                 </li>
                                                 <li itemtype="https://schema.org/Product" itemscope="">
-                                                    <img title="" alt="" src="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["name3"]?>">
+                                                    <img title="" style="height: 100px; width: 170px;" alt="" src="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["name3"]?>">
                                                 </li>
                                                 
                                             </ul>
@@ -318,10 +318,7 @@ if($d_amount==""){
                                                             <td><?=$Region?></td>
                                                         </tr>
                                                        
-                                                        <tr>
-                                                            <td><i class="fa fa-caret-right"></i>Season</td>
-                                                            <td><?=$Season?></td>
-                                                        </tr>
+                                                
                                                        
                                                     </tbody>
                                                 </table>
@@ -346,6 +343,10 @@ if($d_amount==""){
                                                          <tr>
                                                             <td><i class="fa fa-caret-right"></i>Temperature</td>
                                                             <td><?=$temperature?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><i class="fa fa-caret-right"></i>Season</td>
+                                                            <td><?=$Season?></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

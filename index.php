@@ -106,7 +106,7 @@
 												?></li>
                                             </ul>
                                           <a href="#" class="product-grid-img-thumbnail">
-											<img style="width: auto; height: 190px; " src="<?=$_SESSION["directory"]?>img/vehicle/<?=$image?>" alt="img" class="img-responsive primary-img" />
+											<img style="width: 335px; height: 190px; " src="<?=$_SESSION["directory"]?>img/vehicle/<?=$image?>" alt="img" class="img-responsive primary-img" />
 											<img src="<?=$_SESSION["directory"]?>img/vehicle/<?=$image?>" alt="img" class="img-responsive socendary-img" />
 										</a>
                                             
@@ -216,7 +216,7 @@
 												?></li>
                                             </ul>
                                           <a href="#" class="product-grid-img-thumbnail">
-											<img style="width: auto; height: 190px; " src="<?=$_SESSION["directory"]?>img/vehicle/<?=$image?>" alt="img" class="img-responsive primary-img" />
+											<img style="width: 335px; height: 190px; " src="<?=$_SESSION["directory"]?>img/vehicle/<?=$image?>" alt="img" class="img-responsive primary-img" />
 											<img src="<?=$_SESSION["directory"]?>img/vehicle/<?=$image?>" alt="img" class="img-responsive socendary-img" />
 										</a>
                                             
