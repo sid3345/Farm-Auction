@@ -163,49 +163,49 @@ if(isset($_POST["submit"])){
 	// image upload
 			
 			$target_dir = "../img/vehicle/";
-			$newName=date('YmdHis_');
+			$newName="$vehicleID" . "_1_";
 			$newName .=basename($_FILES["fileToUpload"]["name"]);
 			$target_file = $target_dir.$newName;
 			if(!empty($_FILES["fileToUpload"]["name"])){
-			$uploadOk = 1;
+			$uploadOk1 = 1;
 			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 			// Check if image file is a actual image or fake image
 			
 				$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 				if($check !== false) {
 					//echo "File is an image - " . $check["mime"] . ".";
-					$uploadOk = 1;
+					$uploadOk1 = 1;
 				} else {
-					$message= "File is not an image.";
-					$uploadOk = 0;
+					$SESSION["message1"]= "File is not an image.";
+					$uploadOk1 = 0;
 				}
 			
 			// Check if file already exists
 			if (file_exists($target_file)) {
-				$message = "Sorry, file already exists.";
-				$uploadOk = 0;
+				$SESSION["message1"] = "Sorry, file name already exists. Please change the name of 1st file.";
+				$uploadOk1 = 0;
 			}
 			// Check file size
 			if ($_FILES["fileToUpload"]["size"] > 200000000) {
-				$message= "Sorry, your file is too large. upload image within 2MB";
-				$uploadOk = 0;
+				$SESSION["message1"]= "Sorry, your file is too large. upload image within 2MB";
+				$uploadOk1 = 0;
 			}
 			// Allow certain file formats
 			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 			&& $imageFileType != "gif" ) {
-				$message = "Sorry, only jpg, JPEG, png & GIF files are allowed.";
-				$uploadOk = 0;
+				$SESSION["message1"] = "Sorry, only jpg, JPEG, png & GIF files are allowed.";
+				$uploadOk1 = 0;
 			}
 			// Check if $uploadOk is set to 0 by an error
-			if ($uploadOk == 0) {
-				$message = "Sorry, your file was not uploaded.";
+			if ($uploadOk1 == 0) {
+				$SESSION["message1"] .= "";
 			// if everything is ok, try to upload file
 			} else {
 				if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-					$message = "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+					$SESSION["message1"] = "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 					
 				} else {
-					$message = "Sorry, there was an error uploading your file.";
+					$SESSION["message1"] = "Sorry, there was an error uploading your file.";
 				}
 			}
 		}	
@@ -213,49 +213,50 @@ if(isset($_POST["submit"])){
 	// image upload
 			
 			$target_dir = "../img/vehicle/";
-			$newName2=date('YmdHis_');
+			//$newName=date('YmdHis_');
+			$newName2="$vehicleID" . "_2_";
 			$newName2 .=basename($_FILES["fileToUpload_2"]["name"]);
 			$target_file = $target_dir.$newName2;
 			if(!empty($_FILES["fileToUpload_2"]["name"])){
-			$uploadOk = 1;
+			$uploadOk2 = 1;
 			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 			// Check if image file is a actual image or fake image
 			
 				$check = getimagesize($_FILES["fileToUpload_2"]["tmp_name"]);
 				if($check !== false) {
 					//echo "File is an image - " . $check["mime"] . ".";
-					$uploadOk = 1;
+					$uploadOk2 = 1;
 				} else {
-					$message= "File is not an image.";
-					$uploadOk = 0;
+					$SESSION["message2"]= "File is not an image.";
+					$uploadOk2 = 0;
 				}
 			
 			// Check if file already exists
 			if (file_exists($target_file)) {
-				$message = "Sorry, file already exists.";
-				$uploadOk = 0;
+				$SESSION["message2"] = "Sorry, file name already exists. Please change the name of 2nd file.";
+				$uploadOk2 = 0;
 			}
 			// Check file size
 			if ($_FILES["fileToUpload_2"]["size"] > 200000000) {
-				$message= "Sorry, your file is too large. upload image within 2MB";
-				$uploadOk = 0;
+				$SESSION["message2"]= "Sorry, your file is too large. upload image within 2MB";
+				$uploadOk2 = 0;
 			}
 			// Allow certain file formats
 			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 			&& $imageFileType != "gif" ) {
-				$message = "Sorry, only jpg, JPEG, png & GIF files are allowed.";
-				$uploadOk = 0;
+				$SESSION["message2"] = "Sorry, only jpg, JPEG, png & GIF files are allowed.";
+				$uploadOk2 = 0;
 			}
 			// Check if $uploadOk is set to 0 by an error
-			if ($uploadOk == 0) {
-				$message = "Sorry, your file was not uploaded.";
+			if ($uploadOk2 == 0) {
+				$SESSION["message2"] .= "";
 			// if everything is ok, try to upload file
 			} else {
 				if (move_uploaded_file($_FILES["fileToUpload_2"]["tmp_name"], $target_file)) {
-					$message = "The file ". basename( $_FILES["fileToUpload_2"]["name"]). " has been uploaded.";
+					$SESSION["message2"] = "The file ". basename( $_FILES["fileToUpload_2"]["name"]). " has been uploaded.";
 					
 				} else {
-					$message = "Sorry, there was an error uploading your file.";
+					$SESSION["message2"] = "Sorry, there was an error uploading your file.";
 				}
 			}
 		}
@@ -263,49 +264,49 @@ if(isset($_POST["submit"])){
 	// image upload
 			
 			$target_dir = "../img/vehicle/";
-			$newName3=date('YmdHis_');
+			$newName3="$vehicleID" . "_3_";
 			$newName3 .=basename($_FILES["fileToUpload_3"]["name"]);
 			$target_file = $target_dir.$newName3;
 			if(!empty($_FILES["fileToUpload_3"]["name"])){
-			$uploadOk = 1;
+			$uploadOk3 = 1;
 			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 			// Check if image file is a actual image or fake image
 			
 				$check = getimagesize($_FILES["fileToUpload_3"]["tmp_name"]);
 				if($check !== false) {
 					//echo "File is an image - " . $check["mime"] . ".";
-					$uploadOk = 1;
+					$uploadOk3 = 1;
 				} else {
-					$message= "File is not an image.";
-					$uploadOk = 0;
+					$SESSION["message3"]= "File is not an image.";
+					$uploadOk3 = 0;
 				}
 			
 			// Check if file already exists
 			if (file_exists($target_file)) {
-				$message = "Sorry, file already exists.";
-				$uploadOk = 0;
+				$SESSION["message3"] = "Sorry, file name already exists. Please change the name of 3rd file.";
+				$uploadOk3 = 0;
 			}
 			// Check file size
 			if ($_FILES["fileToUpload_3"]["size"] > 200000000) {
-				$message= "Sorry, your file is too large. upload image within 2MB";
-				$uploadOk = 0;
+				$SESSION["message3"] = "Sorry, your file is too large. upload image within 2MB";
+				$uploadOk3 = 0;
 			}
 			// Allow certain file formats
 			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 			&& $imageFileType != "gif" ) {
-				$message = "Sorry, only jpg, JPEG, png & GIF files are allowed.";
-				$uploadOk = 0;
+				$SESSION["message3"] = "Sorry, only jpg, JPEG, png & GIF files are allowed.";
+				$uploadOk3 = 0;
 			}
 			// Check if $uploadOk is set to 0 by an error
-			if ($uploadOk == 0) {
-				$message = "Sorry, your file was not uploaded.";
+			if ($uploadOk3 == 0) {
+				$SESSION["message3"] .= "";
 			// if everything is ok, try to upload file
 			} else {
 				if (move_uploaded_file($_FILES["fileToUpload_3"]["tmp_name"], $target_file)) {
-					$message = "The file ". basename( $_FILES["fileToUpload_3"]["name"]). " has been uploaded.";
+					$SESSION["message3"] = "The file ". basename( $_FILES["fileToUpload_3"]["name"]). " has been uploaded.";
 					
 				} else {
-					$message = "Sorry, there was an error uploading your file.";
+					$SESSION["message3"] = "Sorry, there was an error uploading your file.";
 				}
 			}
 		}		
@@ -333,17 +334,17 @@ if(isset($_POST["submit"])){
 		if($updateChecking==true){
 		$sql="UPDATE `vehicledetails` SET  `description`='$description',`name`='$name',`type`='$type', `weight`='$weight',`harvest_date`='$harvest_date',`region`='$Region',`Season`='$Season',`State`='$state',`soil_type`='$soil_type',`temperature`='$Temperature',`updateStatus`=1 WHERE `vehicleID`='$getID'";
 		
-		if (substr($image,-4)== ".jpg") {
+		if (substr($image,-4)== ".jpg" and $uploadOk1==1) {
 		$sql21="UPDATE `vehicleimage` SET  `name`='$image' WHERE `vehicleID`='$getID'";
 		$con->query($sql21);
 		}
 
-		if (substr($image2,-4)== ".jpg") {
+		if (substr($image2,-4)== ".jpg" and $uploadOk2==1) {
 		$sql22="UPDATE `vehicleimage` SET  `name2`='$image2' WHERE `vehicleID`='$getID'";
 		$con->query($sql22);
 		}
 
-		if (substr($image3,-4)== ".jpg") {
+		if (substr($image3,-4)== ".jpg" and $uploadOk3==1) {
 		$sql23="UPDATE `vehicleimage` SET  `name3`='$image3' WHERE `vehicleID`='$getID'";
 		$con->query($sql23);
 		}
@@ -356,17 +357,17 @@ if(isset($_POST["submit"])){
 		$sql2="INSERT INTO `vehicleimage`(  `vehicleID`) VALUES ( '$getID')";
 		$con->query($sql2);
 
-		if (substr($image,-4)== ".jpg") {
+		if (substr($image,-4)== ".jpg" and $uploadOk1==1) {
 			$sql21="UPDATE `vehicleimage` SET  `name`='$image' WHERE `vehicleID`='$getID'";
 			$con->query($sql21);
 			}
 			
-		if (substr($image2,-4)== ".jpg") {
+		if (substr($image2,-4)== ".jpg" and $uploadOk2==1) {
 			$sql22="UPDATE `vehicleimage` SET  `name2`='$image2' WHERE `vehicleID`='$getID'";
 			$con->query($sql22);
 			}
 	
-		if (substr($image3,-4)== ".jpg") {
+		if (substr($image3,-4)== ".jpg" and $uploadOk3==1) {
 			$sql23="UPDATE `vehicleimage` SET  `name3`='$image3' WHERE `vehicleID`='$getID'";
 			$con->query($sql23);
 			}
@@ -376,7 +377,7 @@ if(isset($_POST["submit"])){
 		 
 		if($con->query($sql)){
 			
-			$_SESSION["msg"]="Successfully update crop.Please refresh Page to see updated/uploaded Image";
+			$_SESSION["msg"]="Successfully update crop details.";
 		}else{
 			$_SESSION["msg"]="database error.";
 		};
@@ -396,14 +397,33 @@ if(isset($_POST["submit"])){
 						<?php if(isset($_SESSION["msg"])){ ?>
 							<div class="alert alert-success" role="alert">
 							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							  <strong> <?=$_SESSION["msg"]?></strong>
+							  <strong> <?=$_SESSION["msg"]?></strong></br>
+
+							  <?php if(isset($SESSION["message1"])){?>
+							  <strong> <?=$SESSION["message1"]?></strong></br>
+							  <?php
+							  unset($SESSION["message1"]);
+							}
+							?>
+							  <?php if(isset($SESSION["message2"])){?>
+							  <strong> <?=$SESSION["message2"]?></strong></br>
+							  <?php
+							  unset($SESSION["message2"]);
+							}
+							?>
+							  <?php if(isset($SESSION["message3"])){?>
+							  <strong> <?=$SESSION["message3"]?></strong>
+							  <?php
+							  unset($SESSION["message3"]);
+							}
+							?>
 							</div>
 							<script>
 								window.setTimeout(function() {
 								    $(".alert").fadeTo(5009, 0).slideUp(5009, function(){
 								        $(this).remove(); 
 								    });
-								}, 4000);
+								}, 8000);
 							</script>
 							
 						<?php
