@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2020 at 01:14 PM
+-- Generation Time: Jun 18, 2020 at 08:02 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -50,9 +50,7 @@ INSERT INTO `bidder` (`ID`, `userID`, `vehicleID`, `biddingTime`, `price`, `emai
 (21, 2, 82, '2020-04-11 00:25:09', 6020, 'santosh@gmail.com', 0),
 (22, 3, 83, '2020-04-11 00:25:50', 10050, 'sinha@gmail.com', 0),
 (24, 20, 82, '2020-06-06 00:51:39', 6050, 'santosh@gmail.com', 0),
-(26, 20, 83, '2020-06-06 23:17:52', 10080, 'sinha@gmail.com', 0),
-(27, 20, 86, '2020-06-12 19:51:05', 7000, 'kashkarma@gmail.com', 1),
-(28, 2, 86, '2020-06-12 19:55:01', 8010, 'kashkarma@gmail.com', 1);
+(26, 20, 83, '2020-06-06 23:17:52', 10080, 'sinha@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -199,14 +197,6 @@ CREATE TABLE `confirmbid` (
   `role` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `confirmbid`
---
-
-INSERT INTO `confirmbid` (`ID`, `vehicleID`, `date`, `userID`, `type`, `price`, `role`) VALUES
-(3, 86, '2020-06-11', 20, 'Home Delivery', 6060, 1),
-(4, 86, '2020-06-12', 2, 'From Office Delivery', 8010, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -295,7 +285,34 @@ INSERT INTO `login_details` (`login_details_id`, `user_id`, `last_activity`, `is
 (134, 'kashkarma98@gmail.com', '2020-06-15 18:05:58', 'no'),
 (135, 'kevinoberoy98@gmail.com', '2020-06-15 18:17:50', 'no'),
 (136, 'kashkarma98@gmail.com', '2020-06-15 18:18:01', 'no'),
-(137, 'santosh@gmail.com', '2020-06-16 07:44:13', 'no');
+(137, 'santosh@gmail.com', '2020-06-16 07:44:13', 'no'),
+(138, 'santosh@gmail.com', '2020-06-16 11:18:05', 'no'),
+(139, 'sinha@gmail.com', '2020-06-16 12:04:47', 'no'),
+(140, 'santosh@gmail.com', '2020-06-16 12:06:32', 'no'),
+(141, 'santosh@gmail.com', '2020-06-16 15:06:16', 'no'),
+(142, 'santosh@gmail.com', '2020-06-16 17:56:46', 'no'),
+(143, 'akash98@gmail.com', '2020-06-17 07:09:22', 'no'),
+(144, 'sinha@gmail.com', '2020-06-17 07:09:44', 'no'),
+(145, 'akash98@gmail.com', '2020-06-17 08:22:11', 'no'),
+(146, 'santosh@gmail.com', '2020-06-17 08:35:40', 'no'),
+(147, 'sinha@gmail.com', '2020-06-17 13:36:25', 'no'),
+(148, 'sinha@gmail.com', '2020-06-17 17:47:42', 'no'),
+(149, 'sinha@gmail.com', '2020-06-18 07:38:46', 'no'),
+(150, 'sinha@gmail.com', '2020-06-18 08:11:21', 'no'),
+(151, 'sinha@gmail.com', '2020-06-18 12:44:00', 'no'),
+(152, 'sinha@gmail.com', '2020-06-18 14:44:05', 'no'),
+(153, 'akash98@gmail.com', '2020-06-18 14:54:20', 'no'),
+(154, 'sinha@gmail.com', '2020-06-18 15:01:32', 'no'),
+(155, 'sinha@gmail.com', '2020-06-18 16:41:36', 'no'),
+(156, 'santosh@gmail.com', '2020-06-18 17:17:25', 'no'),
+(157, 'sinha@gmail.com', '2020-06-18 17:30:55', 'no'),
+(158, 'santosh@gmail.com', '2020-06-18 17:42:35', 'no'),
+(159, 'akash98@gmail.com', '2020-06-18 17:52:33', 'no'),
+(160, 'santosh@gmail.com', '2020-06-18 17:55:21', 'no'),
+(161, 'sinha@gmail.com', '2020-06-18 17:57:05', 'no'),
+(162, 'santosh@gmail.com', '2020-06-18 17:59:48', 'no'),
+(163, 'akash98@gmail.com', '2020-06-18 18:00:54', 'no'),
+(164, 'akash@gmail.com', '2020-06-18 18:01:37', 'no');
 
 -- --------------------------------------------------------
 
@@ -380,11 +397,10 @@ CREATE TABLE `vehicle` (
 --
 
 INSERT INTO `vehicle` (`ID`, `name`, `type`, `catagory`, `startDate`, `EndDate`, `image`, `price`, `status`, `email`) VALUES
-(81, 'Potato', 'Vegetable', 10, '2020-04-10', '2020-12-12', '20200410194443_20200102175523_20190706221819_gixxer2.jpg', 5000, 1, 'santosh@gmail.com'),
-(82, 'Banana', 'Fruit', 15, '2020-04-10', '2020-08-08', '20200410195254_20190706221240_pajaro.jpg', 6000, 1, 'santosh@gmail.com'),
-(83, 'Onion', 'Vegetable', 13, '2020-04-10', '2020-10-09', '20200410200404_onion.jpg', 10000, 1, 'sinha@gmail.com'),
-(84, 'Tomato', 'Fruit', 15, '2020-04-10', '2020-09-20', '20200614233820_20200614195237_20200614191449_tomato.jpg', 80000, 1, 'sinha@gmail.com'),
-(86, 'Orange', 'Fruit', 3, '2020-06-11', '2020-06-10', '20200611231321_20190720170326_gixxer1(2).jpg', 5000, 1, 'kashkarma@gmail.com');
+(81, 'Potato', 'Vegetable', 2, '2020-04-10', '2020-12-12', '81potato.jpg', 5000, 1, 'santosh@gmail.com'),
+(82, 'Banana', 'Fruit', 15, '2020-04-10', '2020-08-08', '82banana.jpg', 6000, 1, 'santosh@gmail.com'),
+(83, 'Onion', 'Vegetable', 2, '2020-04-10', '2020-10-09', '83onion2.jpg', 10000, 1, 'sinha@gmail.com'),
+(84, 'Tomato', 'Fruit', 15, '2020-04-10', '2020-09-20', '84Tomato.jpg', 80000, 1, 'sinha@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -413,11 +429,10 @@ CREATE TABLE `vehicledetails` (
 --
 
 INSERT INTO `vehicledetails` (`ID`, `vehicleID`, `description`, `name`, `type`, `Region`, `harvest_date`, `Season`, `State`, `soil_type`, `temperature`, `updateStatus`, `weight`) VALUES
-(21, 81, 'Our potato is very Good in condition.', ' Potato', ' Vegetable', 'North', '2020-04-10', 'Kharif', 'Uttar Pradesh', 'Clay', '15- 20 degree C', 1, 500),
-(22, 82, 'Banana is in good condition for next 3 months.', ' Banana', ' Fruit', 'Delhi ', '2020-04-05', 'Kharif', 'Delhi', 'Peaty', '15- 20 degree C', 1, 300),
-(23, 83, 'Onion is in very good in condition and can be preserve for next 1 year.', ' Onion', ' Vegetable', 'North', '2020-03-31', 'Rabi', 'Himachal Pradesh', 'Silty', '15- 20 degree C', 1, 500),
-(24, 84, 'This fruit is very good in condition.', ' Tomato', ' Fruit', 'North', '2020-03-05', 'Zaid', 'Karnataka', 'Loamy', '15- 20 degree C', 1, 400),
-(26, 86, 'Orange juice', ' Orange', ' Fruit', 'North', '2020-04-04', 'Kharif', 'Uttar Pradesh', 'Clay', '15- 20 degree C', 1, 560);
+(21, 81, 'Our potato is very Good in condition.', ' Potato', 'Vegetable', 'Kerakat, Jaunpur District, Uttar Pradesh, 222129', '2020-04-10', 'Kharif', 'Uttar Pradesh', 'Clay', '15- 20 degree C', 1, 500),
+(22, 82, 'Banana is in good condition for next 3 months.', ' Banana', 'Fruit', 'Chank Bihar Colony, Muzaffarpur, Bihar, 843146', '2020-04-05', 'Kharif', 'Bihar', 'Peaty', '15- 20 degree C', 1, 300),
+(23, 83, 'Onion is in very good in condition and can be preserve for next 1 year.', ' Onion', 'Vegetable', 'Khategaon, Madhya Pradesh, 455336', '2020-03-31', 'Rabi', 'Madhya Pradesh', 'Silty', '15- 20 degree C', 1, 500),
+(24, 84, 'This fruit is very good in condition.', ' Tomato', 'Fruit', 'Chhattisgarh', '2020-03-05', 'Zaid', 'Bihar', 'Loamy', '15- 20 degree C', 1, 400);
 
 -- --------------------------------------------------------
 
@@ -438,11 +453,10 @@ CREATE TABLE `vehicleimage` (
 --
 
 INSERT INTO `vehicleimage` (`ID`, `vehicleID`, `name`, `name2`, `name3`) VALUES
-(28, 81, '20200410194806_potato.jpg', '20200410195103_potato3.jpg', '20200410195025_potato2.jpg'),
-(29, 82, '20200410195534_20191228075131_20190706221240_pajaro.jpg', '20200410195534_20191228080018_20190910213732_banana(1).jpg', ''),
-(30, 83, '20200410200630_onion2.jpg', '20200410200737_onion.jpg', '20200410200630_onion3.jpg'),
-(31, 84, '20200410201026_tomato2.jpg', '20200410201026_tomato.jpg', '20200410201026_tomato3.jpg'),
-(33, 86, '20200611231431_20190720170326_gixxer1.jpg', '20200611231431_20190706221603_aqua1.jpg', '20200611231431_20190706222022_pajaro11.jpg');
+(28, 81, '81_1_potato2.jpg', '81_2_potato.jpg', '81_3_potato3.jpg'),
+(29, 82, '82_1_banana2.jpg', '82_2_banana.jpg', '82_3_banana3.jpg'),
+(30, 83, '83_1_onion.jpg', '83_2_onion2.jpg', '83_3_onion3.jpg'),
+(31, 84, '84_1_Tomato2.jpg', '84_2_Tomato.jpg', '84_3_Tomato3.jpg');
 
 -- --------------------------------------------------------
 
@@ -602,7 +616,7 @@ ALTER TABLE `farmer`
 -- AUTO_INCREMENT for table `login_details`
 --
 ALTER TABLE `login_details`
-  MODIFY `login_details_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
+  MODIFY `login_details_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
 
 --
 -- AUTO_INCREMENT for table `notification`
@@ -626,19 +640,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `vehicle`
 --
 ALTER TABLE `vehicle`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `vehicledetails`
 --
 ALTER TABLE `vehicledetails`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `vehicleimage`
 --
 ALTER TABLE `vehicleimage`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `watchlist`

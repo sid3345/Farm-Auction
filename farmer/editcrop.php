@@ -66,7 +66,8 @@ if(isset($_POST["submit"])){
 	// image upload
 			
 	$target_dir = "../img/vehicle/";
-	$newName=date('YmdHis_');
+	//$newName=date('YmdHis_');
+	$newName="$GetID";
 	$newName .=basename($_FILES["fileToUpload"]["name"]);
 	$target_file = $target_dir.$newName;
 	if(!empty($_FILES["fileToUpload"]["name"])){
@@ -79,36 +80,36 @@ if(isset($_POST["submit"])){
 			//echo "File is an image - " . $check["mime"] . ".";
 			$uploadOk = 1;
 		} else {
-			$message= "File is not an image.";
+			$SESSION["message"]= "File is not an image.";
 			$uploadOk = 0;
 		}
 	
 	// Check if file already exists
 	if (file_exists($target_file)) {
-		$message = "Sorry, file already exists.";
+		$SESSION["message"] = "Sorry, file name already exists. Please change the name of file.";
 		$uploadOk = 0;
 	}
 	// Check file size
 	if ($_FILES["fileToUpload"]["size"] > 200000000) {
-		$message= "Sorry, your file is too large. upload image within 2MB";
+		$SESSION["message"]= "Sorry, your file is too large. upload image within 2MB";
 		$uploadOk = 0;
 	}
 	// Allow certain file formats
 	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 	&& $imageFileType != "gif" ) {
-		$message = "Sorry, only jpg, JPEG, png & GIF files are allowed.";
+		$SESSION["message"] = "Sorry, only jpg, JPEG, png & GIF files are allowed.";
 		$uploadOk = 0;
 	}
 	// Check if $uploadOk is set to 0 by an error
 	if ($uploadOk == 0) {
-		$message = "Sorry, your file was not uploaded.";
+		$SESSION["message"] .= "";
 	// if everything is ok, try to upload file
 	} else {
 		if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-			$message = "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+			$SESSION["message"] = "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 			
 		} else {
-			$message = "Sorry, there was an error uploading your file.";
+			$SESSION["message"] = "Sorry, there was an error uploading your file.";
 		}
 	}
 }	
@@ -131,7 +132,7 @@ if(isset($_POST["submit"])){
 
 		$sql="UPDATE `vehicle` SET `name`='$name',`type`='$type',`catagory`='$catagory',`startDate`='$startDate',`EndDate`='$EndDate',`price`='$price' WHERE `ID`='$GetID'";
 		
-		if (substr($image,-4)== ".jpg") {
+		if (substr($image,-4)== ".jpg" and $uploadOk==1) {
 			$sql21="UPDATE `vehicle` SET  `image`='$image' WHERE `ID`='$GetID'";
 			$con->query($sql21);
 			}
@@ -159,14 +160,22 @@ if(isset($_POST["submit"])){
 						<?php if(isset($_SESSION["msg"])){ ?>
 							<div class="alert alert-success" role="alert">
 							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							  <strong> <?=$_SESSION["msg"]?></strong>
+							  <strong> <?=$_SESSION["msg"]?></strong></br>
+							
+							  <?php if(isset($SESSION["message"])){?>
+							  <strong> <?=$SESSION["message"]?></strong></br>
+							  <?php
+							  unset($SESSION["message"]);
+							}
+							?>
+
 							</div>
 							<script>
 								window.setTimeout(function() {
 								    $(".alert").fadeTo(500, 0).slideUp(500, function(){
 								        $(this).remove(); 
 								    });
-								}, 4000);
+								}, 8000);
 							</script>
 							
 						<?php
@@ -238,7 +247,7 @@ if(isset($_POST["submit"])){
 											if(isset($photo) && $photo !=""){
 							 
 										?>
-                        				<img src="../img/vehicle/<?=$photo?>" class="mx-auto img-fluid img-circle d-block" style="max-height: 150px;" alt="user">
+                        				<img src="../img/vehicle/<?=$photo?>" class="mx-auto img-fluid  d-block" style="max-height: 150px; width:260px; margin-bottom:10px" alt="user">
                         				<?php
 											}
 										?>
