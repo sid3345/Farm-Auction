@@ -79,7 +79,7 @@
                             <div class="col-sm-12">
                             <div class="col-xs-3 custom-col-left form-group">
                             <div class="spa-search">
-                                <form action="<?=$_SESSION["directory"]?>customer/carsearch.php" method="post">
+                                <form action="<?=$_SESSION["directory"]?>customer/cropsearch.php" method="post">
                                     <input type="text" placeholder="Search Crop ..." value="" class="form-control input-group-lg" style="width: 100%" name="Search">
                                     
                                 </form>
@@ -197,11 +197,11 @@
 										<?php
 										if((isset($_SESSION["isLogedIn"]) && $_SESSION["isLogedIn"]==true) &&(isset($_SESSION["role"]) && $_SESSION["role"]=="1")){ ?>
 									 
-                                       <li><a href="<?=$_SESSION["directory"]?>admin/Editcar.php">Vegetable</a></li>
-                                        <li><a href="<?=$_SESSION["directory"]?>admin/EditBike.php">Fruit</a></li>
+                                       <li><a href="<?=$_SESSION["directory"]?>admin/veggie.php">Vegetable</a></li>
+                                        <li><a href="<?=$_SESSION["directory"]?>admin/fruit.php">Fruit</a></li>
                                        <?php }else{  ?>
-                                        <li><a href="<?=$_SESSION["directory"]?>customer/car.php">Vegetable</a></li>
-                                        <li><a href="<?=$_SESSION["directory"]?>customer/bike.php">Fruit</a></li>
+                                        <li><a href="<?=$_SESSION["directory"]?>customer/veggie.php">Vegetable</a></li>
+                                        <li><a href="<?=$_SESSION["directory"]?>customer/fruit.php">Fruit</a></li>
                                         <?php } ?>
                                     </ul>
                                 </li>
@@ -245,8 +245,8 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         
-                                        <li><a href="<?=$_SESSION["directory"]?>admin/vehicleList.php">Crop List</a></li>
-                                        <li><a href="<?=$_SESSION["directory"]?>admin/vehicleDelivery.php">Crop Delivery List</a></li>
+                                        <li><a href="<?=$_SESSION["directory"]?>admin/cropList.php">Crop List</a></li>
+                                        <li><a href="<?=$_SESSION["directory"]?>admin/cropDelivery.php">Crop Delivery List</a></li>
                                         <li><a href="<?=$_SESSION["directory"]?>admin/userlist.php">User List</a></li>
                                         <li><a href="<?=$_SESSION["directory"]?>admin/farmerlist.php">Farmer List</a></li>
                                         <li><a href="<?=$_SESSION["directory"]?>admin/deposit.php">Deposit Checking</a></li>

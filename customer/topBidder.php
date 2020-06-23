@@ -38,7 +38,7 @@
 		?>
       <tr>
         <td><?=$row["userName"]?></td>
-        <td style="cursor:pointer; color:#00008B; text-decoration:none;" onclick="location.href='carDetails.php?id=<?php echo $row['VID'] ?>'"><?=$row["name"]?></td>
+        <td style="cursor:pointer; color:#00008B; text-decoration:none;" onclick="location.href='cropdetail.php?id=<?php echo $row['VID'] ?>'"><?=$row["name"]?></td>
         <td><?=$row["EndDate"]?></td>
         <td><img style="max-width: 200px; max-height: 200px;" src="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["image"]?>" ></td>
         <td><?=$row["price"]?></td> 

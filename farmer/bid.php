@@ -58,7 +58,7 @@ if($con->query($sql)){
 		sendmail($email,$subject,$contentF);
 	
 		$_SESSION["bidmsg"]="Bidding successfully done";
-		header("location:carDetails.php?id=$vehicleID");
+		header("location:cropdetail.php?id=$vehicleID");
 	}else{
 		echo("error");
 	}

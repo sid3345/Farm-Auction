@@ -59,8 +59,8 @@
  <script>
 
 function confirm(id){
-	$.get('vehicleDeliveryUpdate.php',{ID:id},function(data){
-		window.location.href="vehicleDelivery.php";
+	$.get('cropDeliveryUpdate.php',{ID:id},function(data){
+		window.location.href="cropDelivery.php";
 						alert(data);
 				});
 	 

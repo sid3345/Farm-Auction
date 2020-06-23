@@ -1,5 +1,5 @@
  <?php
- include( "../header.php" );
+ include( "../fheader.php" );
 //include("../dbCon.php");
 	$con=connection();
  ?>
@@ -98,7 +98,7 @@
 											<div><label>Category: <span><?=$catagory?></span> </label></div>
 											</div>
 											
-											<a class="btn btn-product cd-cart-btn" href="<?=$_SESSION["directory"]?>farmer/cropdetail.php?id=<?=$ID?>"> BID</a>
+										<!--	<a class="btn btn-product cd-cart-btn" href="<?=$_SESSION["directory"]?>farmer/cropdetail.php?id=<?=$ID?>"> BID</a> -->
 										</div>
 									</div>
 								</div>

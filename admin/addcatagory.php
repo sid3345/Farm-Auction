@@ -17,11 +17,11 @@ if(isset($_POST["AddCat"])){
 	//exit();
 	if($con->query($sql1)){
 		$_SESSION["msgg"]="Successfully added";
-		header("location:Editcar.php");
+		header("location:veggie.php");
 	}else{
 		
 		$_SESSION["msgg"]="database error.";
-		header("location:Editcar.php");
+		header("location:veggie.php");
 	}
 }
 if(isset($_POST["AddBike"])){
@@ -32,11 +32,11 @@ if(isset($_POST["AddBike"])){
 	//exit();
 	if($con->query($sql1)){
 		$_SESSION["msgg"]="Successfully added";
-		header("location:EditBike.php");
+		header("location:fruit.php");
 	}else{
 		
 		$_SESSION["msgg"]="database error.";
-		header("location:EditBike.php");
+		header("location:fruit.php");
 	}
 }
 
@@ -48,11 +48,11 @@ if(isset($_GET["Cat_id"])){
 	$sql="DELETE FROM `catagory` WHERE `ID`=$id";
 	if($con->query($sql)){
 		$_SESSION["msgg"]="Successfully remove";
-		header("location:Editcar.php");
+		header("location:veggie.php");
 	}else{
 		
 		$_SESSION["msgg"]="Cannot delete the category item.";
-		header("location:Editcar.php");
+		header("location:veggie.php");
 	}
 }
 if(isset($_GET["bike_id"])){
@@ -62,11 +62,11 @@ if(isset($_GET["bike_id"])){
 	$sql="DELETE FROM `catagory` WHERE `ID`=$id";
 	if($con->query($sql)){
 		$_SESSION["msgg"]="Successfully remove";
-		header("location:EditBike.php");
+		header("location:fruit.php");
 	}else{
 		
 		$_SESSION["msgg"]="Cannot delete the category item.";
-		header("location:EditBike.php");
+		header("location:fruit.php");
 	}
 }
 

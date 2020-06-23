@@ -45,7 +45,7 @@
 					<div class="widget mb30">
 						<div>
 							<h6 class="text-uppercase bottom-line">Categories</h6>
-						 <button class="btn btn-primary" data-toggle="modal" data-target="#myModal"> add catagory </button>
+						<!-- <button class="btn btn-primary" data-toggle="modal" data-target="#myModal"> add catagory </button> -->
 						   
 						 
 						</div> 
@@ -61,7 +61,7 @@
 							
 							?>
 							<li><a href="editveggie.php?searchByCatName=<?=$row["name"]?>"><?=$row["name"]?> </a>
-								<span onClick="deletecatagory(<?=$row["ID"]?>)"><img style="height: 20px; float: right; cursor:pointer;" src="<?= $_SESSION["directory"]?>img/icon/delete.png"></span>
+								<!--<span onClick="deletecatagory(<?=$row["ID"]?>)"><img style="height: 20px; float: right; cursor:pointer;" src="<?= $_SESSION["directory"]?>img/icon/delete.png"></span>-->
 							</li>
 							 
 							<?php }} ?>

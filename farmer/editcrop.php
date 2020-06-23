@@ -13,7 +13,7 @@
 //include("../dbCon.php");
 	//	$con=connection();
 
-
+$userid=$_SESSION["userid"];
 // Select data from database
 $GetID=$_GET["id"];
 
@@ -67,7 +67,7 @@ if(isset($_POST["submit"])){
 			
 	$target_dir = "../img/vehicle/";
 	//$newName=date('YmdHis_');
-	$newName="$GetID";
+	$newName="$userid";
 	$newName .=basename($_FILES["fileToUpload"]["name"]);
 	$target_file = $target_dir.$newName;
 	if(!empty($_FILES["fileToUpload"]["name"])){

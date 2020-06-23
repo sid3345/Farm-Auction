@@ -32,9 +32,9 @@
 		?>
       <tr>
         
-        <td><a href="<?=$_SESSION["directory"]?>customer/carDetails.php?id=<?=$row["ID"]?>"><?=$row["name"]?></a></td>
+        <td><a href="<?=$_SESSION["directory"]?>customer/cropdetail.php?id=<?=$row["ID"]?>"><?=$row["name"]?></a></td>
         <td><?=$row["EndDate"]?></td>
-        <td><a href="<?=$_SESSION["directory"]?>customer/carDetails.php?id=<?=$row["ID"]?>"><img style="max-width: 200px; max-height: 200px;" src="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["image"]?>" ></a> </td>
+        <td><a href="<?=$_SESSION["directory"]?>customer/cropdetail.php?id=<?=$row["ID"]?>"><img style="max-width: 200px; max-height: 200px;" src="<?=$_SESSION["directory"]?>img/vehicle/<?=$row["image"]?>" ></a> </td>
         <td><?=$row["price"]?></td> 
        
       </tr>

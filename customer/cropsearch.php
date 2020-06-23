@@ -77,12 +77,12 @@
 											<img src="<?=$_SESSION["directory"]?>img/vehicle/<?=$image?>" alt="img" class="img-responsive socendary-img" />
 										</a>
 										
-											<div class="product-grid-atb text-center"><a class="" href="<?=$_SESSION["directory"]?>customer/carDetails.php?id=<?=$ID?>">View Details</a>
+											<div class="product-grid-atb text-center"><a class="" href="<?=$_SESSION["directory"]?>customer/cropdetail.php?id=<?=$ID?>">View Details</a>
 											</div>
 										</div>
 
 										<div class="product-grid-caption text-center">
-											<h6><a class="p-grid-title" href="<?=$_SESSION["directory"]?>customer/carDetails.php?id=<?=$ID?>"><?=$name?></a></h6>
+											<h6><a class="p-grid-title" href="<?=$_SESSION["directory"]?>customer/cropdetail.php?id=<?=$ID?>"><?=$name?></a></h6>
 											<h4>Base Price:<strong><?=$price?></strong> INR</h4>
 													<?php
 											$sql2="SELECT MAX(price) FROM `bidder` WHERE vehicleID='$ID'";
@@ -98,7 +98,7 @@
 											<div><label>Category: <span><?=$catagory?></span> </label></div>
 											</div>
 											
-											<a class="btn btn-product cd-cart-btn" href="<?=$_SESSION["directory"]?>customer/carDetails.php?id=<?=$ID?>"> BID</a>
+											<a class="btn btn-product cd-cart-btn" href="<?=$_SESSION["directory"]?>customer/cropdetail.php?id=<?=$ID?>"> BID</a>
 										</div>
 									</div>
 								</div>

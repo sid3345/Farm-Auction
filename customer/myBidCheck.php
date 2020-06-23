@@ -44,7 +44,7 @@ $result = $con->query( $sql );
 
 ?>
 	<tr style="text-align: center;">
-        <td style="cursor:pointer; color:#00008B; text-decoration:none;" onclick="location.href='carDetails.php?id=<?php echo $vehicleID ?>'"><?=$row["name"]?></td>
+        <td style="cursor:pointer; color:#00008B; text-decoration:none;" onclick="location.href='cropdetail.php?id=<?php echo $vehicleID ?>'"><?=$row["name"]?></td>
         <td><?=$row["email"]?></td>
 		
 		<td><?=$row["EndDate"]?></td>

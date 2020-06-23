@@ -1,7 +1,6 @@
  <?php
  include( "../header.php" );
-//include("../dbCon.php");
-	//	$con=connection();
+
  ?>
 
 
@@ -17,7 +16,7 @@
 						 
 						<ul class="icons-list">
 						<?php  
-							$sql1="SELECT * FROM `catagory` WHERE type ='Fruit'";
+							$sql1="SELECT * FROM `catagory` WHERE type ='Vegetable'";
 							
 							$result = $con->query( $sql1 );
 								if ( $result->num_rows > 0 ) {
@@ -25,7 +24,7 @@
 							
 							
 							?>
-							<li><a href="bike.php?searchByCatName=<?=$row["name"]?>"><?=$row["name"]?> </a>
+							<li><a href="veggie.php?searchByCatName=<?=$row["name"]?>"><?=$row["name"]?> </a>
 							</li>
 							 
 							<?php }} ?>
@@ -42,18 +41,18 @@
 				</div>
 			</aside>
 
-			<div class="col-md-9 col-sm-12 col-xs-12">
-				<div class="row  hidden-xs">
-					<div class="toolbar">
+			    <div class="col-md-9 col-sm-12 col-xs-12">
+			    	<div class="row  hidden-xs">
+				  	  <div class="toolbar">
 						<div class="col-sm-4 category-num">
-							<h2>Fruit</h2>
+							<h2>vegetable</h2>
 							 
 						</div>
 					</div>
 					<!--
 					<div class="col-sm-8">
 						<ul class="view-mode">
-									
+
 							<li class="sort-list-btn">
 								<h6>Sort By :</h6>
 								<div class="btn-group">
@@ -86,10 +85,10 @@
 							<?php
 							if(isset($_GET["searchByCatName"])){
 								$catName=$_GET["searchByCatName"];
-								$sql="SELECT vehicle.*, catagory.name as catname FROM `vehicle` INNER JOIN catagory ON catagory.ID=vehicle.catagory WHERE catagory.name='$catName' AND vehicle.type='Fruit' AND vehicle.`status` =1 ORDER BY id DESC";
+								$sql="SELECT vehicle.*, catagory.name as catname FROM `vehicle` INNER JOIN catagory ON catagory.ID=vehicle.catagory WHERE catagory.name='$catName' AND vehicle.type='Vegetable' AND vehicle.`status` =1 ORDER BY id DESC";
 							 
 							}else{
-								$sql="SELECT vehicle.*, catagory.name as catname FROM `vehicle` INNER JOIN catagory ON catagory.ID=vehicle.catagory WHERE  vehicle.type='Fruit' AND vehicle.`status` =1 ORDER BY id DESC";
+								$sql="SELECT vehicle.*, catagory.name as catname FROM `vehicle` INNER JOIN catagory ON catagory.ID=vehicle.catagory WHERE  vehicle.type='Vegetable' AND vehicle.`status` =1 ORDER BY id DESC";
 							}
 							
 							$result = $con->query( $sql );
@@ -125,12 +124,12 @@
 											<img src="<?=$_SESSION["directory"]?>img/vehicle/<?=$image?>" alt="img" class="img-responsive socendary-img" />
 										</a>
 										
-											<div class="product-grid-atb text-center"><a class="" href="<?=$_SESSION["directory"]?>customer/carDetails.php?id=<?=$ID?>">View Details</a>
+											<div class="product-grid-atb text-center"><a class="" href="<?=$_SESSION["directory"]?>customer/cropdetail.php?id=<?=$ID?>">View Details</a>
 											</div>
 										</div>
 
 										<div class="product-grid-caption text-center">
-											<h6><a class="p-grid-title" href="<?=$_SESSION["directory"]?>customer/carDetails.php?id=<?=$ID?>"><?=$name?></a></h6>
+											<h6><a class="p-grid-title" href="<?=$_SESSION["directory"]?>customer/cropdetail.php?id=<?=$ID?>"><?=$name?></a></h6>
 											<h4>Base Price:<strong><?=$price?></strong> INR</h4>
 													<?php
 											$sql2="SELECT MAX(price) FROM `bidder` WHERE vehicleID='$ID'";
@@ -146,7 +145,8 @@
 											<div><label>Catagory: <span><?=$catagory?></span> </label></div>
 											</div>
 											
-											<a class="btn btn-product cd-cart-btn" href="<?=$_SESSION["directory"]?>customer/carDetails.php?id=<?=$ID?>"> BID</a>
+											<a class="btn btn-product cd-cart-btn" href="
+											<?=$_SESSION["directory"]?>customer/cropdetail.php?id=<?=$ID?>"> BID</a>
 										</div>
 									</div>
 								</div>
@@ -184,9 +184,9 @@
 				</li>
 				<li><a href="#">3</a>
 				</li>
-
-				<li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+				<li><a href="#">4</a>
 				</li>
+
 			</ul>
 		</div>
 		 End Pagination-->
