@@ -36,19 +36,17 @@ $result3=$con->query($sql3);
     	foreach($result3 as $row){
 			$email=$row["email"];
 			$vehicle= $row["name"];
-			$vehicle_ID= $row['ID']
 		}
 	}
 echo $email;
 echo $vehicle;
-echo $vehicle_ID;
 
 if($insertSQL==true){
 	$sql="UPDATE `bidder` SET   `biddingTime`='$nowtime',`price`='$price' , `email`='$email' WHERE `ID`='$BidderID'";
 	$subject="update bidding price";
 }else{
 	 $sql="INSERT INTO `bidder`(  `userID`, `vehicleID`, `biddingTime`, `price` ,`email`) VALUES ( '$userid','$vehicleID','$nowtime','$price','$email')";
-	$subject="Bidding a $vehicle with ID: $vehicle_ID";
+	$subject="Bidding a $vehicle";
 	}
 $to=$_SESSION["useremail"];
 $content="your bidding price is ₹".$price.".  Please stay with us to know your bidding result.<br> Thank you.";
