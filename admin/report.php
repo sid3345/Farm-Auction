@@ -361,6 +361,7 @@ while ($row = $resultR->fetch_array()) {
 	.my-div-span{
 		position: absolute;left:1.5em;right: 1em;top:1.4em;bottom:2.5em;font-size:9px;font-weight:bold;width:1px;color:black;
 	}
+	
 </style>
 
 <div id="map"></div>;
@@ -485,7 +486,11 @@ function display_geocode_result(data) {
 		show_markers(num, pos, address); /**display markers***/
 
 		details.push(createPopupContent(item));
-
+		
+		markers[num].bindPopup('');
+		var popup = markers[num].getPopup();
+		popup.setContent('<table style="line-height:14px" cellspacing="5">' + details[0] + '</table>').update();
+		
 		//result_string += '<li onclick="show_geocode_details(' + (num++) + ',' + lng + ',' + lat + ')">' + address + '</li>';
 	} 
 
@@ -503,6 +508,7 @@ function createPopupContent(item) {
 			content.push("</td></tr>");
 		}
 	}
+	//console.log('content: ',content.join(""));
 	return content.join("");
 }
 
@@ -517,26 +523,21 @@ function show_markers(num, pos) {
 	}); /*creating a div icon*/
 
 	markers[num] = L.marker(pos, {icon: icon_marker}).addTo(map);
-	markers[num].bindPopup('<table style="line-height:14px" cellspacing="5">' + details[num] + '</table>');
-	//var popup = markers[num].getPopup();
-	//popup.setContent('<table style="line-height:14px" cellspacing="5">' + details[num] + '</table>').update();
-
-	markers[num].on("click", function (num) 
-	{ 	
-		markers[num].openPopup();
-	});	
 	map.setView(pos, 12);
 	markerGroup.push(markers[num]);
 }
-
+/*
 function show_geocode_details(num, lng, lat) {
 	show_info_window(num - 1, markers[num]);
 }
 
-/*function to show pop up on marker**/
+// function to show pop up on marker
 function show_info_window(num, marker) {
+	marker.bindPopup("");
+	var popup = marker.getPopup();
+	popup.setContent('<table style="line-height:14px" cellspacing="5">' + details[num] + '</table>').update();
 	marker.openPopup();
-}
+} */
 
 /*function to remove  marker from the map*/
 function remove_markers() {
