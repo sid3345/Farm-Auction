@@ -638,6 +638,8 @@ $(function () {
 					data: {
 						query: JSON.stringify($(autocomplete).val().replace(/\s/g, "+")),
 						STATE: JSON.stringify($('#state_').find(":selected").text().replace(/\s/g, "+")),
+						//STATE: JSON.stringify(<php echo $_REQUEST["State"]?>),
+
 						//current_lng :JSON.stringify(current_lng),
 						//current_lat :JSON.stringify(current_lat)
 					},
