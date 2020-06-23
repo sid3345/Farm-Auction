@@ -402,6 +402,8 @@ function get_geocode_result() {
 			address= address_array[i];
 			//console.log('address: ',address);
 
+			//document.cookie="address_=address";
+
 		/* if (address !== undefined && address.trim().length === 0) {
 			alert("Please enter address.");
 			search_id.focus();
@@ -414,7 +416,21 @@ function get_geocode_result() {
 		}
 		document.getElementById('result').innerHTML = '<div style="padding: 0 12px; color: #777">Loading..</div>'; //update best result 
 		document.getElementById('otherresult').innerHTML = '<div style="padding: 0 12px; color: #777">Loading..</div>'; /*update other result */
+		<?php	/*
+		$address = $_COOKIE['address_'];
 		
+		$sqlR="SELECT vehicleID, vehicledetails.name, harvest_date, Season, soil_type, temperature, vehicledetails.weight FROM vehicledetails where Region= '$address'";
+			
+		$resultR=$con->query($sqlR);
+		$result1 = array();
+		while ($row = $resultR->fetch_array()) {
+			array_push($result1,$row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7]);
+		}
+		print_r($result1);	*/
+		?>
+		//var vehicle_details =<?php// echo json_encode($result1)?>;
+		//console.log(vehicle_details);
+
 		getUrlResult(address, itemCount=1); /*get JSON resp*/
 	}
 }
@@ -428,7 +444,7 @@ function get_geocode_result() {
 	}*/
 
 /*function to get Json response from the url*/
-function getUrlResult(address, itemCount) {
+function getUrlResult(address, itemCount, vehicle_details) {
 	$.ajax({
 		type: "GET",
 		dataType: 'text',

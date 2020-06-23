@@ -138,7 +138,6 @@ if($d_amount==""){
 									$catagory=$row["catagory"];				
 									$startDate=$row["startDate"];				
 									$EndDate=$row["EndDate"];	
-									$countdate="$EndDate";	
 									$email=$row["email"];
 									$price=$row["price"];				
 								}
@@ -522,17 +521,11 @@ if($d_amount==""){
 <script type="text/javascript">
 	 
    	function coundown(){
-        var c="<?php echo($countdate); ?>" ;
         var st="<?php echo($startDate); ?>" ;
         var end="<?php echo($EndDate); ?>" ;
         var stDate=new Date(st);
         var endDate=new Date(end);        
-        /*
-        var eDate=evetDate.getDate();
-		var eMonth=evetDate.getMonth();
-        var eYear=evetDate.getFullYear();
-        */
-
+    
         var sDate=stDate.getDate();
 		var sMonth=stDate.getMonth();
         var sYear=stDate.getFullYear();
@@ -541,20 +534,18 @@ if($d_amount==""){
 		var eMonth=endDate.getMonth();
         var eYear=endDate.getFullYear();
 
-//var countDownDate = new Date(eYear,eMonth,eDate,0,0,0).getTime();
 //var stcountDownDate = new Date(sYear,sMonth,sDate).getTime();
 
 var ecountDownDate = new Date(eYear,eMonth,eDate).getTime();
+console.log(ecountDownDate);
 
 var x = setInterval(function() {
 
   
 var now = new Date().getTime();
     
- 
-  //var distance = countDownDate - now;
-  var distance= ecountDownDate - now;    
-  //var distance= endDate - stDate;    
+   var distance= ecountDownDate - now;    
+  //var distance= ecountDownDate - stcountDownDate;    
 
   var day = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hour = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
