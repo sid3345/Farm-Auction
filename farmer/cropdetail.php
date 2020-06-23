@@ -456,25 +456,25 @@ if($d_amount==""){
 										}
 												?></li>
 											</ul>
-											<a href="#" class="product-grid-img-thumbnail">
-												<img style="width: auto; height: 190px; " src="<?=$_SESSION["directory"]?>img/vehicle/<?=$image?>" alt="img" class="img-responsive primary-img" />
+											<a href="<?=$_SESSION["directory"]?>farmer/cropdetail.php?id=<?=$ID?>" class="product-grid-img-thumbnail">
+												<img style="width: 335px; height: 190px; " src="<?=$_SESSION["directory"]?>img/vehicle/<?=$image?>" alt="img" class="img-responsive primary-img" />
 												<img src="<?=$_SESSION["directory"]?>img/vehicle/<?=$image?>" alt="img" class="img-responsive socendary-img" />
 											</a>
 										
 											<div class="product-grid-atb text-center">
-												<a class="" href="<?=$_SESSION["directory"]?>customer/carDetails.php?id=<?=$ID?>">View Details</a>
+												<a class="" href="<?=$_SESSION["directory"]?>farmer/cropdetail.php?id=<?=$ID?>">View Details</a>
 											</div>
 										</div>
 
 										<div class="product-grid-caption text-center">
-											<h6><a class="p-grid-title" href="<?=$_SESSION["directory"]?>customer/carDetails.php?id=<?=$ID?>"><?=$name?></a></h6>
+											<h6><a class="p-grid-title" href="<?=$_SESSION["directory"]?>farmer/cropdetail.php?id=<?=$ID?>"><?=$name?></a></h6>
 											<h4>Base Price:<strong><?=$price?></strong> INR</h4>
 										<!--	<h5>Bid Price:<strong><?=$price?></strong> INR</h5> -->
 											<div class="pro-size"><label>Type: <span><?=$type?></span> </label>
 											<div><label>Category: <span><?=$catagory?></span> </label></div>
 											</div>
 											
-											<a class="btn btn-product cd-cart-btn" href="<?=$_SESSION["directory"]?>customer/carDetails.php?id=<?=$ID?>"> BID</a>
+											<a class="btn btn-product cd-cart-btn" href="<?=$_SESSION["directory"]?>farmer/cropdetail.php?id=<?=$ID?>"> BID</a>
 										</div>
 									</div>
 								</div>
