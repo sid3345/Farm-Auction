@@ -55,7 +55,7 @@
 				var r=confirm("do you want to deactive?");
 				if(r==true){
 					   
-					$.get('removeVehicle.php',{ID:id},function(data){
+					$.get('../admin/removeVehicle.php',{ID:id},function(data){
 						alert(data);
 					});
 				}
@@ -64,7 +64,7 @@
 				var r=confirm("do you want to active?");
 				if(r==true){
 					   
-					$.get('removeVehicle.php',{ActiveID:id},function(data){
+					$.get('../admin/removeVehicle.php',{ActiveID:id},function(data){
 						alert(data);
 					});
 				}
