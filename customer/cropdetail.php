@@ -445,8 +445,8 @@ if($d_amount==""){
 										$name=$row["name"];
 										$type=$row["type"];
                                         $catagory=$row["catname"];
-                                        $startDate=$row["startDate"];
-										$EndDate=$row["EndDate"];
+                                        $startDate_=$row["startDate"];
+										$EndDate_=$row["EndDate"];
 										$image=$row["image"];
 										$price=$row["price"];
 							?>
@@ -459,7 +459,7 @@ if($d_amount==""){
 										
 										$nowDate=date("Y-m-d");
 										 
-										if(($nowDate > $EndDate )||($startDate > $EndDate)){
+										if(($nowDate > $EndDate_ )||($startDate_ > $EndDate_)){
 															echo("Bidding Expired");
 										}else{
 											echo("Bidding Allowed");
